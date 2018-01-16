@@ -1,0 +1,179 @@
+<!--<div class="example-container mat-elevation-z8">-->
+<h3 mat-subheader>Warnings</h3>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="warningsDataSource">
+      
+      <ng-container matColumnDef="message">
+        <mat-header-cell *matHeaderCellDef> MESSAGE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.message}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="effectiveFrom">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="warningsDisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: warningsDisplayedColumns;"></mat-row>
+  </mat-table>
+
+</div>
+
+<h3 mat-subheader>Exemptions</h3>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="exemptionsDataSource">
+    
+    <ng-container matColumnDef="disease">
+      <mat-header-cell *matHeaderCellDef> DISEASE </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.disease}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="reason">
+      <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="effectiveFrom">
+      <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="modalAction">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button>
+          <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="exemptionsDisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: exemptionsDisplayedColumns;"></mat-row>
+  </mat-table>
+
+</div>
+
+<h3 mat-subheader>Contraindications</h3>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="contraindicationsDataSource">
+
+      <ng-container matColumnDef="antigen">
+        <mat-header-cell *matHeaderCellDef> ANTIGEN </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="reason">
+        <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="effectiveFrom">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+    
+  
+    <mat-header-row *matHeaderRowDef="contraindicationsDisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: contraindicationsDisplayedColumns;"></mat-row>
+  </mat-table>
+
+</div>
+
+<h3 mat-subheader>Precautions</h3>
+<div class="example-container mat-elevation-z8">
+    
+  <mat-table #table [dataSource]="precautionsDataSource" class="tablePadding">
+    
+      <ng-container matColumnDef="antigen">
+        <mat-header-cell *matHeaderCellDef> ANTIGEN </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="reason">
+        <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="effectiveFrom">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+    
+  
+    <mat-header-row *matHeaderRowDef="precautionsDisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: precautionsDisplayedColumns;"></mat-row>
+  </mat-table>
+    
+</div>
+
+<h3 mat-subheader>Deferrals</h3>
+<div class="example-container mat-elevation-z8">
+    
+  <mat-table #table [dataSource]="deferralsDataSource">
+
+      <ng-container matColumnDef="immAgent">
+        <mat-header-cell *matHeaderCellDef> IMMUNIZING AGENT </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.immAgent}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="reason">
+        <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="effectiveFrom">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="effectiveTo">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE TO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveTo}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+    
+  
+    <mat-header-row *matHeaderRowDef="deferralsDisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: deferralsDisplayedColumns;"></mat-row>
+  </mat-table>
+    
+</div>
+      

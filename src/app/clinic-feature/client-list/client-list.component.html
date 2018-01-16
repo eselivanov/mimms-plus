@@ -1,0 +1,79 @@
+<!--<div class="example-container mat-elevation-z8">-->
+<div class="example-container">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" class="tablePadding">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="warningIcon">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon class="example-icon">{{element.warningIcon}}</mat-icon>
+      </mat-cell>
+      
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="disclosureIcon">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon class="example-icon">{{element.disclosureIcon}}</mat-icon>          
+      </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="rescindIcon">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon class="example-icon">{{element.rescindIcon}}</mat-icon>
+      </mat-cell> 
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfBirth">
+      <mat-header-cell *matHeaderCellDef> DATE OF BIRTH </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> GENDER </mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="clientId">
+      <mat-header-cell *matHeaderCellDef> CLIENT ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.clientId}}</mat-cell>
+      
+    </ng-container>
+    <!--<ng-container matColumnDef="service">
+      <mat-header-cell *matHeaderCellDef> SERVICE </mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.service}}</mat-cell>
+    </ng-container>-->
+    
+    <ng-container matColumnDef="service">
+        <mat-header-cell *matHeaderCellDef> SERVICE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.service}}</mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="routingAction">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button routerLink="/patient/{{element.clientId}}">
+          <mat-icon aria-label="See Clients">navigate_next</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button *ngIf="showBackButton === true" (click)="goBack()">
+        <mat-icon aria-label="Go Back">navigate_before</mat-icon>
+    </button>
+    <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">add</mat-icon>
+    <mat-icon class="example-icon">person outline</mat-icon>
+    <mat-icon class="example-icon">dns</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
+

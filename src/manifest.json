@@ -1,0 +1,11 @@
+{
+    "short_name": "m-IMMS",
+    "name": "Mobile Immunizations",
+    "start_url": "url",
+    "theme_color": "#f48c5b",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "landscape",
+    //add icons here
+    "icons":[]
+}

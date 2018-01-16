@@ -1,0 +1,59 @@
+<!--<div class="example-container mat-elevation-z8">-->
+<div class="example-container">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" class="tablePadding">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Clinic ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="dates">
+      <mat-header-cell *matHeaderCellDef> DATE(S) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dates}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="clients">
+      <mat-header-cell *matHeaderCellDef> CLIENTS </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.clients}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="downloaded">
+      <mat-header-cell *matHeaderCellDef> DOWNLOADED </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.downloaded}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> STATUS </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <mat-icon class="example-icon">{{element.status}}</mat-icon>   
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="routingAction">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button [routerLink] = "['./',element.id]">
+          <mat-icon aria-label="See Clinic">navigate_next</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink] = "['./',row.id]"></mat-row>
+  </mat-table>
+</div>
