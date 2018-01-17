@@ -40,8 +40,18 @@
   }
 
   .mat-column-effectiveFrom,
-  .mat-column-effectiveTo,{
+  .mat-column-effectiveTo,
+  .mat-column-due,
+  .mat-column-overdue,
+  .mat-column-eligible,
+  .mat-column-forecast,
+  .mat-column-rescindDate,
+  .mat-column-date{
     max-width: 150px;
+  }
+  .mat-column-age,
+  .mat-column-sinceLast {
+      max-width: 200px;
   }
 
   .overdue {

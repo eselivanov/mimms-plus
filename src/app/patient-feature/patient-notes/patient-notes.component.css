@@ -1,45 +1,55 @@
 /* Structure */
-.example-container {
+ .example-container {        
     display: flex;
     flex-direction: column;
     min-width: 300px;
     margin: 20px 10px;
   }
   
-.example-header {
+  .example-header {
     min-height: 64px;
     padding: 8px 8px 0;
   }
   
-.mat-form-field {
+  .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
   
-.mat-table {
+  .mat-table {
     overflow: auto;
   }
 
-.icon-container {
+  .icon-container {
       display:flex;
       align-items: center;
   }
 
-.action-container {
+  .action-container {
     flex-grow: 1;
     display:flex;
     justify-content: flex-end;
   }
 
-.tablePadding {
+  .tablePadding {
       padding: 0px 8px;
   }
 
-.mat-column-modalAction {
+  .mat-column-modalAction {
     max-width: 40px;
   }
 
-.mat-column-effectiveFrom,
-.mat-column-effectiveTo {
-    max-width: 150px;
+  .mat-column-date {
+    max-width: 200px;
+  }
+
+  .mat-column-subject {
+    max-width: 250px;
+  }
+
+  .mat-column-direction {
+      max-width: 125px;
+  }
+  .mat-column-topic{
+    max-width: 200px;
   }

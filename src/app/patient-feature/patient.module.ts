@@ -14,6 +14,7 @@ import { PatientMainContainerComponent } from './patient-main-container/patient-
 import { PatientDemographicsComponent } from './patient-demographics/patient-demographics.component';
 import { PatientAlertsComponent } from './patient-alerts/patient-alerts.component';
 import { PatientImmunizationsComponent } from './patient-immunizations/patient-immunizations.component';
+import { PatientNotesComponent } from './patient-notes/patient-notes.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PatientImmunizationsComponent } from './patient-immunizations/patient-i
     PatientDemographicsComponent,
     PatientAlertsComponent,
     PatientImmunizationsComponent,
+    PatientNotesComponent,
   ],
   imports: [
     PatientRoutingModule,
