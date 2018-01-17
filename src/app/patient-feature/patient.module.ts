@@ -13,12 +13,14 @@ import { PatientRoutingModule } from './patient-routing.module';
 import { PatientMainContainerComponent } from './patient-main-container/patient-main-container.component';
 import { PatientDemographicsComponent } from './patient-demographics/patient-demographics.component';
 import { PatientAlertsComponent } from './patient-alerts/patient-alerts.component';
+import { PatientImmunizationsComponent } from './patient-immunizations/patient-immunizations.component';
 
 @NgModule({
   declarations: [
     PatientMainContainerComponent,
     PatientDemographicsComponent,
     PatientAlertsComponent,
+    PatientImmunizationsComponent,
   ],
   imports: [
     PatientRoutingModule,

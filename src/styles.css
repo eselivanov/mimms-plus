@@ -17,3 +17,7 @@ body {
     background: rgba(0,0,0,0.16);
     outline: none;
 }
+
+.mat-toolbar {
+    overflow-x: hidden;
+}
