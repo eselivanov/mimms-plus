@@ -1,13 +1,43 @@
- <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button routerLink="/clinics/249291">
-        <mat-icon aria-label="Go Back">navigate_before</mat-icon>
-    </button>
-    <span>{{titleService.getTitle()}}</span>
-    <span class="example-spacer"></span>
-    <mat-icon class="example-icon">add</mat-icon>
-    <mat-icon class="example-icon">person outline</mat-icon>
-    <mat-icon class="example-icon">dns</mat-icon>
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="mat-toolbar-row-space">
+    <div class="edge-container-start">
+      <button mat-icon-button routerLink="/clinics/249291">
+          <mat-icon aria-label="Go Back">navigate_before</mat-icon>
+      </button>
+      <span class="backButtonLabel">Back</span>
+    </div>
+
+    <span class="">{{titleService.getTitle()}}</span>
+
+    <div class="edge-container-end">
+      <mat-icon class="example-icon">add</mat-icon>
+      <mat-icon class="example-icon">person outline</mat-icon>
+      <mat-icon class="example-icon">dns</mat-icon>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar color="primary" class="small-toolbar">
+  <mat-toolbar-row class="small-toolbar-row mat-toolbar-row-centered">
+    <div>
+      <span class="patientInfoTitle">
+        Date of Birth
+      </span>
+      <span class="patientInfoValue">
+        2008 Oct 02
+      </span>
+      <span class="patientInfoTitle">
+        Age
+      </span>
+      <span class="patientInfoValue">
+        9 years 3 months 24 days
+      </span>
+      <span class="patientInfoTitle">
+        Gender
+      </span>
+      <span class="patientInfoValue">
+        Male
+      </span>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 

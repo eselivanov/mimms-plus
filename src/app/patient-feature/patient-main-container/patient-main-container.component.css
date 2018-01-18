@@ -3,5 +3,50 @@
 }
   
 .example-spacer {
-    flex: 1 1 auto;
+    flex-grow: 1;
+}
+
+.patientInfoTitle {
+    font-weight: 200;
+    font-size: 11px;
+}
+.patientInfoValue {
+    font-size: 11px;
+}
+
+.mat-toolbar-row-space {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mat-toolbar-row-centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.small-toolbar {
+    max-height: 30px;
+    min-height: 30px !important;
+}
+
+.small-toolbar-row {
+    max-height: 30px;
+    min-height: 30px !important;
+    background: #7787e2 !important;
+}
+
+.edge-container-end {
+    display:flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.edge-container-start {
+    display:flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.backButtonLabel {
+    line-height: 40px !important;
 }
