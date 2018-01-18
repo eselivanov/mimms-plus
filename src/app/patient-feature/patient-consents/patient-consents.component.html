@@ -1,0 +1,78 @@
+<h3 mat-subheader>Immunization History</h3>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="serviceDataSource">
+      
+      <ng-container matColumnDef="antigen">
+        <mat-header-cell *matHeaderCellDef> ANTIGEN </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="consent">
+        <mat-header-cell *matHeaderCellDef> CONSENT </mat-header-cell>
+        <mat-cell *matCellDef="let element"><span [ngClass]="{'granted': element.consentStatus === 'Granted', 'refused': element.consentStatus === 'Refused'}"> {{element.consentStatus}} </span></mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="recordedBy">
+        <mat-header-cell *matHeaderCellDef> RECORDED BY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.recordedBy}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="effectiveTo">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE TO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveTo}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Details">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="serviceDisplayedRows"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: serviceDisplayedRows;"></mat-row>
+  </mat-table>
+</div>
+
+<h3 mat-subheader>Immunization History</h3>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="disclosureDataSource">
+
+      <ng-container matColumnDef="consent">
+        <mat-header-cell *matHeaderCellDef> CONSENT </mat-header-cell>
+        <mat-cell *matCellDef="let element"><span [ngClass]="{'granted': element.consentStatus === 'Granted', 'refused': element.consentStatus === 'Refused'}"> {{element.consentStatus}} </span></mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="reason">
+        <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="recordedBy">
+        <mat-header-cell *matHeaderCellDef> RECORDED BY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.recordedBy}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="effectiveFrom">
+        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="modalAction">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon aria-label="See Details">navigate_next</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="disclosureDisplayedRows"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: disclosureDisplayedRows;"></mat-row>
+  </mat-table>
+</div>
+

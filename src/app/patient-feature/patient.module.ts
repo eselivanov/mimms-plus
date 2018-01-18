@@ -15,6 +15,7 @@ import { PatientDemographicsComponent } from './patient-demographics/patient-dem
 import { PatientAlertsComponent } from './patient-alerts/patient-alerts.component';
 import { PatientImmunizationsComponent } from './patient-immunizations/patient-immunizations.component';
 import { PatientNotesComponent } from './patient-notes/patient-notes.component';
+import { PatientConsentsComponent } from './patient-consents/patient-consents.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PatientNotesComponent } from './patient-notes/patient-notes.component';
     PatientAlertsComponent,
     PatientImmunizationsComponent,
     PatientNotesComponent,
+    PatientConsentsComponent,
   ],
   imports: [
     PatientRoutingModule,
