@@ -18,6 +18,13 @@ export class PatientNotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.notesDataSource.filter = filterValue;
+    this.celsDataSource.filter = filterValue;
+  }
+
 }
 
 export interface Note {
@@ -57,4 +64,6 @@ const NOTES_DATA: Note[] = [
 const CELS_DATA: CommunicationEventLog[] = [
   {title: 'Immunization', type: 'Electronic Data', createdOn: '2017 Feb 09', direction: 'Inbound', topic: 'Immunization', comments: 'Destination: Grey Bruce Unit Iris Transferred In Date: 2008/10/29', outcome: 'No Follow Up Required'},
   {title: 'Allergy', type: 'Electronic Data', createdOn: '2017 May 09', direction: 'Outbound', topic: 'Allergy', comments: 'Destination: Grey Bruce Unit Iris Transferred In Date: 2015/12/13', outcome: 'No Follow Up Required'}, 
+  {title: 'Test', type: 'Electronic Data', createdOn: '2017 May 09', direction: 'Outbound', topic: 'Allergy', comments: 'Destination: Grey Bruce Unit Iris Transferred In Date: 2015/12/13', outcome: 'No Follow Up Required'},
+  {title: 'Allergy', type: 'Electronic Data', createdOn: '2017 May 09', direction: 'Outbound', topic: 'Allergy', comments: 'Test Destination: Grey Bruce Unit Iris Transferred In Date: 2015/12/13', outcome: 'No Follow Up Required'},
 ]
