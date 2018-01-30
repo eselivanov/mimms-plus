@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModules } from '../app.angularmodules'
-import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 //routers
@@ -16,6 +16,7 @@ import { PatientAlertsComponent } from './patient-alerts/patient-alerts.componen
 import { PatientImmunizationsComponent } from './patient-immunizations/patient-immunizations.component';
 import { PatientNotesComponent } from './patient-notes/patient-notes.component';
 import { PatientConsentsComponent } from './patient-consents/patient-consents.component';
+import { PatientAdministerImmComponent } from './patient-administer-imm/patient-administer-imm.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,11 @@ import { PatientConsentsComponent } from './patient-consents/patient-consents.co
     PatientImmunizationsComponent,
     PatientNotesComponent,
     PatientConsentsComponent,
+    PatientAdministerImmComponent,
   ],
   imports: [
     PatientRoutingModule,
     BrowserModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     BrowserAnimationsModule,
     AngularMaterialModules,
   ],

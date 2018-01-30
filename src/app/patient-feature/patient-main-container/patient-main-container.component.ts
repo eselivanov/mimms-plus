@@ -19,7 +19,7 @@ export class PatientMainContainerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private titleService: Title,
+    public titleService: Title,
   ) { }
 
   ngOnInit() {

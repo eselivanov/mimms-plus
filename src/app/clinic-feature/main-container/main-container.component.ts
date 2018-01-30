@@ -14,7 +14,7 @@ import { Input } from '@angular/core/src/metadata/directives';
 export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
-  constructor(private router: Router, private titleService: Title) { 
+  constructor(private router: Router, public titleService: Title) { 
     /*router.events.subscribe(e => {
         if (e instan)
         console.log(e.url);
@@ -24,8 +24,10 @@ export class MainContainerComponent implements OnInit {
       console.log(e.url);
       this.currentURL = e.url
       if (this.currentURL !== "/clinics"){
-        if (this.currentURL !== ""){
+        if (this.currentURL !== "/" && this.currentURL !== ""){
           this.showBackButton = true
+        }else{
+          this.showBackButton = false
         }
       }else{
         this.showBackButton = false

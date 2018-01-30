@@ -5,29 +5,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModules } from '../app.angularmodules'
 
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 //routers
-import { ClinicRoutingModule } from './clinic-routing.module';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 //Components
-import { ClinicListComponent } from './clinic-list/clinic-list.component';
-import { ClientListComponent } from './client-list/client-list.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { Navigation } from 'selenium-webdriver';
+import { UserSelectComponent } from './user-select/user-select.component';
 
 @NgModule({
   declarations: [
     MainContainerComponent,
-    ClinicListComponent,
-    ClientListComponent
+    UserSelectComponent,
   ],
   imports: [
-    ClinicRoutingModule,
+    AuthenticationRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     AngularMaterialModules,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
 })
-export class ClinicModule { }
+export class AuthenticationModule { }

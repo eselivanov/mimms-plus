@@ -1,0 +1,41 @@
+.main {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.bodyContainer {
+    width:30%; 
+    display:block; 
+    margin:auto;
+    height:75%;
+}
+
+.title {
+    width:100%;
+    font-size:50px;
+    color:lightseagreen;
+    text-align:center;
+    margin:5px auto;
+}
+
+.formContainer {
+    margin: 25% 0px;
+    display:flex;
+    flex-wrap:wrap !important;
+    width:100%;
+    align-items:center;
+    justify-content:center;
+}
+.flexFull {
+    flex-basis: 100%;
+}
+
+.btn-color {
+    color: lightseagreen
+}
+.example-panel-white .mat-select-content {
+    background: rgba(255, 255, 255, 255);
+}  

@@ -7,10 +7,10 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModules } from './app.angularmodules'
 import { ClinicModule } from './clinic-feature/clinic.module'
-
+import { PatientModule } from './patient-feature/patient.module';
+import { AuthenticationModule } from './authentication-feature/authentication.module'
 //routers
 import { AppRoutingModule } from './app-routing.module';
-import { PatientModule } from './patient-feature/patient.module';
 
 
 @NgModule({
@@ -19,12 +19,13 @@ import { PatientModule } from './patient-feature/patient.module';
   ],
   imports: [
     BrowserModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
     AngularMaterialModules,
     AppRoutingModule,
     ClinicModule,
-    PatientModule
+    PatientModule, 
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

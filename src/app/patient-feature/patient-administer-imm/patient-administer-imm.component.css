@@ -1,5 +1,5 @@
 /* Structure */
- .example-container {        
+.example-container {        
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -35,22 +35,23 @@
       padding: 0px 8px;
   }
 
-  .mat-column-modalAction {
+  .mat-column-selectAction {
     max-width: 40px;
   }
 
-  .mat-column-date {
-    max-width: 200px;
+  .granted {
+      color: green;
   }
   
-  
-  .mat-column-subject {
-    max-width: 250px;
+  .refused {
+      color: red;
   }
 
-  .mat-column-direction {
-      max-width: 125px;
+  .dateTimeLabelContainer {
+      display: flex;
+      align-items: center;
   }
-  .mat-column-topic{
-    max-width: 200px;
+  
+  .dateTimeLabels {
+    padding: 0px 5px;
   }
