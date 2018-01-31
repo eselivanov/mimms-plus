@@ -21,3 +21,22 @@ body {
 .mat-toolbar {
     overflow-x: hidden;
 }
+.primary {
+    color: #009688;
+}
+
+.mat-step-label {
+    flex-basis: 100%;
+    text-align: center;
+}
+.mat-step-icon {
+    margin-right: 0px !important;
+}
+.mat-step-icon-not-touched {
+    margin-right: 0px !important;
+}
+
+.mat-horizontal-stepper-header {
+    flex-wrap: wrap;
+    justify-content: center;
+}
