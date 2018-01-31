@@ -1,0 +1,22 @@
+.main {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.bodyContainer {
+    width:100%; 
+    display:block; 
+    margin:auto;
+    height:75%;
+}
+
+.title {
+    width:100%;
+    font-size:3vw;
+    color: #009688;
+    text-align:center;
+    margin:5px auto;
+}

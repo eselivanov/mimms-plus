@@ -15,11 +15,13 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { Navigation } from 'selenium-webdriver';
 import { UserSelectComponent } from './user-select/user-select.component';
+import { PinEntryComponent } from './pin-entry/pin-entry.component';
 
 @NgModule({
   declarations: [
     MainContainerComponent,
     UserSelectComponent,
+    PinEntryComponent,
   ],
   imports: [
     AuthenticationRoutingModule,

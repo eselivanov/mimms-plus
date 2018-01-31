@@ -8,6 +8,8 @@
 .flexFull {
     flex-basis: 100%;
     padding: 0px 35%;
+    display: flex;
+    justify-content: center;
 }
 
 .btn-color {
@@ -16,3 +18,7 @@
 .example-panel-white .mat-select-content {
     background: rgba(255, 255, 255, 255);
 }  
+
+.input {
+    width: 200px !important;
+}

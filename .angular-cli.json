@@ -21,7 +21,8 @@
       "prefix": "app",
       "serviceWorker": true,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "mimmsTheme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
