@@ -5,6 +5,8 @@ import { NavigationStart } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import { Input } from '@angular/core/src/metadata/directives';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-main-container',
@@ -14,7 +16,10 @@ import { Input } from '@angular/core/src/metadata/directives';
 export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
-  constructor(private router: Router, public titleService: Title) { 
+  animal: string = "kangeroo";
+  name: string = "John Smith";
+
+  constructor(private router: Router, public titleService: Title, public dialog: MatDialog) { 
     /*router.events.subscribe(e => {
         if (e instan)
         console.log(e.url);
@@ -40,6 +45,13 @@ export class MainContainerComponent implements OnInit {
 
   goBack = () => {
     this.router.navigate(['/clinics']);
+  }
+
+  openDialog = () => {
+    let dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '250px',
+      data: { name: this.name, animal: this.animal }
+    });
   }
 
 }
