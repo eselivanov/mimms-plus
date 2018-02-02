@@ -16,8 +16,7 @@ import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.compo
 export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
-  animal: string = "kangeroo";
-  name: string = "John Smith";
+  
 
   constructor(private router: Router, public titleService: Title, public dialog: MatDialog) { 
     /*router.events.subscribe(e => {
@@ -49,8 +48,9 @@ export class MainContainerComponent implements OnInit {
 
   openDialog = () => {
     let dialogRef = this.dialog.open(UserDialogComponent, {
-      width: '250px',
-      data: { name: this.name, animal: this.animal }
+      width: '600px',
+      height: '500px',
+      data: { }
     });
   }
 

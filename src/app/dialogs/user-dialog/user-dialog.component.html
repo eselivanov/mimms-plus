@@ -1,11 +1,130 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
+<mat-toolbar color="primary">
+
+    <mat-toolbar-row class="toolbar-padding">
+      <div class="toolbar-button">
+          <button mat-icon-button (click)="onCloseClick()">
+              <mat-icon aria-label="Close Popover">close</mat-icon>
+          </button>
+      </div>
+      
+      <div class="toolbar-title">
+        <span>Information</span>
+      </div>
+
+      <div class="toolbar-spacer"></div>
+    </mat-toolbar-row>
+    
+</mat-toolbar>
+
+<div class="dialog-content">
+    <h3 class="primary">User</h3>
+    <hr />
+
+    <mat-list>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>PHU</span>
+          <div class="item-value">
+            <span>Grey Bruce Health Unit</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Hybrid Mode</span>
+          <div class="item-value">
+            <mat-slide-toggle color="primary" class="slider"></mat-slide-toggle>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <div class="item-value">
+            <button color="primary" mat-button>Logout</button>
+          </div>
+        </div>
+      </mat-list-item>
+
+    </mat-list>
+    
+    <h3 class="primary">Support</h3>
+    <hr />
+
+    <mat-list>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Phone</span>
+          <div class="item-value">
+           <span>1-866-272-2794</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Walkthrough</span>
+          <div class="item-value">
+              <button color="primary" mat-button>Open</button>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Tip of the Day</span>
+          <div class="item-value">
+            <button color="primary" mat-button>Open</button>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>What's New</span>
+          <div class="item-value">
+            <button color="primary" mat-button>Open</button>
+          </div>
+        </div>
+      </mat-list-item>
+
+    </mat-list>
+    
+    <h3 class="primary">About</h3>
+    <hr />
+
+    <mat-list>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Copyright</span>
+          <div class="item-value">
+            <span>Ministry of Health and Long-Term Care</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>App Version</span>
+          <div class="item-value">
+            <span>5.0.0</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
+          <span>Server Version</span>
+          <div class="item-value">
+            <span>5.0.0</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+    </mat-list>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div>
+

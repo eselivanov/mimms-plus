@@ -16,7 +16,7 @@ export class UserDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  onNoClick = () => {
+  onCloseClick = () => {
     this.dialogRef.close();
   }
 

@@ -15,6 +15,8 @@ import { ClinicListComponent } from './clinic-list/clinic-list.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { UserDialogComponent } from '../dialogs/user-dialog/user-dialog.component';
+import { RemoteClinicsComponent } from '../dialogs/remote-clinics/remote-clinics.component';
+
 import { Navigation } from 'selenium-webdriver';
 
 @NgModule({
@@ -22,7 +24,8 @@ import { Navigation } from 'selenium-webdriver';
     MainContainerComponent,
     ClinicListComponent,
     ClientListComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    RemoteClinicsComponent
   ],
   imports: [
     ClinicRoutingModule,
@@ -32,7 +35,8 @@ import { Navigation } from 'selenium-webdriver';
     FormsModule
   ],
   entryComponents: [
-    UserDialogComponent
+    UserDialogComponent,
+    RemoteClinicsComponent
   ],
   providers: [],
 })
