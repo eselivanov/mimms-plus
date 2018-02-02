@@ -1,22 +1,31 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
+
     <button mat-icon-button *ngIf="showBackButton === true" (click)="goBack()">
         <mat-icon aria-label="Go Back">navigate_before</mat-icon>
     </button>
+    
     <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button (click)="openDialog()">
-        <mat-icon>add</mat-icon>
-    </button>
-    
-    <button mat-icon-button (click)="openDialog()">
-      <mat-icon>person outline</mat-icon>
-    </button>
 
-    <button mat-icon-button (click)="openDialog()">
-      <mat-icon>dns</mat-icon>
-    </button>
-    
+    <div class="icon-buttons-container">
+        <div class="icon-button-container">
+          <button mat-icon-button (click)="openRemoteClinicsDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        
+        <div class="icon-button-container">
+          <button mat-icon-button (click)="openInfoDialog()">
+            <mat-icon>person outline</mat-icon>
+          </button>
+        </div>
+        
+        <div class="icon-button-container">
+            <mat-icon>dns</mat-icon>
+        </div>
+    </div>
+
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

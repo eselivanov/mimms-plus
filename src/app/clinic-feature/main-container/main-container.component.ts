@@ -7,6 +7,7 @@ import 'rxjs/add/operator/filter';
 import { Input } from '@angular/core/src/metadata/directives';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
+import { RemoteClinicsComponent } from '../../dialogs/remote-clinics/remote-clinics.component';
 
 @Component({
   selector: 'app-main-container',
@@ -46,9 +47,17 @@ export class MainContainerComponent implements OnInit {
     this.router.navigate(['/clinics']);
   }
 
-  openDialog = () => {
+  openInfoDialog = () => {
     let dialogRef = this.dialog.open(UserDialogComponent, {
       width: '600px',
+      height: '500px',
+      data: { }
+    });
+  }
+
+  openRemoteClinicsDialog = () => {
+    let dialogRef = this.dialog.open(RemoteClinicsComponent, {
+      width: '800px',
       height: '500px',
       data: { }
     });

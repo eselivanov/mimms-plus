@@ -16,7 +16,7 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class ClinicListComponent implements OnInit {
 
-  displayedColumns = ['id', 'name', 'dates', 'clients', 'downloaded', 'status', 'routingAction'];
+  displayedColumns = ['id', 'title', 'dates', 'clients', 'downloaded', 'status', 'routingAction'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   
   constructor(

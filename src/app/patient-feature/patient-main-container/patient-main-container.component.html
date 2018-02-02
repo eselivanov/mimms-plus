@@ -1,4 +1,5 @@
 <mat-toolbar color="primary">
+
   <mat-toolbar-row class="mat-toolbar-row-space">
     <div class="edge-container-start">
       <button mat-icon-button routerLink="/clinics/249291">
@@ -9,13 +10,28 @@
 
     <span class="">{{titleService.getTitle()}}</span>
 
-    <div class="edge-container-end">
-      <mat-icon class="example-icon">add</mat-icon>
-      <mat-icon class="example-icon">person outline</mat-icon>
-      <mat-icon class="example-icon">dns</mat-icon>
+    <div class="icon-buttons-container edge-container-end">
+        <div class="icon-button-container">
+          <button mat-icon-button (click)="openRemoteClinicsDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        
+        <div class="icon-button-container">
+          <button mat-icon-button (click)="openInfoDialog()">
+            <mat-icon>person outline</mat-icon>
+          </button>
+        </div>
+        
+        <div class="icon-button-container">
+            <mat-icon>dns</mat-icon>
+        </div>
     </div>
+
   </mat-toolbar-row>
+
 </mat-toolbar>
+
 <mat-toolbar color="primary" class="small-toolbar">
   <mat-toolbar-row class="small-toolbar-row mat-toolbar-row-centered">
     <div>
