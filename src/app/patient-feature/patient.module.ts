@@ -6,6 +6,8 @@ import { AngularMaterialModules } from '../app.angularmodules'
 
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppModule } from '../app.module'
+
 //routers
 import { PatientRoutingModule } from './patient-routing.module';
 
@@ -17,6 +19,8 @@ import { PatientImmunizationsComponent } from './patient-immunizations/patient-i
 import { PatientNotesComponent } from './patient-notes/patient-notes.component';
 import { PatientConsentsComponent } from './patient-consents/patient-consents.component';
 import { PatientAdministerImmComponent } from './patient-administer-imm/patient-administer-imm.component';
+
+
 
 @NgModule({
   declarations: [

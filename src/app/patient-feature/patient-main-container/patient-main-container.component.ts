@@ -4,7 +4,9 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 
 
 @Component({
@@ -20,6 +22,7 @@ export class PatientMainContainerComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public titleService: Title,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,15 @@ export class PatientMainContainerComponent implements OnInit {
     
     this.titleService.setTitle(selectedPatient[0].name);
   }
+
+  openInfoDialog = () => {
+    let dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '600px',
+      height: '500px',
+      data: { }
+    });
+  }
+
 }
 
 export interface Patient {

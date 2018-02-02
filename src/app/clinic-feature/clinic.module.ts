@@ -14,8 +14,8 @@ import { ClinicRoutingModule } from './clinic-routing.module';
 import { ClinicListComponent } from './clinic-list/clinic-list.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { MainContainerComponent } from './main-container/main-container.component';
-import { UserDialogComponent } from '../dialogs/user-dialog/user-dialog.component';
-import { RemoteClinicsComponent } from '../dialogs/remote-clinics/remote-clinics.component';
+
+import { AppModule } from '../app.module'
 
 import { Navigation } from 'selenium-webdriver';
 
@@ -24,8 +24,7 @@ import { Navigation } from 'selenium-webdriver';
     MainContainerComponent,
     ClinicListComponent,
     ClientListComponent,
-    UserDialogComponent,
-    RemoteClinicsComponent
+
   ],
   imports: [
     ClinicRoutingModule,
@@ -33,10 +32,6 @@ import { Navigation } from 'selenium-webdriver';
     BrowserAnimationsModule,
     AngularMaterialModules,
     FormsModule
-  ],
-  entryComponents: [
-    UserDialogComponent,
-    RemoteClinicsComponent
   ],
   providers: [],
 })

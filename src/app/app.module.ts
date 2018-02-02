@@ -11,12 +11,16 @@ import { PatientModule } from './patient-feature/patient.module';
 import { AuthenticationModule } from './authentication-feature/authentication.module'
 //routers
 import { AppRoutingModule } from './app-routing.module';
+import { UserDialogComponent } from './dialogs/user-dialog/user-dialog.component';
+import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    UserDialogComponent,
+    RemoteClinicsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,11 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     ClinicModule,
     PatientModule, 
-    AuthenticationModule
+    AuthenticationModule,
+  ],
+  entryComponents: [
+    UserDialogComponent,
+    RemoteClinicsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
