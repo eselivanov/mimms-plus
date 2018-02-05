@@ -8,6 +8,7 @@ import { Input } from '@angular/core/src/metadata/directives';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { RemoteClinicsComponent } from '../../dialogs/remote-clinics/remote-clinics.component';
+import { AddPatientDialogComponent } from '../../dialogs/add-patient-dialog/add-patient-dialog.component';
 
 @Component({
   selector: 'app-main-container',
@@ -29,11 +30,7 @@ export class MainContainerComponent implements OnInit {
       console.log(e.url);
       this.currentURL = e.url
       if (this.currentURL !== "/clinics"){
-        if (this.currentURL !== "/" && this.currentURL !== ""){
-          this.showBackButton = true
-        }else{
-          this.showBackButton = false
-        }
+        this.showBackButton = true 
       }else{
         this.showBackButton = false
       }
@@ -55,12 +52,21 @@ export class MainContainerComponent implements OnInit {
     });
   }
 
-  openRemoteClinicsDialog = () => {
-    let dialogRef = this.dialog.open(RemoteClinicsComponent, {
-      width: '800px',
-      height: '500px',
-      data: { }
-    });
+  openAddDialog = () => {
+    if (this.currentURL === "/clinics"){
+      let dialogRef = this.dialog.open(RemoteClinicsComponent, {
+        width: '800px',
+        height: '500px',
+        data: { }
+      });
+    }else{
+      let dialogRef = this.dialog.open(AddPatientDialogComponent, {
+        width: '800px',
+        height: '500px',
+        data: { }
+      });
+    }
+    
   }
 
 }

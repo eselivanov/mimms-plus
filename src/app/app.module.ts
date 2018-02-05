@@ -13,6 +13,8 @@ import { AuthenticationModule } from './authentication-feature/authentication.mo
 import { AppRoutingModule } from './app-routing.module';
 import { UserDialogComponent } from './dialogs/user-dialog/user-dialog.component';
 import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.component';
+import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-dialog.component';
+import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 
 
 
@@ -21,6 +23,8 @@ import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.
     AppComponent,
     UserDialogComponent,
     RemoteClinicsComponent,
+    AddTypesDialogComponent,
+    AddPatientDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.
   ],
   entryComponents: [
     UserDialogComponent,
-    RemoteClinicsComponent
+    RemoteClinicsComponent,
+    AddTypesDialogComponent,
+    AddPatientDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

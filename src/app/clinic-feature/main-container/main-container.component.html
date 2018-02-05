@@ -4,13 +4,13 @@
     <button mat-icon-button *ngIf="showBackButton === true" (click)="goBack()">
         <mat-icon aria-label="Go Back">navigate_before</mat-icon>
     </button>
-    
+
     <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
     <span class="example-spacer"></span>
 
     <div class="icon-buttons-container">
         <div class="icon-button-container">
-          <button mat-icon-button (click)="openRemoteClinicsDialog()">
+          <button mat-icon-button (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
           </button>
         </div>
