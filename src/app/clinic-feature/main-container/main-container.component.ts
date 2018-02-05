@@ -61,8 +61,8 @@ export class MainContainerComponent implements OnInit {
       });
     }else{
       let dialogRef = this.dialog.open(AddPatientDialogComponent, {
-        width: '800px',
-        height: '500px',
+        width: '80%',
+        height: '90%',
         data: { }
       });
     }

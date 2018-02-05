@@ -18,15 +18,13 @@ import { MainContainerComponent } from './main-container/main-container.componen
 import { AppModule } from '../app.module'
 
 import { Navigation } from 'selenium-webdriver';
-import { SearchPatientComponent } from './search-patient/search-patient.component';
+
 
 @NgModule({
   declarations: [
     MainContainerComponent,
     ClinicListComponent,
     ClientListComponent,
-    SearchPatientComponent,
-
   ],
   imports: [
     ClinicRoutingModule,

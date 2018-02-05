@@ -15,7 +15,7 @@ import { UserDialogComponent } from './dialogs/user-dialog/user-dialog.component
 import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.component';
 import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-dialog.component';
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
-
+import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-pati
     RemoteClinicsComponent,
     AddTypesDialogComponent,
     AddPatientDialogComponent,
+    SearchPatientComponent,
   ],
   imports: [
     BrowserModule,
