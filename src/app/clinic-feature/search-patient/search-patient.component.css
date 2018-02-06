@@ -27,3 +27,38 @@
 .button-cell {
     justify-content: flex-end !important;
 }
+
+.expansion-row {
+    display:flex; 
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.expansion-cell-label {
+    padding:0px 16px;
+}
+
+.sdl-input {
+    flex-grow:1;
+}
+
+.row-label {
+    padding-bottom:5px;
+}
+
+.right-justify {
+    justify-content: flex-end !important;
+}
+
+.search-actions {
+    padding: 10px 0px;
+}
+
+.mat-column-detailButton {
+    max-width: 90px;
+}
+
+.mat-column-select {
+    overflow: visible;
+}

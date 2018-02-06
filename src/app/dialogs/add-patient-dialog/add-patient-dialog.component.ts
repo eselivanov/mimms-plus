@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
+import { SearchPatientComponent } from '../../clinic-feature/search-patient/search-patient.component'
 @Component({
   selector: 'app-add-patient-dialog',
   templateUrl: './add-patient-dialog.component.html',
