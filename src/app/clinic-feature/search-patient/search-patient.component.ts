@@ -6,7 +6,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 @Component({
   selector: 'app-search-patient',
   templateUrl: './search-patient.component.html',
-  styleUrls: ['./search-patient.component.css']
+  styleUrls: ['./search-patient.component.css', '../shared-styles.css']
 })
 export class SearchPatientComponent implements OnInit {
   displayedColumns = ['select', 'name', 'dateOfBirth', 'gender', 'hcn', 'detailButton'];

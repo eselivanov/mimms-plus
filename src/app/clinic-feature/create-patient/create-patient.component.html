@@ -1,0 +1,123 @@
+<div class="container">
+
+  <div class="row">
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="First Name">
+      </mat-form-field>
+    </div>
+
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput [matDatepicker]="birthDate" placeholder="Date of Birth" disabled>
+        <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+        <mat-datepicker #birthDate disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="Middle Name">
+      </mat-form-field>
+    </div>
+
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <mat-select placeholder="Gender">
+            <mat-option value=""></mat-option>
+            <mat-option value="male">Male</mat-option>        
+            <mat-option value="female">Female</mat-option>    
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="Last Name">
+      </mat-form-field>
+    </div>
+
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="Health Card Number (HCN)">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="cell left-justify">
+      <div class="cell street-number-cell">
+        <mat-form-field class="cell-form">
+          <input matInput placeholder="Street No.">
+        </mat-form-field>
+      </div>
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <input matInput placeholder="Street Name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="Guardian First Name">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="cell">
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <input matInput placeholder="Street Type">
+        </mat-form-field>
+      </div>
+
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <mat-select placeholder="Direction">
+              <mat-option value=""></mat-option>
+              <mat-option value="East">East</mat-option>        
+              <mat-option value="North">North</mat-option> 
+              <mat-option value="North East">North East</mat-option>        
+              <mat-option value="North West">North West</mat-option>
+              <mat-option value="South">South</mat-option>        
+              <mat-option value="South East">South East</mat-option>
+              <mat-option value="South West">South West</mat-option>        
+              <mat-option value="West">West</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="cell">
+      <mat-form-field class="cell-form">
+        <input matInput placeholder="Guardian Last Name">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <input matInput placeholder="City">
+        </mat-form-field>
+      </div>
+  
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <mat-select placeholder="Guardian Relationship">
+              <mat-option value=""></mat-option>
+              <mat-option value="Mother">Mother</mat-option>        
+              <mat-option value="Father">Father</mat-option> 
+              <mat-option value="Child">Child</mat-option>        
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+</div>
