@@ -4,10 +4,9 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatHorizontalStepper } from '@angular/material';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
-
+import { CreateNoteDialogComponent } from '../../dialogs/create-note-dialog/create-note-dialog.component'
 
 @Component({
   selector: 'app-patient-main-container',
@@ -17,7 +16,7 @@ import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.compo
 export class PatientMainContainerComponent implements OnInit {
 
   
-
+  selectedIndex:Number = 0
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,12 +35,44 @@ export class PatientMainContainerComponent implements OnInit {
     this.titleService.setTitle(selectedPatient[0].name);
   }
 
+  addButtonClicked = () => {
+    console.log(this.selectedIndex)
+  }
   openInfoDialog = () => {
     let dialogRef = this.dialog.open(UserDialogComponent, {
       width: '600px',
       height: '500px',
       data: { }
     });
+  }
+
+  openAddDialog = () => {
+    switch (this.selectedIndex) {
+      case 0:
+        let dialogRef = this.dialog.open(CreateNoteDialogComponent, {
+          width: '600px',
+          height: '500px',
+          data: { }
+        });
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      default:
+        break;
+    }
+  }
+
+  selectionChange = (event) => {
+    console.log(event.selectedIndex)
+    this.selectedIndex = event.selectedIndex
   }
 
 }

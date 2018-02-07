@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-patient.component.css', '../shared-styles.css']
 })
 export class CreatePatientComponent implements OnInit {
-
+  panelOpenState: boolean = false;
   constructor() { }
 
   ngOnInit() {

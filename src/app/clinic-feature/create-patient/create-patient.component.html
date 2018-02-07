@@ -1,6 +1,7 @@
 <div class="container">
 
   <div class="row">
+
     <div class="cell">
       <mat-form-field class="cell-form">
         <input matInput placeholder="First Name">
@@ -14,9 +15,11 @@
         <mat-datepicker #birthDate disabled="false"></mat-datepicker>
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="row">
+
     <div class="cell">
       <mat-form-field class="cell-form">
         <input matInput placeholder="Middle Name">
@@ -32,9 +35,11 @@
         </mat-select>
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="row">
+
     <div class="cell">
       <mat-form-field class="cell-form">
         <input matInput placeholder="Last Name">
@@ -46,16 +51,18 @@
         <input matInput placeholder="Health Card Number (HCN)">
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="row">
+
     <div class="cell left-justify">
-      <div class="cell street-number-cell">
+      <div class="cell street-number-cell no-left-padding">
         <mat-form-field class="cell-form">
           <input matInput placeholder="Street No.">
         </mat-form-field>
       </div>
-      <div class="cell">
+      <div class="cell no-right-padding">
         <mat-form-field class="cell-form">
           <input matInput placeholder="Street Name">
         </mat-form-field>
@@ -67,17 +74,19 @@
         <input matInput placeholder="Guardian First Name">
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="row">
+
     <div class="cell">
-      <div class="cell">
+      <div class="cell no-left-padding">
         <mat-form-field class="cell-form">
           <input matInput placeholder="Street Type">
         </mat-form-field>
       </div>
 
-      <div class="cell">
+      <div class="cell no-right-padding">
         <mat-form-field class="cell-form">
           <mat-select placeholder="Direction">
               <mat-option value=""></mat-option>
@@ -99,9 +108,11 @@
         <input matInput placeholder="Guardian Last Name">
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="row">
+
       <div class="cell">
         <mat-form-field class="cell-form">
           <input matInput placeholder="City">
@@ -118,6 +129,226 @@
           </mat-select>
         </mat-form-field>
       </div>
+
     </div>
+
+    <div class="row">
+
+      <div class="cell">
+        <div class="cell no-left-padding">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="Province">
+          </mat-form-field>
+        </div>
+        
+        <div class="cell no-right-padding">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="Postal Code">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="cell left-justify">
+        <span class="label-padding">Guardian Tel.</span>
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="#####">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="Ext">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      
+      <div class="cell vertical-padding ">
+        <mat-expansion-panel class="width-full">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Additional Address Info
+            </mat-panel-title>
+            <mat-panel-description>
+              Unit No., P.O. Box, STN, RPO, Rural Route
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="expansion-row">
+            <div class="cell"> 
+              <mat-form-field class="cell-form">
+                <input matInput placeholder="Unit No.">
+              </mat-form-field>
+            </div>
+            
+            <div class="cell"> 
+              <mat-form-field class="cell-form">
+                <input matInput placeholder="P.O. Box">
+              </mat-form-field>
+            </div>
+
+            <div class="cell"> 
+              <mat-form-field class="cell-form">
+                <input matInput placeholder="STN">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="expansion-row">
+            <div class="cell"> 
+              <mat-form-field class="cell-form">
+                <input matInput placeholder="RPO">
+              </mat-form-field>
+            </div>
+            
+            <div class="cell"> 
+              <mat-form-field class="cell-form">
+                <input matInput placeholder="Rural Route">
+              </mat-form-field>
+            </div>
+          </div>
+          
+        </mat-expansion-panel>
+        
+      </div>
+
+      <div class="cell right-justify">
+          <button mat-button color="accent">Clear All</button>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <mat-select placeholder="Address Type">
+              <mat-option value=""></mat-option>
+              <mat-option value="Mother">Home</mat-option>        
+              <mat-option value="Father">Temp</mat-option> 
+              <mat-option value="Child">Work</mat-option>        
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="cell">
+      </div>
+
+    </div>
+    
+    <div class="row">
+
+      <div class="cell left-justify">
+        <span class="label-padding">Phone No. 1</span>
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="#####">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="Ext">
+          </mat-form-field>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row">
+
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <mat-select placeholder="Phone No. 1 Type">
+              <mat-option value=""></mat-option>
+              <mat-option value="Mother">Home</mat-option>        
+              <mat-option value="Father">Mobile</mat-option> 
+              <mat-option value="Child">Work</mat-option>        
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="cell">
+      </div>
+      
+    </div>
+
+    <div class="row">
+
+      <div class="cell left-justify">
+        <span class="label-padding">Phone No. 2</span>
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="###">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="#####">
+          </mat-form-field>
+        </div>
+
+        <div class="cell tel-cell">
+          <mat-form-field class="cell-form">
+            <input matInput placeholder="Ext">
+          </mat-form-field>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row">
+
+      <div class="cell">
+        <mat-form-field class="cell-form">
+          <mat-select placeholder="Phone No. 2 Type">
+              <mat-option value=""></mat-option>
+              <mat-option value="Mother">Home</mat-option>        
+              <mat-option value="Father">Mobile</mat-option> 
+              <mat-option value="Child">Work</mat-option>        
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="cell">
+      </div>
+      
+    </div>
+      
+    
 
 </div>

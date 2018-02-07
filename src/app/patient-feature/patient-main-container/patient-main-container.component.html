@@ -12,7 +12,7 @@
 
     <div class="icon-buttons-container edge-container-end">
         <div class="icon-button-container">
-          <button mat-icon-button>
+          <button mat-icon-button (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
           </button>
         </div>
@@ -58,13 +58,13 @@
 </mat-toolbar>
 
 <div style="width:100%; padding-top:10px;">
-  <mat-horizontal-stepper>
+  <mat-horizontal-stepper  (selectionChange)="selectionChange($event)">
 
     <mat-step label="Demographics" completed=false>
       <app-patient-demographics></app-patient-demographics>
     </mat-step>
     
-    <mat-step label="Alerts" completed=false>
+    <mat-step label="Alerts" completed=false>x
       <app-patient-alerts></app-patient-alerts>
     </mat-step>
 

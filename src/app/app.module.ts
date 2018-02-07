@@ -17,6 +17,7 @@ import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-di
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
 import { CreatePatientComponent } from './clinic-feature/create-patient/create-patient.component';
+import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CreatePatientComponent } from './clinic-feature/create-patient/create-p
     AddTypesDialogComponent,
     AddPatientDialogComponent,
     SearchPatientComponent,
-    CreatePatientComponent
+    CreatePatientComponent,
+    CreateNoteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { CreatePatientComponent } from './clinic-feature/create-patient/create-p
     RemoteClinicsComponent,
     AddTypesDialogComponent,
     AddPatientDialogComponent,
+    CreateNoteDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
