@@ -11,13 +11,19 @@ import { PatientModule } from './patient-feature/patient.module';
 import { AuthenticationModule } from './authentication-feature/authentication.module'
 //routers
 import { AppRoutingModule } from './app-routing.module';
+
+//Dialogs
 import { UserDialogComponent } from './dialogs/user-dialog/user-dialog.component';
 import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.component';
 import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-dialog.component';
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
+import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
+
+//Components
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
 import { CreatePatientComponent } from './clinic-feature/create-patient/create-patient.component';
-import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
+import { CreateNewNoteComponent } from './patient-feature/create-new-note/create-new-note.component';
+
 
 
 @NgModule({
@@ -27,9 +33,10 @@ import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-n
     RemoteClinicsComponent,
     AddTypesDialogComponent,
     AddPatientDialogComponent,
+    CreateNoteDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
-    CreateNoteDialogComponent
+    CreateNewNoteComponent,
   ],
   imports: [
     BrowserModule,

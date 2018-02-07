@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   selector: 'app-user-dialog',
   templateUrl: './user-dialog.component.html',
-  styleUrls: ['./user-dialog.component.css', '../shared-styles.css']
+  styleUrls: ['./user-dialog.component.css', '../../styles/shared-dialog-styles.css']
 })
 export class UserDialogComponent implements OnInit {
 

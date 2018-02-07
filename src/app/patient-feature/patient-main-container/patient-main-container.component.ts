@@ -49,17 +49,17 @@ export class PatientMainContainerComponent implements OnInit {
   openAddDialog = () => {
     switch (this.selectedIndex) {
       case 0:
-        let dialogRef = this.dialog.open(CreateNoteDialogComponent, {
-          width: '600px',
-          height: '500px',
-          data: { }
-        });
         break;
       case 1:
         break;
       case 2:
         break;
       case 3:
+        let dialogRef = this.dialog.open(CreateNoteDialogComponent, {
+          width: '75%',
+          height: '60%',
+          data: { }
+        });
         break;
       case 4:
         break;

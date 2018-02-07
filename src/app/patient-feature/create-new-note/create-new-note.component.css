@@ -1,0 +1,4 @@
+.overflow-style {
+    height: calc(100% - 56px) !important;
+    overflow-y: auto;
+}

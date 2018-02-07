@@ -21,7 +21,6 @@ import { PatientConsentsComponent } from './patient-consents/patient-consents.co
 import { PatientAdministerImmComponent } from './patient-administer-imm/patient-administer-imm.component';
 
 
-
 @NgModule({
   declarations: [
     PatientMainContainerComponent,
