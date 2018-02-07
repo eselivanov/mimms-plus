@@ -20,7 +20,6 @@ import { PatientNotesComponent } from './patient-notes/patient-notes.component';
 import { PatientConsentsComponent } from './patient-consents/patient-consents.component';
 import { PatientAdministerImmComponent } from './patient-administer-imm/patient-administer-imm.component';
 
-
 @NgModule({
   declarations: [
     PatientMainContainerComponent,

@@ -18,11 +18,13 @@ import { RemoteClinicsComponent } from './dialogs/remote-clinics/remote-clinics.
 import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-dialog.component';
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
+import { CreateConsentDialogComponent } from './dialogs/create-consent-dialog/create-consent-dialog.component';
 
 //Components
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
 import { CreatePatientComponent } from './clinic-feature/create-patient/create-patient.component';
 import { CreateNewNoteComponent } from './patient-feature/create-new-note/create-new-note.component';
+import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
 
 
 
@@ -34,9 +36,11 @@ import { CreateNewNoteComponent } from './patient-feature/create-new-note/create
     AddTypesDialogComponent,
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
+    CreateConsentDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
     CreateNewNoteComponent,
+    CreateNewConsentComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import { CreateNewNoteComponent } from './patient-feature/create-new-note/create
     AddTypesDialogComponent,
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
+    CreateConsentDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

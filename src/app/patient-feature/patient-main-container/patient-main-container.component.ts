@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatHorizontalStepper } from '@angular/material';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { CreateNoteDialogComponent } from '../../dialogs/create-note-dialog/create-note-dialog.component'
+import { CreateConsentDialogComponent } from '../../dialogs/create-consent-dialog/create-consent-dialog.component';
 
 @Component({
   selector: 'app-patient-main-container',
@@ -55,13 +56,18 @@ export class PatientMainContainerComponent implements OnInit {
       case 2:
         break;
       case 3:
-        let dialogRef = this.dialog.open(CreateNoteDialogComponent, {
+        let noteDialogRef = this.dialog.open(CreateNoteDialogComponent, {
           width: '75%',
           height: '60%',
           data: { }
         });
         break;
       case 4:
+        let consentDialogRef = this.dialog.open(CreateConsentDialogComponent, {
+          width: '80%',
+          height: '90%',
+          data: { }
+        });
         break;
       case 5:
         break;
