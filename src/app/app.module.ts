@@ -9,6 +9,8 @@ import { AngularMaterialModules } from './app.angularmodules'
 import { ClinicModule } from './clinic-feature/clinic.module'
 import { PatientModule } from './patient-feature/patient.module';
 import { AuthenticationModule } from './authentication-feature/authentication.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 //routers
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +29,10 @@ import { CreateNewNoteComponent } from './patient-feature/create-new-note/create
 import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
 
 
+//Custom Components
+
+import { MyTelInput, MyTel } from './supporting_components/MyTelInput'
+
 
 @NgModule({
   declarations: [
@@ -41,6 +47,7 @@ import { CreateNewConsentComponent } from './patient-feature/create-new-consent/
     CreatePatientComponent,
     CreateNewNoteComponent,
     CreateNewConsentComponent,
+    MyTelInput
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,8 @@ import { CreateNewConsentComponent } from './patient-feature/create-new-consent/
     ClinicModule,
     PatientModule, 
     AuthenticationModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   entryComponents: [
     UserDialogComponent,
@@ -58,7 +67,8 @@ import { CreateNewConsentComponent } from './patient-feature/create-new-consent/
     AddTypesDialogComponent,
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
-    CreateConsentDialogComponent
+    CreateConsentDialogComponent,
+    MyTelInput
   ],
   providers: [],
   bootstrap: [AppComponent]

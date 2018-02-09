@@ -4,6 +4,11 @@
     padding: 0px 24px;
 }
 
+.overflow-style {
+    height: calc(100% - 56px) !important;
+    overflow-y: auto;
+}
+
 .row {
     display: flex;
     align-items: center;
@@ -21,8 +26,18 @@
     align-items: center;
 }
 
+.label-cell {
+    flex-grow: 1;
+    max-width: 150px;
+}
 .cell-form {
     width: 100%;
+}
+
+.tel-cell-form {
+    max-width: 75px !important;
+    min-width: 75px !important;
+    flex-basis: 0 !important;
 }
 
 .button-cell {
@@ -78,4 +93,30 @@
 
 .vertical-padding {
     padding: 10px 0px
+}
+
+.vertical-buttons {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-vertical-padding {
+    padding: 5px 0px;
+}
+
+.radio-horizontal-padding {
+    padding: 0px 5px;
+}
+
+.row-vertical-padding { 
+    padding: 10px 0px;
+}
+
+.label {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 16px;
+}
+
+.sm-datepicker { 
+    width: 180px !important;
 }
