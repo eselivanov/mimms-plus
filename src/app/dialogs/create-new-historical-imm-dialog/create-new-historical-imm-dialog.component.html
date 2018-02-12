@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row class="toolbar-padding">
+    <div class="toolbar-button">
+        <button mat-icon-button (click)="onCloseClick()">
+            <mat-icon aria-label="Close Popover">close</mat-icon>
+        </button>
+    </div>
+    
+    <div class="toolbar-title">
+      <span>Add New Historical Immunization</span>
+    </div>
+
+    <div class="toolbar-spacer"></div>
+  </mat-toolbar-row>
+    
+</mat-toolbar>
+
+<app-create-new-imm [historical]="true"></app-create-new-imm>

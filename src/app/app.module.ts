@@ -21,19 +21,20 @@ import { AddTypesDialogComponent } from './dialogs/add-types-dialog/add-types-di
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
 import { CreateConsentDialogComponent } from './dialogs/create-consent-dialog/create-consent-dialog.component';
+import { CreateNewImmDialogComponent } from './dialogs/create-new-imm-dialog/create-new-imm-dialog.component';
+import { CreateNewHistoricalImmDialogComponent } from './dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component'
 
 //Components
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
 import { CreatePatientComponent } from './clinic-feature/create-patient/create-patient.component';
 import { CreateNewNoteComponent } from './patient-feature/create-new-note/create-new-note.component';
 import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
-import { CreateNewAgentComponent } from './clinic-feature/create-new-agent/create-new-agent.component';
+import { CreateNewImmComponent } from './patient-feature/create-new-imm/create-new-imm.component';
 
 
 //Custom Components
 
 import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
-import { CreatNewAgentDialogComponent } from './dialogs/creat-new-agent-dialog/creat-new-agent-dialog.component'
 
 
 @NgModule({
@@ -45,12 +46,13 @@ import { CreatNewAgentDialogComponent } from './dialogs/creat-new-agent-dialog/c
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
     CreateConsentDialogComponent,
-    CreatNewAgentDialogComponent,
+    CreateNewImmDialogComponent,
+    CreateNewHistoricalImmDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
     CreateNewNoteComponent,
     CreateNewConsentComponent,
-    CreateNewAgentComponent,
+    CreateNewImmComponent,
     MyTelInput,
   ],
   imports: [
@@ -72,7 +74,8 @@ import { CreatNewAgentDialogComponent } from './dialogs/creat-new-agent-dialog/c
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
     CreateConsentDialogComponent,
-    CreatNewAgentDialogComponent,
+    CreateNewImmDialogComponent,
+    CreateNewHistoricalImmDialogComponent,
     MyTelInput
   ],
   providers: [],

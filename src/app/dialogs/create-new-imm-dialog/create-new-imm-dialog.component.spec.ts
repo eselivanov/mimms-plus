@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateNewAgentComponent } from './create-new-agent.component';
+import { CreateNewImmDialogComponent } from './create-new-imm-dialog.component';
 
-describe('CreateNewAgentComponent', () => {
-  let component: CreateNewAgentComponent;
-  let fixture: ComponentFixture<CreateNewAgentComponent>;
+describe('CreatNewImmDialogComponent', () => {
+  let component: CreateNewImmDialogComponent;
+  let fixture: ComponentFixture<CreateNewImmDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateNewAgentComponent ]
+      declarations: [ CreateNewImmDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateNewAgentComponent);
+    fixture = TestBed.createComponent(CreateNewImmDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

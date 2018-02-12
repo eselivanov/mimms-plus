@@ -8,7 +8,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatHorizontalStepper } from '
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { CreateNoteDialogComponent } from '../../dialogs/create-note-dialog/create-note-dialog.component'
 import { CreateConsentDialogComponent } from '../../dialogs/create-consent-dialog/create-consent-dialog.component';
-import { CreatNewAgentDialogComponent } from '../../dialogs/creat-new-agent-dialog/creat-new-agent-dialog.component'
+import { CreateNewImmDialogComponent } from '../../dialogs/create-new-imm-dialog/create-new-imm-dialog.component'
+import { CreateNewHistoricalImmDialogComponent } from '../../dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component';
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -54,6 +55,11 @@ export class PatientMainContainerComponent implements OnInit {
       case 1:
         break;
       case 2:
+        let historicalImmDialogRef = this.dialog.open(CreateNewHistoricalImmDialogComponent, {
+          width: '80%',
+          height: '95%',
+          data: { }
+        });
         break;
       case 3:
         let noteDialogRef = this.dialog.open(CreateNoteDialogComponent, {
@@ -70,7 +76,7 @@ export class PatientMainContainerComponent implements OnInit {
         });
         break;
       case 5:
-        let agentDialogRef = this.dialog.open(CreatNewAgentDialogComponent, {
+        let immDialogDialogRef = this.dialog.open(CreateNewImmDialogComponent, {
           width: '75%',
           height: '65%',
           data: { }
