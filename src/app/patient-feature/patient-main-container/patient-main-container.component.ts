@@ -8,7 +8,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatHorizontalStepper } from '
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { CreateNoteDialogComponent } from '../../dialogs/create-note-dialog/create-note-dialog.component'
 import { CreateConsentDialogComponent } from '../../dialogs/create-consent-dialog/create-consent-dialog.component';
-
+import { CreatNewAgentDialogComponent } from '../../dialogs/creat-new-agent-dialog/creat-new-agent-dialog.component'
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -70,6 +70,11 @@ export class PatientMainContainerComponent implements OnInit {
         });
         break;
       case 5:
+        let agentDialogRef = this.dialog.open(CreatNewAgentDialogComponent, {
+          width: '75%',
+          height: '65%',
+          data: { }
+        });
         break;
       default:
         break;

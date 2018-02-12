@@ -27,11 +27,13 @@ import { SearchPatientComponent } from './clinic-feature/search-patient/search-p
 import { CreatePatientComponent } from './clinic-feature/create-patient/create-patient.component';
 import { CreateNewNoteComponent } from './patient-feature/create-new-note/create-new-note.component';
 import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
+import { CreateNewAgentComponent } from './clinic-feature/create-new-agent/create-new-agent.component';
 
 
 //Custom Components
 
-import { MyTelInput, MyTel } from './supporting_components/MyTelInput'
+import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
+import { CreatNewAgentDialogComponent } from './dialogs/creat-new-agent-dialog/creat-new-agent-dialog.component'
 
 
 @NgModule({
@@ -43,11 +45,13 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput'
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
     CreateConsentDialogComponent,
+    CreatNewAgentDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
     CreateNewNoteComponent,
     CreateNewConsentComponent,
-    MyTelInput
+    CreateNewAgentComponent,
+    MyTelInput,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +72,7 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput'
     AddPatientDialogComponent,
     CreateNoteDialogComponent,
     CreateConsentDialogComponent,
+    CreatNewAgentDialogComponent,
     MyTelInput
   ],
   providers: [],
