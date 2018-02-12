@@ -18,6 +18,8 @@ import { MainContainerComponent } from './main-container/main-container.componen
 import { AppModule } from '../app.module'
 
 import { Navigation } from 'selenium-webdriver';
+import { ClinicDashboardComponent } from './clinic-dashboard/clinic-dashboard.component';
+import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { Navigation } from 'selenium-webdriver';
     MainContainerComponent,
     ClinicListComponent,
     ClientListComponent,
+    ClinicDashboardComponent,
+    ClinicDetailsComponent,
   ],
   imports: [
     ClinicRoutingModule,

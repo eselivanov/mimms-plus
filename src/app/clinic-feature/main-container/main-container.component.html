@@ -8,13 +8,25 @@
     <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
     <span class="example-spacer"></span>
 
-    <div class="icon-buttons-container">
+    <div class="icon-buttons-container" *ngIf="showBackButton === true">
         <div class="icon-button-container">
           <button mat-icon-button (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
           </button>
         </div>
+
+        <div class="icon-button-container" *ngIf="showBackButton === true">
+          <button mat-icon-button (click)="openClinicDashboard()">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
         
+        <div class="icon-button-container">
+          <button mat-icon-button (click)="openClinicDetails()">
+            <mat-icon>info_outline</mat-icon>
+          </button>
+        </div>
+
         <div class="icon-button-container">
           <button mat-icon-button (click)="openInfoDialog()">
             <mat-icon>person outline</mat-icon>

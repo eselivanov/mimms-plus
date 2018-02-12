@@ -44,6 +44,14 @@ export class MainContainerComponent implements OnInit {
     this.router.navigate(['/clinics']);
   }
 
+  openClinicDashboard = () => {
+    this.router.navigate(['/clinics']);
+  }
+
+  openClinicDetails = () => {
+    this.router.navigate(['/clinics']);
+  }
+
   openInfoDialog = () => {
     let dialogRef = this.dialog.open(UserDialogComponent, {
       width: '600px',
