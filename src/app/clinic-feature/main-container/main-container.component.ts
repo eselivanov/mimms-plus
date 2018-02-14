@@ -58,13 +58,12 @@ export class MainContainerComponent implements OnInit {
   openClinicDashboard = () => {
 
     let clinicId = this.route.firstChild.snapshot.paramMap.get('id')
-    console.log(clinicId)
     this.router.navigate([`/clinics/${clinicId}/dashboard`]);
   }
 
   openClinicDetails = () => {
-    let clinicId = this.route.snapshot.paramMap.get('id')
-    this.router.navigate([`/clinics/{clinicId}/details`]);
+    let clinicId = this.route.firstChild.snapshot.paramMap.get('id')
+    this.router.navigate([`/clinics/${clinicId}/details`]);
   }
 
   openInfoDialog = () => {

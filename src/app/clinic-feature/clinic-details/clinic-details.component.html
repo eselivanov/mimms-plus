@@ -1,9 +1,117 @@
 <div class="container">
 
-  <div class="row left-justify">
-    <div class="cell">
-      <span>Total Client count 999</span>
-    </div>
+  <h3 mat-subheader class="primary">Clinic Details</h3>
+  <mat-card class="smallMargin mat-elevation-z8">
+    <mat-list>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">ID</span>
+          <span class="listItemValue">{{this.clinic.id}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Title</span>
+          <span class="listItemValue">{{this.clinic.name}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Date(s)</span>
+          <span class="listItemValue">{{this.clinic.dates}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Location</span>
+          <span class="listItemValue">{{this.clinic.location}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Address</span>
+          <span class="listItemValue">{{this.clinic.address}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Type</span>
+          <span class="listItemValue">{{this.clinic.type}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Number of Clients</span>
+          <span class="listItemValue">{{this.clinic.clients}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Downloaded</span>
+          <span class="listItemValue">{{this.clinic.downloaded}}</span>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem">
+        <div class="listItemContent">
+          <span class="listItemTitle">Type</span>
+          <span class="listItemValue">{{this.clinic.createdBy}}</span>
+        </div>
+      </mat-list-item>
+      
+    </mat-list>
+  </mat-card>
+  
+  <h3 mat-subheader class="primary">Immunizing Agents</h3>
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table #table [dataSource]="immDataSource">
+
+        <ng-container matColumnDef="immAgent">
+          <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immAgent}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lotNumber">
+          <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.lotNumber}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="tradeName">
+          <mat-header-cell *matHeaderCellDef> TRADE NAME </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dosage">
+          <mat-header-cell *matHeaderCellDef> DOSAGE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.dosage}} mL </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="route">
+          <mat-header-cell *matHeaderCellDef> ROUTE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.route}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="reason">
+          <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="required">
+            <mat-header-cell *matHeaderCellDef> REQUIRED </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.required}} </mat-cell>
+          </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="immDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: immDisplayedRows;"></mat-row>
+    </mat-table>
   </div>
 
 </div>
