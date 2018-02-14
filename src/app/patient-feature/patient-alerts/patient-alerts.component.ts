@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-patient-alerts',
   templateUrl: './patient-alerts.component.html',
-  styleUrls: ['./patient-alerts.component.css']
+  styleUrls: ['./patient-alerts.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class PatientAlertsComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-patient-administer-imm',
   templateUrl: './patient-administer-imm.component.html',
-  styleUrls: ['./patient-administer-imm.component.css']
+  styleUrls: ['./patient-administer-imm.component.css', '../../styles/shared-styles.css', '../../styles/table-shared.css']
 })
 export class PatientAdministerImmComponent implements OnInit {
   immDisplayedRows = ['selectAction','immAgent', 'lotNumber', 'tradeName', 'dosage', 'route', 'site'];

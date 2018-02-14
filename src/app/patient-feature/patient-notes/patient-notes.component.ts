@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-patient-notes',
   templateUrl: './patient-notes.component.html',
-  styleUrls: ['./patient-notes.component.css']
+  styleUrls: ['./patient-notes.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class PatientNotesComponent implements OnInit {
   notesDisplayedRows = ['date', 'subject', 'note', 'modalAction']

@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-patient-immunizations',
   templateUrl: './patient-immunizations.component.html',
-  styleUrls: ['./patient-immunizations.component.css']
+  styleUrls: ['./patient-immunizations.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class PatientImmunizationsComponent implements OnInit {
 

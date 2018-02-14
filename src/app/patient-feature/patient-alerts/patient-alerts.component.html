@@ -1,6 +1,7 @@
 <!--<div class="example-container mat-elevation-z8">-->
-<h3 mat-subheader class="primary">Warnings</h3>
-<div class="example-container mat-elevation-z8">
+<div class="container">
+  <h3 mat-subheader class="primary">Warnings</h3>
+  <div class="example-container mat-elevation-z8">
 
   <mat-table #table [dataSource]="warningsDataSource">
       
@@ -22,15 +23,15 @@
           </button>
         </mat-cell>
       </ng-container>
-  
+
     <mat-header-row *matHeaderRowDef="warningsDisplayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: warningsDisplayedColumns;"></mat-row>
   </mat-table>
 
-</div>
+  </div>
 
-<h3 mat-subheader class="primary">Exemptions</h3>
-<div class="example-container mat-elevation-z8">
+  <h3 mat-subheader class="primary">Exemptions</h3>
+  <div class="example-container mat-elevation-z8">
 
   <mat-table #table [dataSource]="exemptionsDataSource">
     
@@ -62,10 +63,10 @@
     <mat-row *matRowDef="let row; columns: exemptionsDisplayedColumns;"></mat-row>
   </mat-table>
 
-</div>
+  </div>
 
-<h3 mat-subheader class="primary">Contraindications</h3>
-<div class="example-container mat-elevation-z8">
+  <h3 mat-subheader class="primary">Contraindications</h3>
+  <div class="example-container mat-elevation-z8">
 
   <mat-table #table [dataSource]="contraindicationsDataSource">
 
@@ -78,12 +79,12 @@
         <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="effectiveFrom">
         <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="modalAction">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -93,15 +94,15 @@
         </mat-cell>
       </ng-container>
     
-  
+
     <mat-header-row *matHeaderRowDef="contraindicationsDisplayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: contraindicationsDisplayedColumns;"></mat-row>
   </mat-table>
 
-</div>
+  </div>
 
-<h3 mat-subheader class="primary">Precautions</h3>
-<div class="example-container mat-elevation-z8">
+  <h3 mat-subheader class="primary">Precautions</h3>
+  <div class="example-container mat-elevation-z8">
     
   <mat-table #table [dataSource]="precautionsDataSource" class="tablePadding">
     
@@ -114,12 +115,12 @@
         <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="effectiveFrom">
         <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="modalAction">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -129,15 +130,15 @@
         </mat-cell>
       </ng-container>
     
-  
+
     <mat-header-row *matHeaderRowDef="precautionsDisplayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: precautionsDisplayedColumns;"></mat-row>
   </mat-table>
     
-</div>
+  </div>
 
-<h3 mat-subheader class="primary">Deferrals</h3>
-<div class="example-container mat-elevation-z8">
+  <h3 mat-subheader class="primary">Deferrals</h3>
+  <div class="example-container mat-elevation-z8">
     
   <mat-table #table [dataSource]="deferralsDataSource">
 
@@ -150,7 +151,7 @@
         <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="effectiveFrom">
         <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
@@ -160,7 +161,7 @@
         <mat-header-cell *matHeaderCellDef> EFFECTIVE TO </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.effectiveTo}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="modalAction">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -170,10 +171,11 @@
         </mat-cell>
       </ng-container>
     
-  
+
     <mat-header-row *matHeaderRowDef="deferralsDisplayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: deferralsDisplayedColumns;"></mat-row>
   </mat-table>
     
+  </div>
 </div>
       

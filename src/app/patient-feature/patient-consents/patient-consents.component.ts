@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-patient-consents',
   templateUrl: './patient-consents.component.html',
-  styleUrls: ['./patient-consents.component.css']
+  styleUrls: ['./patient-consents.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class PatientConsentsComponent implements OnInit {
 

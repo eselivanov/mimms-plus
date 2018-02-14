@@ -1,52 +1,54 @@
-<div class="dateTimeLabelContainer">
-  <h3 mat-subheader class="primary">Date and Time Administered</h3> 
-  <span class="dateTimeLabels">2018 Jan 29</span>
-  <span class="dateTimeLabels">1:00 PM</span> 
-  <span class="dateTimeLabels">EST</span>
-</div>
-<div class="example-container mat-elevation-z8">
+<div class="container">
+  <div class="dateTimeLabelContainer">
+    <h3 mat-subheader class="primary">Date and Time Administered</h3> 
+    <span class="dateTimeLabels">2018 Jan 29</span>
+    <span class="dateTimeLabels">1:00 PM</span> 
+    <span class="dateTimeLabels">EST</span>
+  </div>
+  <div class="example-container mat-elevation-z8">
 
-  <mat-table #table [dataSource]="immDataSource">
-      <ng-container matColumnDef="selectAction">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon aria-label="Select Immunization">{{element.isSelected ? "radio_button_checked" : "radio_button_unchecked"}}</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
+    <mat-table #table [dataSource]="immDataSource">
+        <ng-container matColumnDef="selectAction">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon aria-label="Select Immunization">{{element.isSelected ? "radio_button_checked" : "radio_button_unchecked"}}</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="immAgent">
-        <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.immAgent}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="immAgent">
+          <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.immAgent}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="lotNumber">
-        <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.lotNumber}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="tradeName">
-        <mat-header-cell *matHeaderCellDef> TRADE NAME </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.tradeName}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="lotNumber">
+          <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.lotNumber}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="tradeName">
+          <mat-header-cell *matHeaderCellDef> TRADE NAME </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.tradeName}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="dosage">
-        <mat-header-cell *matHeaderCellDef> DOSAGE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.dosage}} mL </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="dosage">
+          <mat-header-cell *matHeaderCellDef> DOSAGE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.dosage}} mL </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="route">
-        <mat-header-cell *matHeaderCellDef> ROUTE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.route}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="route">
+          <mat-header-cell *matHeaderCellDef> ROUTE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.route}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="site">
-        <mat-header-cell *matHeaderCellDef> SITE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immunization.site}} </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="immDisplayedRows"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: immDisplayedRows;"></mat-row>
-  </mat-table>
+        <ng-container matColumnDef="site">
+          <mat-header-cell *matHeaderCellDef> SITE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immunization.site}} </mat-cell>
+        </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="immDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: immDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
 </div>

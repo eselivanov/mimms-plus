@@ -1,184 +1,186 @@
-<h3 mat-subheader class="primary">Immunization History</h3>
-<div class="example-container mat-elevation-z8">
+<div class="container">
+  <h3 mat-subheader class="primary">Immunization History</h3>
+  <div class="example-container mat-elevation-z8">
 
-  <mat-table #table [dataSource]="immHistoryDataSource">
-      
-      <ng-container matColumnDef="immAgent">
-        <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.immAgent}} </mat-cell>
-      </ng-container>
+    <mat-table #table [dataSource]="immHistoryDataSource">
+        
+        <ng-container matColumnDef="immAgent">
+          <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.immAgent}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef> DATE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.dateAdministered}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="age">
-        <mat-header-cell *matHeaderCellDef> AGE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef> DATE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.dateAdministered}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="age">
+          <mat-header-cell *matHeaderCellDef> AGE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="sinceLast">
-        <mat-header-cell *matHeaderCellDef> SINCE LAST DOSAGE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.sinceLast}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="sinceLast">
+          <mat-header-cell *matHeaderCellDef> SINCE LAST DOSAGE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.sinceLast}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="modalAction">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon aria-label="See Details">navigate_next</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="immHistoryDisplayedRows"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: immHistoryDisplayedRows;"></mat-row>
-  </mat-table>
-</div>
-
-<h3  class="primary">Suspension Information</h3>
-<div class="example-container mat-elevation-z8">
+        <ng-container matColumnDef="modalAction">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon aria-label="See Details">navigate_next</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
     
-  <mat-table #table [dataSource]="suspensionInfoDataSource">
+      <mat-header-row *matHeaderRowDef="immHistoryDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: immHistoryDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
+
+  <h3  class="primary">Suspension Information</h3>
+  <div class="example-container mat-elevation-z8">
       
-      <ng-container matColumnDef="enforcedBy">
-        <mat-header-cell *matHeaderCellDef> ENFORCED BY </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.enforcedBy}} </mat-cell>
-      </ng-container>
+    <mat-table #table [dataSource]="suspensionInfoDataSource">
+        
+        <ng-container matColumnDef="enforcedBy">
+          <mat-header-cell *matHeaderCellDef> ENFORCED BY </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.enforcedBy}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef> DATE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.dateAdministered}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="org">
-        <mat-header-cell *matHeaderCellDef> ORGINIZATION </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.org}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef> DATE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.dateAdministered}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="org">
+          <mat-header-cell *matHeaderCellDef> ORGINIZATION </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.org}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="diseases">
-        <mat-header-cell *matHeaderCellDef> DISEASES </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.diseases}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="diseases">
+          <mat-header-cell *matHeaderCellDef> DISEASES </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.diseases}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="effectiveFrom">
-        <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="effectiveFrom">
+          <mat-header-cell *matHeaderCellDef> EFFECTIVE FROM </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.effectiveFrom}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="effectiveTo">
-        <mat-header-cell *matHeaderCellDef> EFFECTIVE TO </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.effectiveTo}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="effectiveTo">
+          <mat-header-cell *matHeaderCellDef> EFFECTIVE TO </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.effectiveTo}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="rescindDate">
-        <mat-header-cell *matHeaderCellDef> RESCIND DATE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.rescindDate}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="rescindDate">
+          <mat-header-cell *matHeaderCellDef> RESCIND DATE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.rescindDate}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="modalAction">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon aria-label="See Details">navigate_next</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="suspensionInfoDisplayedRows"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: suspensionInfoDisplayedRows;"></mat-row>
-  </mat-table>
-</div>
-
-<h3 mat-subheader class="primary">Forecast by Agent</h3>
-<div class="example-container mat-elevation-z8">
+        <ng-container matColumnDef="modalAction">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon aria-label="See Details">navigate_next</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
     
-  <mat-table #table [dataSource]="forecastByAgentDataSource">
+      <mat-header-row *matHeaderRowDef="suspensionInfoDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: suspensionInfoDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
+
+  <h3 mat-subheader class="primary">Forecast by Agent</h3>
+  <div class="example-container mat-elevation-z8">
       
-      <ng-container matColumnDef="antigen">
-        <mat-header-cell *matHeaderCellDef> IMMUNIZING AGENT </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
-      </ng-container>
+    <mat-table #table [dataSource]="forecastByAgentDataSource">
+        
+        <ng-container matColumnDef="antigen">
+          <mat-header-cell *matHeaderCellDef> IMMUNIZING AGENT </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="eligible">
-        <mat-header-cell *matHeaderCellDef> ELIGIBLE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.eligible}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="due">
-        <mat-header-cell *matHeaderCellDef> DUE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.due}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="eligible">
+          <mat-header-cell *matHeaderCellDef> ELIGIBLE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.eligible}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef> DUE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.due}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="overdue">
-        <mat-header-cell *matHeaderCellDef> OVERDUE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.overdue}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="overdue">
+          <mat-header-cell *matHeaderCellDef> OVERDUE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.overdue}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="forecast">
-        <mat-header-cell *matHeaderCellDef> FORECAST </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <span [ngClass]="{'overdue': element.forecast === 'Overdue', 'eligible': element.forecast === 'Eligible', 'upToDate': element.forecast === 'Up To Date' }">{{element.forecast}}</span> </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="forecast">
+          <mat-header-cell *matHeaderCellDef> FORECAST </mat-header-cell>
+          <mat-cell *matCellDef="let element"> <span [ngClass]="{'overdue': element.forecast === 'Overdue', 'eligible': element.forecast === 'Eligible', 'upToDate': element.forecast === 'Up To Date' }">{{element.forecast}}</span> </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="modalAction">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon aria-label="See Details">navigate_next</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="forecastByAgentDisplayedRows"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: forecastByAgentDisplayedRows;"></mat-row>
-  </mat-table>
-</div>
-
-<h3 mat-subheader class="primary">Forecast by Disease</h3>
-<div class="example-container mat-elevation-z8">
+        <ng-container matColumnDef="modalAction">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon aria-label="See Details">navigate_next</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
     
-  <mat-table #table [dataSource]="forecastByDiseaseDataSource">
-      <ng-container matColumnDef="disease">
-        <mat-header-cell *matHeaderCellDef> DISEASE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.disease}} </mat-cell>
-      </ng-container>
+      <mat-header-row *matHeaderRowDef="forecastByAgentDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: forecastByAgentDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
 
-      <ng-container matColumnDef="antigen">
-        <mat-header-cell *matHeaderCellDef> IMMUNIZING AGENT </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="eligible">
-        <mat-header-cell *matHeaderCellDef> ELIGIBLE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.eligible}} </mat-cell>
-      </ng-container>
+  <h3 mat-subheader class="primary">Forecast by Disease</h3>
+  <div class="example-container mat-elevation-z8">
       
-      <ng-container matColumnDef="due">
-        <mat-header-cell *matHeaderCellDef> DUE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.due}} </mat-cell>
-      </ng-container>
+    <mat-table #table [dataSource]="forecastByDiseaseDataSource">
+        <ng-container matColumnDef="disease">
+          <mat-header-cell *matHeaderCellDef> DISEASE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.disease}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="overdue">
-        <mat-header-cell *matHeaderCellDef> OVERDUE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.overdue}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="antigen">
+          <mat-header-cell *matHeaderCellDef> IMMUNIZING AGENT </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.antigen}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="forecast">
-        <mat-header-cell *matHeaderCellDef> FORECAST </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <span [ngClass]="{'overdue': element.forecast === 'Overdue', 'eligible': element.forecast === 'Eligible', 'upToDate': element.forecast === 'Up To Date' }">{{element.forecast}}</span> </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="eligible">
+          <mat-header-cell *matHeaderCellDef> ELIGIBLE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.eligible}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef> DUE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.due}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="modalAction">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon aria-label="See Details">navigate_next</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="forecastByDiseaseDisplayedRows"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: forecastByDiseaseDisplayedRows;"></mat-row>
-  </mat-table>
+        <ng-container matColumnDef="overdue">
+          <mat-header-cell *matHeaderCellDef> OVERDUE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.overdue}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="forecast">
+          <mat-header-cell *matHeaderCellDef> FORECAST </mat-header-cell>
+          <mat-cell *matCellDef="let element"> <span [ngClass]="{'overdue': element.forecast === 'Overdue', 'eligible': element.forecast === 'Eligible', 'upToDate': element.forecast === 'Up To Date' }">{{element.forecast}}</span> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="modalAction">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon aria-label="See Details">navigate_next</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="forecastByDiseaseDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: forecastByDiseaseDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
 </div>

@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-remote-clinics',
   templateUrl: './remote-clinics.component.html',
-  styleUrls: ['./remote-clinics.component.css', '../../styles/shared-dialog-styles.css' ]
+  styleUrls: ['./remote-clinics.component.css', '../../styles/shared-dialog-styles.css', '../../styles/table-shared.css' ]
 })
 export class RemoteClinicsComponent implements OnInit {
 
