@@ -40,6 +40,7 @@ export interface Immunization {
   site: string;
   route: string;
   reason: string;
+  required: number;
 }
 
 export interface Suspension {
@@ -61,8 +62,8 @@ export interface Forecast {
 }
 
 const IMM_HISTORY_DATA: Immunization[] = [
-  {immAgent: 'HB', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk' },
-  {immAgent: 'HPV', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk' },
+  {immAgent: 'HB', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk', required: 1 },
+  {immAgent: 'HPV', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk', required: 2 },
 ];
 
 const SUSPENSION_DATA: Suspension[] = [
