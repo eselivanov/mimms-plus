@@ -13,7 +13,7 @@ import { CreateNewHistoricalImmDialogComponent } from '../../dialogs/create-new-
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
-  styleUrls: ['./patient-main-container.component.css']
+  styleUrls: ['./patient-main-container.component.css', '../../styles/main-container-shared.css']
 })
 export class PatientMainContainerComponent implements OnInit {
 

@@ -8,7 +8,9 @@
       <span class="backButtonLabel">Back</span>
     </div>
 
-    <span class="">{{titleService.getTitle()}}</span>
+    <div>
+      <span class="">{{titleService.getTitle()}}</span>
+    </div>
 
     <div class="icon-buttons-container edge-container-end">
         <div class="icon-button-container">
@@ -57,14 +59,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div style="width:100%; padding-top:10px;">
+<div class="stepper-container">
   <mat-horizontal-stepper  (selectionChange)="selectionChange($event)">
 
     <mat-step label="Demographics" completed=false>
       <app-patient-demographics></app-patient-demographics>
     </mat-step>
     
-    <mat-step label="Alerts" completed=false>x
+    <mat-step label="Alerts" completed=false>
       <app-patient-alerts></app-patient-alerts>
     </mat-step>
 

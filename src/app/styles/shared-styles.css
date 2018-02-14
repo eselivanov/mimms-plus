@@ -120,3 +120,8 @@
 .sm-datepicker { 
     width: 180px !important;
 }
+
+.center-column-value {
+    display:flex;
+    justify-content: center;
+}

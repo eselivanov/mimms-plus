@@ -1,0 +1,42 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    margin: 0px 16px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 8px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+  }
+
+  .icon-container {
+      display:flex;
+      align-items: center;
+  }
+
+  .action-container {
+    flex-grow: 1;
+    display:flex;
+    justify-content: flex-end;
+  }
+
+  .tablePadding {
+      padding: 0px 8px;
+  }
+
+  .mat-column-warningIcon,
+  .mat-column-disclosureIcon,
+  .mat-column-rescindIcon,
+  .mat-column-routingAction{
+    max-width: 40px;
+  }

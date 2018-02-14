@@ -1,14 +1,17 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-
-    <button mat-icon-button *ngIf="showBackButton === true" (click)="goBack()">
-        <mat-icon aria-label="Go Back">navigate_before</mat-icon>
-    </button>
-
-    <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
-    <span class="example-spacer"></span>
-
-    <div class="icon-buttons-container" *ngIf="showBackButton === true">
+  <mat-toolbar-row class="mat-toolbar-row-space">
+    <div class="edge-container-start" *ngIf="showBackButton === true" >
+      <button mat-icon-button (click)="goBack()">
+          <mat-icon aria-label="Go Back">navigate_before</mat-icon>
+      </button>
+      <span class="backButtonLabel">Back</span>
+    </div>
+    
+    <div>
+      <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
+    </div>
+    
+    <div class="icon-buttons-container edge-container-end" *ngIf="showBackButton === true">
         <div class="icon-button-container">
           <button mat-icon-button (click)="openAddDialog()">
             <mat-icon>add</mat-icon>

@@ -12,7 +12,7 @@ import {MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-clinic-list',
   templateUrl: './clinic-list.component.html',
-  styleUrls: ['./clinic-list.component.css']
+  styleUrls: ['./clinic-list.component.css', '../../styles/table-shared.css']
 })
 export class ClinicListComponent implements OnInit {
 

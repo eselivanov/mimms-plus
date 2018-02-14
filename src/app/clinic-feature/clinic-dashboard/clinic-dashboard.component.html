@@ -1,3 +1,130 @@
-<p>
-  clinic-dashboard works!
-</p>
+<div class="container">
+
+  <h3 mat-subheader class="primary right-align">Total Client Count 999</h3>
+
+  <h3 mat-subheader class="primary">Sync Status</h3>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="syncDataSource" class="tablePadding">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="downloadFailed">
+        <mat-header-cell *matHeaderCellDef>Download Failed</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.downloadFailed}}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="downloadSucceeded">
+        <mat-header-cell *matHeaderCellDef>Download Succeeded</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.downloadSucceeded}}</mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="toUpload">
+        <mat-header-cell *matHeaderCellDef>To Upload</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.toUpload}}</mat-cell> 
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="uploadFailed">
+        <mat-header-cell *matHeaderCellDef> Upload Failed </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.uploadFailed}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="uploadSucceeded">
+        <mat-header-cell *matHeaderCellDef>Upload Succeeded</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.uploadSucceeded}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="uploadReview">
+        <mat-header-cell *matHeaderCellDef>Upload Review</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.uploadReview}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="new">
+        <mat-header-cell *matHeaderCellDef>New</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.new}}</mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="inPhix">
+          <mat-header-cell *matHeaderCellDef>In PHIX</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.inPhix}}</mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="syncDisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: syncDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
+    </mat-table>
+  </div>
+
+  <h3 mat-subheader class="primary">Service Count</h3>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="serviceDataSource" class="tablePadding">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="absent">
+        <mat-header-cell *matHeaderCellDef>Absent</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.absent}}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="needed">
+        <mat-header-cell *matHeaderCellDef>Needed</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.needed}}</mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="notNeeded">
+        <mat-header-cell *matHeaderCellDef>Not Needed</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.notNeeded}}</mat-cell> 
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="provided">
+        <mat-header-cell *matHeaderCellDef>Provided</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.provided}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="immunized">
+        <mat-header-cell *matHeaderCellDef>Immunized</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.immunized}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="serviceDisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: serviceDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
+    </mat-table>
+  </div>
+
+  <h3 mat-subheader class="primary">Administered Count</h3>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="administeredDataSource" class="tablePadding">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="agent">
+        <mat-header-cell *matHeaderCellDef>Agent</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.agent}}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="tradeName">
+        <mat-header-cell *matHeaderCellDef>Trade Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.tradeName}}</mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="lotNumber">
+        <mat-header-cell *matHeaderCellDef>Lot Number</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.lotNumber}}</mat-cell> 
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="count">
+        <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="administeredDisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: administeredDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
+    </mat-table>
+  </div>
+
+  
+</div>

@@ -13,7 +13,7 @@ import { ParamMap } from '@angular/router/src/shared';
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
-  styleUrls: ['./client-list.component.css']
+  styleUrls: ['./client-list.component.css', '../../styles/table-shared.css']
 })
 export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NavigationStart } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
@@ -13,14 +14,18 @@ import { AddPatientDialogComponent } from '../../dialogs/add-patient-dialog/add-
 @Component({
   selector: 'app-main-container',
   templateUrl: './main-container.component.html',
-  styleUrls: ['./main-container.component.css']
+  styleUrls: ['./main-container.component.css',  '../../styles/main-container-shared.css']
 })
 export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
   
 
-  constructor(private router: Router, public titleService: Title, public dialog: MatDialog) { 
+  constructor(
+    private router: Router, 
+    public titleService: Title, 
+    public dialog: MatDialog,
+    private route: ActivatedRoute) { 
     /*router.events.subscribe(e => {
         if (e instan)
         console.log(e.url);
@@ -41,15 +46,25 @@ export class MainContainerComponent implements OnInit {
   }
 
   goBack = () => {
-    this.router.navigate(['/clinics']);
+    if (this.router.url.includes("details") || this.router.url.includes("dashboard")){
+      let clinicId = this.route.firstChild.snapshot.paramMap.get('id')
+      this.router.navigate([`/clinics/${clinicId}`]);
+    }else{
+      this.router.navigate(['/clinics']);
+    }
+    
   }
 
   openClinicDashboard = () => {
-    this.router.navigate(['/clinics']);
+
+    let clinicId = this.route.firstChild.snapshot.paramMap.get('id')
+    console.log(clinicId)
+    this.router.navigate([`/clinics/${clinicId}/dashboard`]);
   }
 
   openClinicDetails = () => {
-    this.router.navigate(['/clinics']);
+    let clinicId = this.route.snapshot.paramMap.get('id')
+    this.router.navigate([`/clinics/{clinicId}/details`]);
   }
 
   openInfoDialog = () => {
