@@ -19,9 +19,11 @@ export class ClinicDetailsComponent implements OnInit {
   clinicId: string;
   clinic: Clinic;
 
-  immDisplayedRows = ['immAgent', 'lotNumber', 'tradeName', 'dosage', 'route', 'reason', 'required'];
-  immDataSource = new MatTableDataSource(IMM_DATA);
-
+  immAgentDisplayedRows = ['immAgent', 'lotNumber', 'tradeName', 'dosage', 'route', 'reason', 'required'];
+  immAgentDataSource = new MatTableDataSource(IMM_AGENT_DATA);
+  
+  providerDisplayedRows = ['id', 'name', 'designation'];
+  providerDataSource = new MatTableDataSource(PROVIDER_DATA);
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -62,24 +64,29 @@ const CLINIC_DATA: Clinic[] = [
 ];
 
 
-export interface Immunization {
+export interface Vaccine {
   immAgent: string;
-  dateAdministered: string;
-  timeAdministered: string;
-  age: string;
-  sinceLast: string;
   lotNumber: string;
   tradeName: string;
   manufacturer: string;
-  doseNumber: Number;
   doseage: Number;
-  site: string;
   route: string;
   reason: string;
   required: number;
 }
 
-const IMM_DATA: Immunization[] = [
-  {immAgent: 'HB', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk', required: 1 },
-  {immAgent: 'HPV', dateAdministered: '2017 Jun 12', timeAdministered: '12:16 PM EDT', age: '8 years 9 months 29 days', sinceLast: '1 year 2 months 30 days', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseNumber: 1, doseage: 1.0, site: 'Anterolateral Thigh Lt', route: 'Oral: PO', reason: 'Occupational Risk', required: 2 },
+const IMM_AGENT_DATA: Vaccine[] = [
+  {immAgent: 'HB', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseage: 1.0, route: 'Oral: PO', reason: 'Occupational Risk', required: 1 },
+  {immAgent: 'HPV', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseage: 1.0, route: 'Oral: PO', reason: 'Occupational Risk', required: 2 },
+];
+
+export interface Providers {
+  id: string;
+  name: string;
+  designation: string;
+}
+
+const PROVIDER_DATA: Providers[] = [
+  {id: '425822', name: 'Kapadia, Amol', designation: 'RNP'},
+  {id: '13824', name: 'Nikulina Mila', designation: 'MD'},
 ];

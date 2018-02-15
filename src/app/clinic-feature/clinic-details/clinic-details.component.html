@@ -72,7 +72,7 @@
   <h3 mat-subheader class="primary">Immunizing Agents</h3>
   <div class="example-container mat-elevation-z8">
 
-    <mat-table #table [dataSource]="immDataSource">
+    <mat-table #table [dataSource]="immAgentDataSource">
 
         <ng-container matColumnDef="immAgent">
           <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
@@ -109,8 +109,33 @@
             <mat-cell *matCellDef="let element"> {{element.required}} </mat-cell>
           </ng-container>
     
-      <mat-header-row *matHeaderRowDef="immDisplayedRows"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: immDisplayedRows;"></mat-row>
+      <mat-header-row *matHeaderRowDef="immAgentDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: immAgentDisplayedRows;"></mat-row>
+    </mat-table>
+  </div>
+
+  <h3 mat-subheader class="primary">Providers</h3>
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table #table [dataSource]="providerDataSource">
+
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="designation">
+          <mat-header-cell *matHeaderCellDef> DESIGNATION </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
+        </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="providerDisplayedRows"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: providerDisplayedRows;"></mat-row>
     </mat-table>
   </div>
 
