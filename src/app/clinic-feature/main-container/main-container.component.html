@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row class="mat-toolbar-row-space">
-    <div class="edge-container-start" *ngIf="showBackButton === true" >
+    <div class="edge-container-start" *ngIf="currentPage !== 'clinics'" >
       <button mat-icon-button (click)="goBack()">
           <mat-icon aria-label="Go Back">navigate_before</mat-icon>
       </button>
@@ -11,33 +11,41 @@
       <span [ngClass]="{'titlePadding': !showBackButton }">{{titleService.getTitle()}}</span>
     </div>
     
-    <div class="icon-buttons-container edge-container-end" *ngIf="showBackButton === true">
-        <div class="icon-button-container">
+    <div class="icon-buttons-container edge-container-end" >
+        <div class="icon-button-container" *ngIf="currentPage === 'clinics' || currentPage === 'clients'">
           <button mat-icon-button (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
           </button>
         </div>
 
-        <div class="icon-button-container" *ngIf="showBackButton === true">
+        <div class="icon-button-container" *ngIf="currentPage === 'clients'">
           <button mat-icon-button (click)="openClinicDashboard()">
             <mat-icon>list</mat-icon>
           </button>
         </div>
         
-        <div class="icon-button-container">
+        <div class="icon-button-container" *ngIf="currentPage === 'clients'">
           <button mat-icon-button (click)="openClinicDetails()">
             <mat-icon>info_outline</mat-icon>
           </button>
         </div>
 
-        <div class="icon-button-container">
+        <div class="icon-button-container" *ngIf="currentPage !== 'dashboard'">
           <button mat-icon-button (click)="openInfoDialog()">
             <mat-icon>person outline</mat-icon>
           </button>
         </div>
         
-        <div class="icon-button-container">
+        <div class="icon-button-container" *ngIf="currentPage !== 'dashboard'">
             <mat-icon>dns</mat-icon>
+        </div>
+
+        <div class="icon-button-container" *ngIf="currentPage === 'dashboard'">
+            <mat-icon>cloud_download</mat-icon>
+        </div>
+
+        <div class="icon-button-container" *ngIf="currentPage === 'dashboard'">
+            <mat-icon>cloud_upload</mat-icon>
         </div>
     </div>
 

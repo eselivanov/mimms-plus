@@ -19,7 +19,7 @@ import { AddPatientDialogComponent } from '../../dialogs/add-patient-dialog/add-
 export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
-  
+  currentPage = ""
 
   constructor(
     private router: Router, 
@@ -34,10 +34,21 @@ export class MainContainerComponent implements OnInit {
     router.events.filter(e => e instanceof NavigationEnd).subscribe((e: NavigationEnd) => {
       console.log(e.url);
       this.currentURL = e.url
-      if (this.currentURL !== "/clinics"){
-        this.showBackButton = true 
+      if (!this.currentURL.includes("details") && !this.currentURL.includes("dashboard") && this.currentURL !== "/clinics") {
+        console.log(`setting page to clients`)
+        this.currentPage = "clients"
       }else{
-        this.showBackButton = false
+        console.log(`current url ${this.currentURL}`)
+        if (this.currentURL.includes("details"))  {
+          console.log(`setting page to details`)
+          this.currentPage = "details"
+        }else if (this.currentURL.includes("dashboard"))  {
+          console.log(`setting page to dashboard`)
+          this.currentPage = "dashboard"
+        }else if(this.currentURL === "/clinics") {
+          console.log(`setting page to clinic`)
+          this.currentPage = "clinics"
+        }
       }
     });
   }
