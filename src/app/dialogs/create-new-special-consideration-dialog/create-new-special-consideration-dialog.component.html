@@ -8,11 +8,11 @@
     </div>
     
     <div class="toolbar-title">
-      <span>Add New Immunization</span>
+      <span>Add New {{data.type}}</span>
     </div>
 
     <div class="toolbar-spacer"></div>
   </mat-toolbar-row>
     
 </mat-toolbar>
-<app-create-new-special-consideration></app-create-new-special-consideration>
+<app-create-new-special-consideration [type]="data.type"></app-create-new-special-consideration>

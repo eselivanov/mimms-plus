@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./create-new-special-consideration.component.css', '../../styles/shared-styles.css']
 })
 export class CreateNewSpecialConsiderationComponent implements OnInit {
-
+  @Input() type: string;
   constructor() { }
 
   ngOnInit() {
