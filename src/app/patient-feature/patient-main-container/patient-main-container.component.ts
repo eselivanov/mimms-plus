@@ -10,6 +10,7 @@ import { CreateNoteDialogComponent } from '../../dialogs/create-note-dialog/crea
 import { CreateConsentDialogComponent } from '../../dialogs/create-consent-dialog/create-consent-dialog.component';
 import { CreateNewImmDialogComponent } from '../../dialogs/create-new-imm-dialog/create-new-imm-dialog.component'
 import { CreateNewHistoricalImmDialogComponent } from '../../dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component';
+import { AddTypesDialogComponent } from '../../dialogs/add-types-dialog/add-types-dialog.component';
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -53,6 +54,11 @@ export class PatientMainContainerComponent implements OnInit {
       case 0:
         break;
       case 1:
+        let alertOptionsDilogRef = this.dialog.open(AddTypesDialogComponent, {
+          width: '20%',
+          height: '420px',
+          data: {options:['Deferral', 'Client Warning', 'Exemption', 'Contraindication', 'Precaution']}
+        });
         break;
       case 2:
         let historicalImmDialogRef = this.dialog.open(CreateNewHistoricalImmDialogComponent, {

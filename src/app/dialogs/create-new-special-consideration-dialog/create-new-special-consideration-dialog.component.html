@@ -8,19 +8,11 @@
     </div>
     
     <div class="toolbar-title">
-      <span>Select Alert Type</span>
+      <span>Add New Immunization</span>
     </div>
 
     <div class="toolbar-spacer"></div>
   </mat-toolbar-row>
     
 </mat-toolbar>
-<div class="container overflow-style">
-  <mat-list>
-    <mat-list-item class="listItem" *ngFor="let option of data.options">
-     
-      <button mat-button color="white" class="listItemContent mat-elevation-z8 button-list-item" (click)="onExemptionClick(option)" >{{option}}</button>
-  
-    </mat-list-item>
-  </mat-list>
-</div>
+<app-create-new-special-consideration></app-create-new-special-consideration>

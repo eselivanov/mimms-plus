@@ -23,6 +23,7 @@ import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-n
 import { CreateConsentDialogComponent } from './dialogs/create-consent-dialog/create-consent-dialog.component';
 import { CreateNewImmDialogComponent } from './dialogs/create-new-imm-dialog/create-new-imm-dialog.component';
 import { CreateNewHistoricalImmDialogComponent } from './dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component'
+import { CreateNewSpecialConsiderationDialogComponent } from './dialogs/create-new-special-consideration-dialog/create-new-special-consideration-dialog.component';
 
 //Components
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
@@ -30,12 +31,12 @@ import { CreatePatientComponent } from './clinic-feature/create-patient/create-p
 import { CreateNewNoteComponent } from './patient-feature/create-new-note/create-new-note.component';
 import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
 import { CreateNewImmComponent } from './patient-feature/create-new-imm/create-new-imm.component';
+import { CreateNewSpecialConsiderationComponent } from './patient-feature/create-new-special-consideration/create-new-special-consideration.component';
 
 
 //Custom Components
 
 import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
-
 
 @NgModule({
   declarations: [
@@ -48,11 +49,13 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     CreateConsentDialogComponent,
     CreateNewImmDialogComponent,
     CreateNewHistoricalImmDialogComponent,
+    CreateNewSpecialConsiderationDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
     CreateNewNoteComponent,
     CreateNewConsentComponent,
     CreateNewImmComponent,
+    CreateNewSpecialConsiderationComponent,
     MyTelInput,
   ],
   imports: [
@@ -76,6 +79,7 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     CreateConsentDialogComponent,
     CreateNewImmDialogComponent,
     CreateNewHistoricalImmDialogComponent,
+    CreateNewSpecialConsiderationDialogComponent,
     MyTelInput
   ],
   providers: [],

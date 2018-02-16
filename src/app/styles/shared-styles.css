@@ -71,6 +71,10 @@
     justify-content: flex-start !important;
 }
 
+.center-justify {
+    justify-content: center;
+}
+
 .label-padding {
     padding-right: 5px
 }
@@ -123,5 +127,12 @@
 
 .center-column-value {
     display:flex;
+    justify-content: center;
+}
+
+.button-list-item {
+    color:white;
+    background: #009688;
+    padding-left: 0px !important;
     justify-content: center;
 }
