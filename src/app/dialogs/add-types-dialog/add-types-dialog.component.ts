@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CreateNewSpecialConsiderationDialogComponent } from '../create-new-special-consideration-dialog/create-new-special-consideration-dialog.component';
+import { CreateNoteDialogComponent } from '../create-note-dialog/create-note-dialog.component'
+import { CreateNewCelDialogComponent } from '../create-new-cel-dialog/create-new-cel-dialog.component'
 
 @Component({
   selector: 'app-add-types-dialog',
@@ -17,7 +19,23 @@ export class AddTypesDialogComponent implements OnInit {
 
   ngOnInit() {
     this.dialogRef.afterClosed().subscribe(result => {
-      if (this.type != ""){
+      console.log(`type ${this.type}`)
+      if (this.type == "Clinical Note") {
+        console.log('note')
+        let noteDialogRef = this.dialog.open(CreateNoteDialogComponent, {
+          width: '75%',
+          height: '60%',
+          data: { }
+        });
+      }else if (this.type == "Communication Event Log") {
+        console.log('cel')
+        let celDialogRef = this.dialog.open(CreateNewCelDialogComponent, {
+          width: '75%',
+          height: '90%',
+          data: { }
+        });
+      }else if (this.type != ""){
+        console.log('other')
         let consentDialogRef = this.dialog.open(CreateNewSpecialConsiderationDialogComponent, {
           width: '80%',
           height: '90%',
@@ -33,7 +51,7 @@ export class AddTypesDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onExemptionClick = (type) => {
+  onOptionClick = (type) => {
     this.type = type
     console.log(this.type)
     this.dialogRef.close();

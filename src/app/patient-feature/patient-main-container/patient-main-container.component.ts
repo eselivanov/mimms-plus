@@ -68,10 +68,15 @@ export class PatientMainContainerComponent implements OnInit {
         });
         break;
       case 3:
-        let noteDialogRef = this.dialog.open(CreateNoteDialogComponent, {
+        /*let noteDialogRef = this.dialog.open(CreateNoteDialogComponent, {
           width: '75%',
           height: '60%',
           data: { }
+        });*/
+        let noteAlertOptionsDialogRef = this.dialog.open(AddTypesDialogComponent, {
+          width: '20%',
+          height: '420px',
+          data: {options:['Clinical Note', 'Communication Event Log']}
         });
         break;
       case 4:

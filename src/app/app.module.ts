@@ -24,7 +24,8 @@ import { CreateConsentDialogComponent } from './dialogs/create-consent-dialog/cr
 import { CreateNewImmDialogComponent } from './dialogs/create-new-imm-dialog/create-new-imm-dialog.component';
 import { CreateNewHistoricalImmDialogComponent } from './dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component'
 import { CreateNewSpecialConsiderationDialogComponent } from './dialogs/create-new-special-consideration-dialog/create-new-special-consideration-dialog.component';
-import { CreateNewClinicalNoteDialogComponent } from './dialogs/create-new-clinical-note-dialog/create-new-clinical-note-dialog.component';
+import { CreateNewCelDialogComponent } from './dialogs/create-new-cel-dialog/create-new-cel-dialog.component';
+
 
 //Components
 import { SearchPatientComponent } from './clinic-feature/search-patient/search-patient.component';
@@ -33,8 +34,7 @@ import { CreateNewNoteComponent } from './patient-feature/create-new-note/create
 import { CreateNewConsentComponent } from './patient-feature/create-new-consent/create-new-consent.component';
 import { CreateNewImmComponent } from './patient-feature/create-new-imm/create-new-imm.component';
 import { CreateNewSpecialConsiderationComponent } from './patient-feature/create-new-special-consideration/create-new-special-consideration.component';
-import { CreateNewClinicalNoteComponent } from './patient-feature/create-new-clinical-note/create-new-clinical-note.component';
-
+import { CreateNewCelComponent } from './patient-feature/create-new-cel/create-new-cel.component';
 
 //Custom Components
 import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
@@ -51,15 +51,16 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     CreateNewImmDialogComponent,
     CreateNewHistoricalImmDialogComponent,
     CreateNewSpecialConsiderationDialogComponent,
-    CreateNewClinicalNoteDialogComponent,
+    CreateNewCelDialogComponent,
     SearchPatientComponent,
     CreatePatientComponent,
     CreateNewNoteComponent,
     CreateNewConsentComponent,
     CreateNewImmComponent,
     CreateNewSpecialConsiderationComponent,
-    CreateNewClinicalNoteComponent,
+    CreateNewCelComponent,
     MyTelInput,
+    
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,7 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     CreateNewImmDialogComponent,
     CreateNewHistoricalImmDialogComponent,
     CreateNewSpecialConsiderationDialogComponent,
-    CreateNewClinicalNoteDialogComponent,
+    CreateNewCelDialogComponent,
     MyTelInput
   ],
   providers: [],
