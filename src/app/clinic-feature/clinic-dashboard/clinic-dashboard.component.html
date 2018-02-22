@@ -3,28 +3,31 @@
   <h3 mat-subheader class="primary right-align">Total Client Count 999</h3>
 
   <h3 mat-subheader class="primary">Sync Status</h3>
+  <div>
+    <canvas id="sync-canvas">{{ syncChart }}</canvas>
+  </div>  
+  <!--
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="syncDataSource" class="tablePadding">
 
-      <!-- Position Column -->
+
       <ng-container matColumnDef="downloadFailed">
         <mat-header-cell *matHeaderCellDef>Download Failed</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.downloadFailed}}</mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
+
       <ng-container matColumnDef="downloadSucceeded">
         <mat-header-cell *matHeaderCellDef>Download Succeeded</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.downloadSucceeded}}</mat-cell>
       </ng-container>
 
-      <!-- Weight Column -->
+
       <ng-container matColumnDef="toUpload">
         <mat-header-cell *matHeaderCellDef>To Upload</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.toUpload}}</mat-cell> 
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="uploadFailed">
         <mat-header-cell *matHeaderCellDef> Upload Failed </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.uploadFailed}} </mat-cell>
@@ -54,30 +57,30 @@
       <mat-row *matRowDef="let row; columns: syncDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
   </div>
-
-  <h3 mat-subheader class="primary">Service Count</h3>
+  -->
+  <!--<h3 mat-subheader class="primary">Service Count</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="serviceDataSource" class="tablePadding">
 
-      <!-- Position Column -->
+
       <ng-container matColumnDef="absent">
         <mat-header-cell *matHeaderCellDef>Absent</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.absent}}</mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
+
       <ng-container matColumnDef="needed">
         <mat-header-cell *matHeaderCellDef>Needed</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.needed}}</mat-cell>
       </ng-container>
 
-      <!-- Weight Column -->
+
       <ng-container matColumnDef="notNeeded">
         <mat-header-cell *matHeaderCellDef>Not Needed</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.notNeeded}}</mat-cell> 
       </ng-container>
 
-      <!-- Symbol Column -->
+
       <ng-container matColumnDef="provided">
         <mat-header-cell *matHeaderCellDef>Provided</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.provided}} </mat-cell>
@@ -91,7 +94,13 @@
       <mat-header-row *matHeaderRowDef="serviceDisplayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: serviceDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
-  </div>
+  </div>-->
+
+  <h3 mat-subheader class="primary">Service Count</h3>
+  <div>
+    <canvas id="service-canvas">{{ serviceChart }}</canvas>
+  </div>  
+  
 
   <h3 mat-subheader class="primary">Administered Count</h3>
   <div class="example-container mat-elevation-z8">
