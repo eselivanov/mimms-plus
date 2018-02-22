@@ -57,7 +57,7 @@ export class PatientMainContainerComponent implements OnInit {
         let alertOptionsDilogRef = this.dialog.open(AddTypesDialogComponent, {
           width: '20%',
           height: '420px',
-          data: {options:['Deferral', 'Client Warning', 'Exemption', 'Contraindication', 'Precaution']}
+          data: {options:['Deferral', 'Client Warning', 'Exemption', 'Contraindication', 'Precaution'], title:'Alert'}
         });
         break;
       case 2:
@@ -76,7 +76,7 @@ export class PatientMainContainerComponent implements OnInit {
         let noteAlertOptionsDialogRef = this.dialog.open(AddTypesDialogComponent, {
           width: '20%',
           height: '420px',
-          data: {options:['Clinical Note', 'Communication Event Log']}
+          data: {options:['Clinical Note', 'Communication Event Log'], title:'Note'}
         });
         break;
       case 4:
