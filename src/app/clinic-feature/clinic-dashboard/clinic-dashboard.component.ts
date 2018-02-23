@@ -24,12 +24,17 @@ export class ClinicDashboardComponent implements OnInit {
   serviceDataSource = new MatTableDataSource(SERVICE_DATA);
   administeredDisplayedColumns = ['agent', 'tradeName', 'lotNumber', 'count']
   administeredDataSource = new MatTableDataSource(AMINISTERED_DATA);
+  
   serviceDataArray = [];
   serviceLabelArray = [];
   syncDataArray = [];
   syncLabelArray = [];
+  administeredDataArray = [];
+  administeredLabelArray = [];
+
   serviceChart = [];
-  syncChart = []
+  syncChart = [];
+  administeredChart = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -43,49 +48,57 @@ export class ClinicDashboardComponent implements OnInit {
       //this.dataArray.push({value: service.count, label: service.label})
     })
 
-    SYNC_DATA.forEach((service) => {
-      this.syncDataArray.push(service.count)
-      this.syncLabelArray.push(service.label)
-      //this.dataArray.push({value: service.count, label: service.label})
+    SYNC_DATA.forEach((syncStatus) => {
+      this.syncDataArray.push(syncStatus.count)
+      this.syncLabelArray.push(syncStatus.label)
     })
-    /*let data = {
-      dataset: [{
-        data: this.dataArray
-      }],
-      labels: this.labelArray
-    }*/
-    var options = {
+
+    AMINISTERED_DATA.forEach((imm) => {
+      this.administeredDataArray.push(imm.count)
+      this.administeredLabelArray.push(imm.agent)
+    })
+
+    /* SERVICE CHART CONFIG */
+    var serviceOptions = {
       responsive: true,
       legend: {
-          display: true,
-          position: "left",
-          labels: {
-              fontColor: "#333",
-              fontSize: 16
-          }
+        display: true,
+        position: "right",
+        labels: {
+            fontColor: "#333",
+            fontSize: 16
+        }
       },
       animation: {
-        animateScale: true
-      }
+        animateScale: true,
+        easing: "easeOutBounce"
+      },
+      title: {
+        display: true,
+        position: "left",
+        text: "Service Count",
+        fontSize: 20,
+        fontColor: "#009688"
+      },
       
     };
-    //console.log(JSON.stringify(this.dataArray) + ' ' + JSON.stringify(this.labelArray))
+
     let serviceData = {
-        datasets: [{
-            data: this.serviceDataArray,
-            backgroundColor: [
-              "rgba(0, 150, 136, 0.2)",
-              "rgba(247, 70, 74, 0.2)",
-              "rgba(132, 99, 255, 0.2)",
-              "rgba(253, 180, 92, 0.2)",
-              "rgba(99, 132, 255, 0.2)"
-            ],
-            borderColor: [
-              "#009688",
-              "#F7464A",
-              "#8463FF",
-              "#FDB45C",
-              "#6384FF"
+        datasets: [{  
+          data: this.serviceDataArray,
+          backgroundColor: [
+            "rgba(0, 150, 136, 0.2)",
+            "rgba(247, 70, 74, 0.2)",
+            "rgba(132, 99, 255, 0.2)",
+            "rgba(253, 180, 92, 0.2)",
+            "rgba(99, 132, 255, 0.2)"
+          ],
+          borderColor: [
+            "#009688",
+            "#F7464A",
+            "#8463FF",
+            "#FDB45C",
+            "#6384FF"
           ]
         }],
         labels: this.serviceLabelArray,
@@ -93,35 +106,118 @@ export class ClinicDashboardComponent implements OnInit {
     this.serviceChart = new Chart('service-canvas', {
         type: 'doughnut',
         data: serviceData,
-        options: options
+        options: serviceOptions
     });
 
-    let syncData = {
-        datasets: [{
-            data: this.syncDataArray,
-            backgroundColor: [
-              "rgba(247, 70, 74, 0.2)",
-              "rgba(0, 150, 136, 0.2)",
-              "rgba(132, 99, 255, 0.2)",
-              "rgba(253, 180, 92, 0.2)",
-              "rgba(99, 132, 255, 0.2)"
-            ],
-            borderColor: [
-              "rgba(247, 70, 74, 1)",
-              "rgba(0, 150, 136, 1)",
-              "rgba(132, 99, 255, 1)",
-              "rgba(253, 180, 92, 1)",
-              "rgba(99, 132, 255, 1)"
-          ],
-          borderWidth: 2
-        }],
-        labels: this.syncLabelArray,
+    /* SYNC CHART CONFIG */
+    var syncOptions = {
+      responsive: true,
+      legend: {
+          display: false,
+      },
+      animation: {
+        animateScale: true,
+        easing: "easeOutBounce"
+      },
+      title: {
+        display: true,
+        position: "left",
+        text: "Sync Status",
+        fontSize: 20,
+        fontColor: "#009688"
+      },
+      scales:{
+        yAxes: [{
+          display: true,
+          ticks: {
+            suggestedMin: 0,
+            beginAtZero: true  
+          }
+        }]
+      }
+      
+      
     };
+
+    let syncData = {
+      datasets: [{
+        data: this.syncDataArray,
+        backgroundColor: [
+          "rgba(247, 129, 191, 0.2)",
+          "rgba(132, 99, 255, 0.2)",
+          "rgba(165, 86, 40, 0.2)",
+          "rgba(247, 70, 74, 0.2)",
+          "rgba(0, 150, 136, 0.2)",
+          "rgba(253, 180, 92, 0.2)",
+          "rgba(99, 132, 255, 0.2)",
+          "rgba(153, 153, 153, 0.2)",
+        ],
+        borderColor: [
+          "rgba(247, 129, 191, 1)",
+          "rgba(132, 99, 255, 1)",
+          "rgba(165, 86, 40, 1)",
+          "rgba(247, 70, 74, 1)",
+          "rgba(0, 150, 136, 1)",
+          "rgba(253, 180, 92, 1)",
+          "rgba(99, 132, 255, 1)",
+          "rgba(153, 153, 153, 1)",
+        ],
+        borderWidth: 2
+      }],
+      labels: this.syncLabelArray,
+    };
+
     this.syncChart = new Chart('sync-canvas', {
       type: 'bar',
       data: syncData,
-      options: options
-  });
+      options: syncOptions
+    });
+
+    /* ADMINISTERED CHART CONFIG */
+
+    var administeredOptions = {
+      responsive: true,
+      legend: {
+          display: false,
+      },
+      animation: {
+        animateScale: true,
+        easing: "easeOutBounce"
+      },
+      title: {
+        display: true,
+        position: "left",
+        text: "Administered Count",
+        fontSize: 20,
+        fontColor: "#009688"
+      },
+      scales:{
+        yAxes: [{
+          display: true,
+          ticks: {
+            suggestedMin: 0,
+            beginAtZero: true  
+          }
+        }]
+      }
+      
+    };
+
+    let administeredData = {
+      datasets: [{
+        data: this.administeredDataArray,
+        backgroundColor: "rgba(0, 150, 136, 0.2)",
+        borderColor: "rgba(0, 150, 136, 1)",
+        borderWidth: 2
+      }],
+      labels: this.administeredLabelArray,
+    };
+
+    this.syncChart = new Chart('administered-canvas', {
+      type: 'bar',
+      data: administeredData,
+      options: administeredOptions
+    });
   }
 
   
@@ -150,7 +246,7 @@ export interface SyncDataExample {
 
 
 const SYNC_DATA: SyncDataExample[] = [
-  {label:'Download Failed',count: 0}, {label: 'Download Succeeded' , count: 28}, {label: 'To Upload', count: 12}, {label:'Upload Failed', count: 2}, {label: 'Upload Succeeded',count: 1}, {label:'Upload Review', count: 0}, {label:'New', count: 3}, {label:'In PHIX', count: 3}
+  {label:'Download Failed',count: 2}, {label: 'Download Succeeded' , count: 28}, {label: 'To Upload', count: 12}, {label:'Upload Failed', count: 2}, {label: 'Upload Succeeded',count: 1}, {label:'Upload Review', count: 3}, {label:'New', count: 3}, {label:'In PHIX', count: 3}
 ];
 
 /*export interface ServiceDataExample {

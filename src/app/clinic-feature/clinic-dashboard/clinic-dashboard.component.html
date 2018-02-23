@@ -2,11 +2,20 @@
 
   <h3 mat-subheader class="primary right-align">Total Client Count 999</h3>
 
-  <h3 mat-subheader class="primary">Sync Status</h3>
-  <div>
+  
+  <div class="chart-container">
     <canvas id="sync-canvas">{{ syncChart }}</canvas>
   </div>  
+
+  <div class="chart-container">
+    <canvas id="service-canvas">{{ serviceChart }}</canvas>
+  </div> 
+
+  <div class="chart-container">
+    <canvas id="administered-canvas">{{ administeredChart }}</canvas>
+  </div>
   <!--
+  <h3 mat-subheader class="primary">Sync Status</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="syncDataSource" class="tablePadding">
 
@@ -95,36 +104,28 @@
       <mat-row *matRowDef="let row; columns: serviceDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
   </div>-->
-
-  <h3 mat-subheader class="primary">Service Count</h3>
-  <div>
-    <canvas id="service-canvas">{{ serviceChart }}</canvas>
-  </div>  
+   
   
-
+<!--
   <h3 mat-subheader class="primary">Administered Count</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="administeredDataSource" class="tablePadding">
 
-      <!-- Position Column -->
       <ng-container matColumnDef="agent">
         <mat-header-cell *matHeaderCellDef>Agent</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.agent}}</mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="tradeName">
         <mat-header-cell *matHeaderCellDef>Trade Name</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.tradeName}}</mat-cell>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="lotNumber">
         <mat-header-cell *matHeaderCellDef>Lot Number</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.lotNumber}}</mat-cell> 
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="count">
         <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
@@ -134,6 +135,6 @@
       <mat-row *matRowDef="let row; columns: administeredDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
   </div>
-
+-->
   
 </div>
