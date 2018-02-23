@@ -63,7 +63,7 @@ export class ClinicDashboardComponent implements OnInit {
       responsive: true,
       legend: {
         display: true,
-        position: "right",
+        position: "top",
         labels: {
             fontColor: "#333",
             fontSize: 16
