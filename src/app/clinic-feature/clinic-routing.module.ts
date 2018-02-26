@@ -4,7 +4,8 @@ import { MainContainerComponent } from './main-container/main-container.componen
 import { ClinicListComponent } from './clinic-list/clinic-list.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
-import { ClinicDashboardComponent } from './clinic-dashboard/clinic-dashboard.component';
+//import { ClinicDashboardComponent } from './clinic-dashboard/clinic-dashboard.component';
+import { ClinicDashboardContainerComponent } from './clinic-dashboard-container/clinic-dashboard-container.component';
 
 const routes: Routes = [
   { 
@@ -13,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: ':id/dashboard',
-        component: ClinicDashboardComponent
+        component: ClinicDashboardContainerComponent
       },
       {
         path: ':id/details',

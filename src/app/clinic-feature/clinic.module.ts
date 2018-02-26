@@ -20,6 +20,8 @@ import { AppModule } from '../app.module'
 import { Navigation } from 'selenium-webdriver';
 import { ClinicDashboardComponent } from './clinic-dashboard/clinic-dashboard.component';
 import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
+import { ClinicDashboardGraphViewComponent } from './clinic-dashboard-graph-view/clinic-dashboard-graph-view.component';
+import { ClinicDashboardContainerComponent } from './clinic-dashboard-container/clinic-dashboard-container.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ClinicDetailsComponent } from './clinic-details/clinic-details.componen
     ClientListComponent,
     ClinicDashboardComponent,
     ClinicDetailsComponent,
+    ClinicDashboardGraphViewComponent,
+    ClinicDashboardContainerComponent,
   ],
   imports: [
     ClinicRoutingModule,

@@ -1,20 +1,5 @@
 <div class="container">
 
-  <h3 mat-subheader class="primary right-align">Total Client Count 999</h3>
-
-  
-  <div class="chart-container">
-    <canvas id="sync-canvas">{{ syncChart }}</canvas>
-  </div>  
-
-  <div class="chart-container">
-    <canvas id="service-canvas">{{ serviceChart }}</canvas>
-  </div> 
-
-  <div class="chart-container">
-    <canvas id="administered-canvas">{{ administeredChart }}</canvas>
-  </div>
-  <!--
   <h3 mat-subheader class="primary">Sync Status</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="syncDataSource" class="tablePadding">
@@ -66,8 +51,8 @@
       <mat-row *matRowDef="let row; columns: syncDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
   </div>
-  -->
-  <!--<h3 mat-subheader class="primary">Service Count</h3>
+  
+  <h3 mat-subheader class="primary">Service Count</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="serviceDataSource" class="tablePadding">
 
@@ -103,10 +88,10 @@
       <mat-header-row *matHeaderRowDef="serviceDisplayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: serviceDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
-  </div>-->
+  </div>
    
   
-<!--
+
   <h3 mat-subheader class="primary">Administered Count</h3>
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="administeredDataSource" class="tablePadding">
@@ -135,6 +120,6 @@
       <mat-row *matRowDef="let row; columns: administeredDisplayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
     </mat-table>
   </div>
--->
+
   
 </div>
