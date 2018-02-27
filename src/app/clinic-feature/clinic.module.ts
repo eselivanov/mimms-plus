@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModules } from '../app.angularmodules'
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppModule } from '../app.module'
 
 //routers
 import { ClinicRoutingModule } from './clinic-routing.module';
@@ -14,14 +14,14 @@ import { ClinicRoutingModule } from './clinic-routing.module';
 import { ClinicListComponent } from './clinic-list/clinic-list.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { MainContainerComponent } from './main-container/main-container.component';
-
-import { AppModule } from '../app.module'
-
 import { Navigation } from 'selenium-webdriver';
 import { ClinicDashboardComponent } from './clinic-dashboard/clinic-dashboard.component';
 import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
 import { ClinicDashboardGraphViewComponent } from './clinic-dashboard-graph-view/clinic-dashboard-graph-view.component';
 import { ClinicDashboardContainerComponent } from './clinic-dashboard-container/clinic-dashboard-container.component';
+
+//services
+import { RemoteClinicListService } from './services/remote-clinic-list.service';
 
 
 @NgModule({
@@ -41,6 +41,8 @@ import { ClinicDashboardContainerComponent } from './clinic-dashboard-container/
     AngularMaterialModules,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    RemoteClinicListService
+  ],
 })
 export class ClinicModule { }

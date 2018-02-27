@@ -1,6 +1,7 @@
 //misc.
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -72,7 +73,8 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     PatientModule, 
     AuthenticationModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   entryComponents: [
     UserDialogComponent,
