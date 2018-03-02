@@ -40,6 +40,10 @@ import { CreateNewCelComponent } from './patient-feature/create-new-cel/create-n
 //Custom Components
 import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
 
+//Services
+import { RemoteClinicListService } from './clinic-feature/services/remote-clinic-list.service';
+import { UserService } from './authentication-feature/services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +93,7 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
     CreateNewCelDialogComponent,
     MyTelInput
   ],
-  providers: [],
+  providers: [RemoteClinicListService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

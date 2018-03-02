@@ -26,6 +26,15 @@
     align-items: center;
 }
 
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+.max-height {
+    min-height: 100% !important;
+}
+.align-top {
+    align-items: self-start;
+}
 .label-cell {
     flex-grow: 1;
     max-width: 150px;

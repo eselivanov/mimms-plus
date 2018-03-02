@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {MatTableDataSource} from '@angular/material';
 import { RemoteClinicListService } from '../../clinic-feature/services/remote-clinic-list.service';
+import { UserSelectComponent } from '../../authentication-feature/user-select/user-select.component';
+import { UserService } from '../../authentication-feature/services/user.service';
 
 @Component({
   selector: 'app-remote-clinics',
@@ -9,18 +11,19 @@ import { RemoteClinicListService } from '../../clinic-feature/services/remote-cl
   styleUrls: ['./remote-clinics.component.css', '../../styles/shared-dialog-styles.css', '../../styles/table-shared.css' ]
 })
 export class RemoteClinicsComponent implements OnInit {
-
+  remoteClinics = [];
   displayedColumns = ['id', 'title', 'dates', 'routingAction'];
-  dataSource = new MatTableDataSource(REMOTE_CLINIC_DATA);
-  remoteClinics = null;
+  dataSource = new MatTableDataSource();
+  
   constructor(
     public dialogRef: MatDialogRef<RemoteClinicsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private remoteClinicService: RemoteClinicListService
+    private clinicService: RemoteClinicListService,
+    private userService: UserService,
   ) { }
 
   ngOnInit() {
-    //this.getClinics()
+    this.getClinics()
   }
 
   applyFilter(filterValue: string) {
@@ -34,7 +37,46 @@ export class RemoteClinicsComponent implements OnInit {
   }
 
   getClinics(): void {
-    this.remoteClinicService.getRemoteClinics().subscribe(clinics => this.remoteClinics = clinics);
+    if (this.userService.user) {
+      var roleRef = null
+      var orgVal = null
+      console.log(JSON.stringify(this.userService.user.role))
+      for (var role of this.userService.user.role) {
+        roleRef = role.organization.reference
+      }
+      console.log(roleRef)
+      for (var obj of this.userService.user.contained) {
+        if (roleRef.includes(obj.id)) {
+          for (var identifier of obj.identifier) {
+            orgVal = identifier.value
+          }
+        }
+      }
+      console.log(orgVal)
+      this.clinicService.getRemoteClinics(orgVal).subscribe(
+        data => {
+          console.log(`clinic list ${JSON.stringify(data.entry)}`)
+          this.remoteClinics = data.entry
+          console.log(`remote list ${this.remoteClinics}`)
+          this.dataSource = new MatTableDataSource(this.remoteClinics);
+        },
+        error => {
+
+        }
+      )
+
+    }
+    //this.remoteClinicService.getRemoteClinics().subscribe(clinics => this.remoteClinics = clinics);
+  }
+
+  getDates(clinic) {
+    var dateArray = []
+    for (var extension of clinic.resource.extension) {
+      if (extension.url === "CarePlan/clinic#date") {
+        dateArray.push(extension.valueDate)
+      }
+    }
+    return dateArray.join("\n")
   }
 }
 

@@ -17,6 +17,9 @@ import { Navigation } from 'selenium-webdriver';
 import { UserSelectComponent } from './user-select/user-select.component';
 import { PinEntryComponent } from './pin-entry/pin-entry.component';
 
+//services
+import { UserService } from './services/user.service';
+
 @NgModule({
   declarations: [
     MainContainerComponent,
@@ -31,6 +34,6 @@ import { PinEntryComponent } from './pin-entry/pin-entry.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ UserService ],
 })
 export class AuthenticationModule { }

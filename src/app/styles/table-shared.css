@@ -71,6 +71,10 @@
     max-width: 125px;
 }
 
+.mat-column-dates {
+    max-width: 100px
+}
+
 .mat-column-id {
     max-width: 80px;
 }

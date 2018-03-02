@@ -28,32 +28,32 @@
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> CLINIC ID </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.resource.id}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef> TITLE </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.resource.description}} </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="dates">
       <mat-header-cell *matHeaderCellDef> DATE(S) </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.dates}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{getDates(element)}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="routingAction">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-icon-button [routerLink] = "['./',element.id]">
+        <button mat-icon-button [routerLink] = "['./',element.resource.id]">
           <mat-icon aria-label="See Clinic">navigate_next</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink] = "['./',row.id]"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink] = "['./',row.resource.id]"></mat-row>
   </mat-table>
 
 </div>

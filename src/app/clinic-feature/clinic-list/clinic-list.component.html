@@ -5,28 +5,76 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
+  <mat-list>
+    
+      <mat-list-item *ngFor="let clinic of clinics" class="clinic-list-item">
+        <div class="clinic-list-item-body">
 
-  <mat-table #table [dataSource]="dataSource" class="tablePadding">
+          <div class="cell max-height xs-flex">
+            <div class="row max-height">
+              <i class="material-icons sm-icon">warning</i>
+            </div>
+          </div>
 
-    <!-- Position Column -->
+          <div class="cell flex-wrap max-height lg-flex">
+              <div class="row">
+                <span class="clinic-title">{{clinic.name}}</span>
+              </div>
+              <div class="row">
+                <span class="clinic-info">ID {{clinic.id}}</span>
+              </div>
+              <div class="row">
+                <span class="clinic-info">Downloaded {{clinic.downloaded}}</span>
+              </div>
+          </div>
+
+          <div class="cell max-height sm-flex">
+            <div class="row max-height align-top right-justify">
+              <span class="clinic-title">{{clinic.clients}}</span>
+              <i class="material-icons sm-icon">person</i>
+            </div>
+          </div>
+  
+          <div class="cell max-height sm-flex">
+            <div class="row max-height align-top">
+              {{clinic.dates}}
+            </div>
+          </div>
+
+          <div class="cell max-height xs-flex">
+            <div class="row max-height right-justify">
+              <i class="material-icons sm-icon">navigate_next</i>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+        </div>
+        
+      </mat-list-item>
+      
+    
+  </mat-list>
+  <!--<mat-table #table [dataSource]="dataSource" class="tablePadding">
+
+
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> CLINIC ID </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
+
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef> TITLE </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
+
     <ng-container matColumnDef="dates">
       <mat-header-cell *matHeaderCellDef> DATE(S) </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.dates}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
+
     <ng-container matColumnDef="clients">
       <mat-header-cell *matHeaderCellDef> CLIENTS </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.clients}} </mat-cell>
@@ -55,5 +103,5 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink] = "['./',row.id]"></mat-row>
-  </mat-table>
+  </mat-table>-->
 </div>

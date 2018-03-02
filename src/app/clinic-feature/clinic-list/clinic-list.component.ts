@@ -7,28 +7,61 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import {MatTableDataSource} from '@angular/material';
+import { UserService } from '../../authentication-feature/services/user.service';
+import { RemoteClinicListService } from '../services/remote-clinic-list.service';
 
 
 @Component({
   selector: 'app-clinic-list',
   templateUrl: './clinic-list.component.html',
-  styleUrls: ['./clinic-list.component.css', '../../styles/table-shared.css']
+  styleUrls: ['./clinic-list.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class ClinicListComponent implements OnInit {
 
   displayedColumns = ['id', 'title', 'dates', 'clients', 'downloaded', 'status', 'routingAction'];
   dataSource = new MatTableDataSource(CLINIC_DATA);
+  clinics = CLINIC_DATA
   
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
     private titleService: Title,
+    private userService: UserService,
+    private clinicService: RemoteClinicListService
   ) { }
 
   ngOnInit() {
     this.titleService.setTitle('Clinics');
     console.log(`path ${this.route.snapshot.url}`)
+    if (this.userService.user) {
+      var roleRef = null
+      var orgVal = null
+      console.log(JSON.stringify(this.userService.user.role))
+      for (var role of this.userService.user.role) {
+        roleRef = role.organization.reference
+      }
+      console.log(roleRef)
+      for (var obj of this.userService.user.contained) {
+        if (roleRef.includes(obj.id)) {
+          for (var identifier of obj.identifier) {
+            orgVal = identifier.value
+          }
+        }
+      }
+      console.log(orgVal)
+      this.clinicService.getRemoteClinics(orgVal).subscribe(
+        data => {
+          console.log(`clinic list ${JSON.stringify(data)}`)
+        },
+        error => {
+
+        }
+      )
+
+    }else{
+      this.router.navigate(['/login']);
+    }
   }
 
   /*goBack(): void {
