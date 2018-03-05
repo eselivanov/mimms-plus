@@ -7,7 +7,7 @@
   </div>
   <mat-list>
     
-      <mat-list-item *ngFor="let clinic of remoteClinics" class="clinic-list-item" (click)="getClients()">
+      <mat-list-item *ngFor="let clinic of remoteClinics" class="clinic-list-item" [routerLink] = "['./',clinic.resource.id]">
         <div class="clinic-list-item-body">
 
           <div class="cell max-height xs-flex">

@@ -48,8 +48,12 @@ export class ClientListComponent implements OnInit {
 
   setClinicName = (id) => {
     let selectedClinic = CLINIC_DATA.filter(element => element.id === id);
+    if (selectedClinic.length > 0) {
+      this.titleService.setTitle(selectedClinic[0].name);
+    }else {
+      this.titleService.setTitle("Unkown Clinic");
+    }
     
-    this.titleService.setTitle(selectedClinic[0].name);
   }
 
 }
