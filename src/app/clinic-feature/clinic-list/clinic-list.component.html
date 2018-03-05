@@ -7,7 +7,7 @@
   </div>
   <mat-list>
     
-      <mat-list-item *ngFor="let clinic of clinics" class="clinic-list-item">
+      <mat-list-item *ngFor="let clinic of remoteClinics" class="clinic-list-item" (click)="getClients()">
         <div class="clinic-list-item-body">
 
           <div class="cell max-height xs-flex">
@@ -18,26 +18,26 @@
 
           <div class="cell flex-wrap max-height lg-flex">
               <div class="row">
-                <span class="clinic-title">{{clinic.name}}</span>
+                <span class="clinic-title">{{clinic.resource.description}}</span>
               </div>
               <div class="row">
-                <span class="clinic-info">ID {{clinic.id}}</span>
+                <span class="clinic-info">ID {{clinic.resource.id}}</span>
               </div>
-              <div class="row">
+              <!--<div class="row">
                 <span class="clinic-info">Downloaded {{clinic.downloaded}}</span>
-              </div>
+              </div>-->
           </div>
 
-          <div class="cell max-height sm-flex">
+          <!--<div class="cell max-height sm-flex">
             <div class="row max-height align-top right-justify">
               <span class="clinic-title">{{clinic.clients}}</span>
               <i class="material-icons sm-icon">person</i>
             </div>
-          </div>
+          </div>-->
   
           <div class="cell max-height sm-flex">
             <div class="row max-height align-top">
-              {{clinic.dates}}
+              {{getDates(clinic)}}
             </div>
           </div>
 

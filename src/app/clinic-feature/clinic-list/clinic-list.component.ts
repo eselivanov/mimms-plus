@@ -17,24 +17,33 @@ import { RemoteClinicListService } from '../services/remote-clinic-list.service'
   styleUrls: ['./clinic-list.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class ClinicListComponent implements OnInit {
-
-  displayedColumns = ['id', 'title', 'dates', 'clients', 'downloaded', 'status', 'routingAction'];
-  dataSource = new MatTableDataSource(CLINIC_DATA);
-  clinics = CLINIC_DATA
+  displayedColumns = ['id', 'title', 'dates', 'status', 'routingAction'];
+  //displayedColumns = ['id', 'title', 'dates', 'clients', 'downloaded', 'status', 'routingAction'];
+  dataSource = new MatTableDataSource();
+  //clinics = CLINIC_DATA
+  remoteClinics = [];
   
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
     private titleService: Title,
+    private clinicService: RemoteClinicListService,
     private userService: UserService,
-    private clinicService: RemoteClinicListService
   ) { }
 
   ngOnInit() {
     this.titleService.setTitle('Clinics');
     console.log(`path ${this.route.snapshot.url}`)
     if (this.userService.user) {
+      this.getClinics()
+    }else{
+      this.router.navigate(['/login']);
+    }
+
+  }
+
+  getClinics(): void {
       var roleRef = null
       var orgVal = null
       console.log(JSON.stringify(this.userService.user.role))
@@ -52,16 +61,26 @@ export class ClinicListComponent implements OnInit {
       console.log(orgVal)
       this.clinicService.getRemoteClinics(orgVal).subscribe(
         data => {
-          console.log(`clinic list ${JSON.stringify(data)}`)
+          console.log(`clinic list ${JSON.stringify(data.entry)}`)
+          this.remoteClinics = data.entry
+          console.log(`remote list ${this.remoteClinics}`)
+          this.dataSource = new MatTableDataSource(this.remoteClinics);
         },
         error => {
 
         }
       )
+    //this.remoteClinicService.getRemoteClinics().subscribe(clinics => this.remoteClinics = clinics);
+  }
 
-    }else{
-      this.router.navigate(['/login']);
+  getDates(clinic) {
+    var dateArray = []
+    for (var extension of clinic.resource.extension) {
+      if (extension.url === "CarePlan/clinic#date") {
+        dateArray.push(extension.valueDate)
+      }
     }
+    return dateArray.join("\n")
   }
 
   /*goBack(): void {
@@ -72,6 +91,10 @@ export class ClinicListComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  getClients(){
+    alert('test');
   }
 
 }

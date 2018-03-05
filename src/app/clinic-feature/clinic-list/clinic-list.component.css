@@ -24,6 +24,7 @@
 
 .clinic-list-item {
     height: auto !important;
+    cursor: pointer;
 }
 
 .sm-icon {
@@ -38,5 +39,9 @@
 
 .clinic-info {
     color: #808080;
+}
+
+.clinic-list-item:hover { 
+    background-color: rgba(0,0,0,0.09);
 }
 

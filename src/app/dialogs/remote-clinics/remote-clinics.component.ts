@@ -35,7 +35,7 @@ export class RemoteClinicsComponent implements OnInit {
   onCloseClick = () => {
     this.dialogRef.close();
   }
-
+  
   getClinics(): void {
     if (this.userService.user) {
       var roleRef = null
