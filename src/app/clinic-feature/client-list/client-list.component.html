@@ -36,12 +36,14 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> 
+        <span class='bolded'>{{patientService.getFamilyName(element)}}</span><span>, {{patientService.getGivenName(element)}}</span>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="dateOfBirth">
       <mat-header-cell *matHeaderCellDef> DATE OF BIRTH </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.birthDate}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="gender">
@@ -51,7 +53,7 @@
 
     <ng-container matColumnDef="clientId">
       <mat-header-cell *matHeaderCellDef> CLIENT ID </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.clientId}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{patientService.getClientId(element)}}</mat-cell>
       
     </ng-container>
     <!--<ng-container matColumnDef="service">
@@ -74,6 +76,6 @@
     </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{row.clientId}}"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{patientService.getClientId(row)}}"></mat-row>
   </mat-table>
 </div>

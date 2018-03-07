@@ -8,6 +8,8 @@ import { Constants } from '../../utils/constants';
 @Injectable()
 export class RemoteClinicListService {
   private remoteClinicsUrl = Constants.BASE_URL + '/CarePlan/_search';
+  private clinicDetailsUrl = Constants.BASE_URL + '/CarePlan/'
+  clinicDetails = null
   constructor(
     private http: HttpClient,
   ) { }
@@ -15,10 +17,17 @@ export class RemoteClinicListService {
 
   getRemoteClinics(orgId): Observable<any> {
 
-    console.log('calling get remote clnics')
+    //console.log('calling get remote clnics')
     let params = new HttpParams();
     params = params.append('organization.identifier', orgId);
     return this.http.get(this.remoteClinicsUrl, { headers : headers, params: params })
+
+  }
+
+  getClinicDetails(clinicId): Observable<any> {
+
+    //console.log('calling get remote clnics')
+    return this.http.get(this.clinicDetailsUrl + clinicId, { headers : headers })
 
   }
 }

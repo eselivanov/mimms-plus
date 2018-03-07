@@ -1,3 +1,6 @@
+.bolded {
+    font-weight: 700;
+}
 .container {
     height: 100%;
     margin-top: 10px;

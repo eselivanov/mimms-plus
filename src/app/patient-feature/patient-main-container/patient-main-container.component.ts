@@ -11,6 +11,8 @@ import { CreateConsentDialogComponent } from '../../dialogs/create-consent-dialo
 import { CreateNewImmDialogComponent } from '../../dialogs/create-new-imm-dialog/create-new-imm-dialog.component'
 import { CreateNewHistoricalImmDialogComponent } from '../../dialogs/create-new-historical-imm-dialog/create-new-historical-imm-dialog.component';
 import { AddTypesDialogComponent } from '../../dialogs/add-types-dialog/add-types-dialog.component';
+import { PatientService } from '../services/patient.service';
+import { RemoteClinicListService } from '../../clinic-feature/services/remote-clinic-list.service';
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -25,6 +27,8 @@ export class PatientMainContainerComponent implements OnInit {
     private router: Router,
     public titleService: Title,
     public dialog: MatDialog,
+    public patientService: PatientService,
+    public clinicService: RemoteClinicListService,
   ) { }
 
   ngOnInit() {
@@ -33,9 +37,20 @@ export class PatientMainContainerComponent implements OnInit {
   }
 
   setClinicName = (id) => {
-    let selectedPatient = PATIENT_DATA.filter(element => element.clientId === id);
     
-    this.titleService.setTitle(selectedPatient[0].name);
+    var selectedPatient = null;
+    for (var patient of this.patientService.patients) {
+      if (this.patientService.getClientId(patient) === id){
+        selectedPatient = patient;
+        break;
+      }
+    }
+    if (selectedPatient) {
+      this.titleService.setTitle(`${this.patientService.getFamilyName(selectedPatient)}, ${this.patientService.getGivenName(selectedPatient)}`);
+    }else {
+      this.titleService.setTitle("Unkown Patient");
+    }
+    
   }
 
   addButtonClicked = () => {

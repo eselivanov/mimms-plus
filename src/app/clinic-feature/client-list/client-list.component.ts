@@ -9,26 +9,54 @@ import {MatTableDataSource} from '@angular/material';
 
 import 'rxjs/add/operator/switchMap';
 import { ParamMap } from '@angular/router/src/shared';
+import { RemoteClinicListService } from '../services/remote-clinic-list.service';
+import { PatientService } from '../../patient-feature/services/patient.service';
+import { Observable } from 'rxjs/Observable';
+import { DataSource } from '@angular/cdk/collections';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
-  styleUrls: ['./client-list.component.css', '../../styles/table-shared.css']
+  styleUrls: ['./client-list.component.css', '../../styles/table-shared.css', '../../styles/shared-styles.css']
 })
 export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];
-  dataSource = new MatTableDataSource(PATIENT_DATA);
+  dataSource = new PatientDataSource(this.patientService)
   
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title,
+    private clinicService: RemoteClinicListService,
+    private patientService: PatientService
   ) { }
 
   ngOnInit() {
     //let selectedClinic = ELEMENT_DATA.filter(element => element.id === this.route.snapshot.paramMap.get('id'));
     let clinicId = this.route.snapshot.paramMap.get('id')
-    this.setClinicName(clinicId)
+    
+
+    this.clinicService.getClinicDetails(clinicId).subscribe(
+      data => {
+        console.log(`clinic details = ${JSON.stringify(data)}`)
+        this.clinicService.clinicDetails = data
+        this.setClinicName(clinicId)
+        this.patientService.getAllPatients(this.clinicService.clinicDetails)
+        /*this.patientService.patientSubject.subscribe(
+          data => {
+
+          },
+          error => {
+
+          }
+        )*/
+        //this.dataSource = new MatTableDataSource(this.)
+      },
+      error => {
+
+      }
+    )
     /*var clinicName = this.route.paramMap
     .switchMap((params: ParamMap) =>
       this.setClinicName(params.get('id'))
@@ -43,20 +71,31 @@ export class ClientListComponent implements OnInit {
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+    //this.dataSource.filter = filterValue;
   }
 
   setClinicName = (id) => {
-    let selectedClinic = CLINIC_DATA.filter(element => element.id === id);
-    if (selectedClinic.length > 0) {
-      this.titleService.setTitle(selectedClinic[0].name);
-    }else {
-      this.titleService.setTitle("Unkown Clinic");
-    }
+    //let selectedClinic = //CLINIC_DATA.filter(element => element.id === id);
+    //if (selectedClinic.length > 0) {
+      this.titleService.setTitle(this.clinicService.clinicDetails.description)//selectedClinic[0].name);
+    //}else {
+      //this.titleService.setTitle("Unkown Clinic");
+    //}
     
   }
 
 }
+  
+export class PatientDataSource extends DataSource<any> {
+  constructor(private patientService: PatientService) {
+    super();
+  }
+  connect(): Subject<any[]> {
+    return this.patientService.patientSubject;//this.patientService.getAllPatients();
+  }
+  disconnect() {}
+}
+
 export interface Clinic {
   id: string;
   name: string;

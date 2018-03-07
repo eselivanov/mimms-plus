@@ -50,12 +50,13 @@ export class ClinicListComponent implements OnInit {
       for (var role of this.userService.user.role) {
         roleRef = role.organization.reference
       }
-      console.log(roleRef)
+      console.log(`split ${String('#10').split('#')[1]}`)
       for (var obj of this.userService.user.contained) {
-        if (roleRef.includes(obj.id)) {
+        if (roleRef.split('#')[1] === obj.id/*roleRef.includes(obj.id)*/) {
           for (var identifier of obj.identifier) {
             orgVal = identifier.value
           }
+          break;
         }
       }
       console.log(orgVal)
