@@ -6,16 +6,6 @@ const routes: Routes = [
   { 
     path: 'patient/:id', 
     component: PatientMainContainerComponent,
-    /*children: [
-      {
-        path: ':id',
-        component: ClientListComponent
-      },
-      {
-        path: '',
-        component: ClinicListComponent
-      }
-    ]*/
   },
 ];
 

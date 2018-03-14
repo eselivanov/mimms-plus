@@ -55,12 +55,6 @@ export class AddTypesDialogComponent implements OnInit {
     this.type = type
     console.log(this.type)
     this.dialogRef.close();
-    /*this.dialogRef.close();
-    let consentDialogRef = this.dialog.open(CreateNewSpecialConsiderationDialogComponent, {
-      width: '80%',
-      height: '90%',
-      data: { }
-    });*/
   }
 
 }

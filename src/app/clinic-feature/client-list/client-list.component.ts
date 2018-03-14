@@ -35,9 +35,8 @@ export class ClientListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-       let clinicId = this.route.snapshot.paramMap.get('id')
+      let clinicId = this.route.snapshot.paramMap.get('id')
     
-    //if (this.userService.user) {
       this.clinicService.getClinicDetails(clinicId, this.userService.getUserLogOn()).subscribe(
         data => {
           console.log(`clinic details = ${JSON.stringify(data)}`)
@@ -50,9 +49,6 @@ export class ClientListComponent implements OnInit {
 
         }
       )
-    //}else{
-      //this.router.navigate(['/login']);
-    //}
   
   }
 
@@ -63,7 +59,7 @@ export class ClientListComponent implements OnInit {
   }
 
   setClinicName = (id) => {
-    this.titleService.setTitle(this.clinicService.clinicDetails.description)//selectedClinic[0].name);
+    this.titleService.setTitle(this.clinicService.clinicDetails.description)
   }
 
 }
@@ -73,7 +69,7 @@ export class PatientDataSource extends DataSource<any> {
     super();
   }
   connect(): Subject<any[]> {
-    return this.patientService.patientSubject;//this.patientService.getAllPatients();
+    return this.patientService.patientSubject;
   }
   disconnect() {}
 }

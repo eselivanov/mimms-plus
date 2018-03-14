@@ -35,11 +35,7 @@ export class ClinicListComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle('Clinics');
     console.log(`path ${this.route.snapshot.url}`)
-    //if (this.userService.user) {
-      this.getClinics()
-    //}else{
-      //this.router.navigate(['/login']);
-    //}
+    this.getClinics()
 
   }
 
@@ -52,7 +48,7 @@ export class ClinicListComponent implements OnInit {
       }
       console.log(`split ${String('#10').split('#')[1]}`)
       for (var obj of this.userService.user.contained) {
-        if (roleRef.split('#')[1] === obj.id/*roleRef.includes(obj.id)*/) {
+        if (roleRef.split('#')[1] === obj.id) {
           for (var identifier of obj.identifier) {
             orgVal = identifier.value
           }
@@ -71,7 +67,6 @@ export class ClinicListComponent implements OnInit {
 
         }
       )
-    //this.remoteClinicService.getRemoteClinics().subscribe(clinics => this.remoteClinics = clinics);
   }
 
   getDates(clinic) {
@@ -83,11 +78,7 @@ export class ClinicListComponent implements OnInit {
     }
     return dateArray.join("\n")
   }
-
-  /*goBack(): void {
-    this.location
-  }*/
-
+  
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches

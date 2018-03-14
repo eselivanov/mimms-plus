@@ -37,7 +37,6 @@ export class RemoteClinicsComponent implements OnInit {
   }
   
   getClinics(): void {
-    //if (this.userService.user) {
       var roleRef = null
       var orgVal = null
       console.log(JSON.stringify(this.userService.user.role))
@@ -64,9 +63,6 @@ export class RemoteClinicsComponent implements OnInit {
 
         }
       )
-
-    //}
-    //this.remoteClinicService.getRemoteClinics().subscribe(clinics => this.remoteClinics = clinics);
   }
 
   getDates(clinic) {
