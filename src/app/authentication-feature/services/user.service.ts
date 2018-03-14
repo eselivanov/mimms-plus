@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Constants } from '../../utils/constants';
-import { constants } from 'os';
 
 @Injectable()
 export class UserService {
