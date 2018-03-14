@@ -7,10 +7,6 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class PatientService {
-  /*search laptop for angie
-  work on vendoor instead of waatching shows
-  message abby about the linked in job and possibly talk to her
-  get kuttyathan to send email saying he would like to join vendoor to this email k.afrane@vendoor.ca*/
   private userUrl = "https://panmfp.panorama.dev.ehealthontario.ca:9049/phdp/fhir" + '/Patient/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
@@ -31,8 +27,7 @@ export class PatientService {
 
   }
 
-  getAllPatients(details) {//: Observable<any>{
-    //for (var [index, patient] of patients) {
+  getAllPatients(details) {
     this.patients = []
     let ref = details.subject.reference
     console.log(`in get all patients ${ref}`)
@@ -56,14 +51,9 @@ export class PatientService {
                   console.log(`user resp = ${JSON.stringify(data)}`)
                   this.patients.push(data)
                   this.patientSubject.next(this.patients)
-                  /*if (memberIdx == (obj.member.length - 1)) {
-                    this.patientSubject.complete()
-                  }*/
-                  //return this.simpleObservable
                 },
                 error => {
                   this.patientSubject.error('errr')
-                  //return this.simpleObservable
                 }
               )
               break;
@@ -73,9 +63,6 @@ export class PatientService {
         break;
       }
     }
-    
-    //}
-    //return this.simpleObservable
   }
 
   getClientId(patient): string {
@@ -88,12 +75,6 @@ export class PatientService {
 
   getFamilyName(patient): string {
     return (patient.name.length > 0 && patient.name[0].family.length > 0) ? patient.name[0].family[0] : ''
-    //for (var name of patient.name) {
-
-      //if (identifier.system === Constants.PATIENT_IDENTFIER_SYSTEM) {
-        //return identifier.value
-      //}
-    //}
   }
 
   getGivenName(patient): string {

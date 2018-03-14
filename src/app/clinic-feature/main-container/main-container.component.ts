@@ -26,11 +26,7 @@ export class MainContainerComponent implements OnInit {
     public titleService: Title, 
     public dialog: MatDialog,
     private route: ActivatedRoute) { 
-    /*router.events.subscribe(e => {
-        if (e instan)
-        console.log(e.url);
-      
-    });*/
+
     router.events.filter(e => e instanceof NavigationEnd).subscribe((e: NavigationEnd) => {
       console.log(e.url);
       this.currentURL = e.url

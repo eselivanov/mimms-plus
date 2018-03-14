@@ -33,7 +33,6 @@ export class ClinicDashboardGraphViewComponent implements OnInit {
     SERVICE_DATA.forEach((service) => {
       this.serviceDataArray.push(service.count)
       this.serviceLabelArray.push(service.label)
-      //this.dataArray.push({value: service.count, label: service.label})
     })
 
     SYNC_DATA.forEach((syncStatus) => {
