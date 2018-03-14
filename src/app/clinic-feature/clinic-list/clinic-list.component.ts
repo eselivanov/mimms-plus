@@ -35,11 +35,11 @@ export class ClinicListComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle('Clinics');
     console.log(`path ${this.route.snapshot.url}`)
-    if (this.userService.user) {
+    //if (this.userService.user) {
       this.getClinics()
-    }else{
-      this.router.navigate(['/login']);
-    }
+    //}else{
+      //this.router.navigate(['/login']);
+    //}
 
   }
 
@@ -60,7 +60,7 @@ export class ClinicListComponent implements OnInit {
         }
       }
       console.log(orgVal)
-      this.clinicService.getRemoteClinics(orgVal).subscribe(
+      this.clinicService.getRemoteClinics(this.userService.getUserLogOn()).subscribe(
         data => {
           console.log(`clinic list ${JSON.stringify(data.entry)}`)
           this.remoteClinics = data.entry

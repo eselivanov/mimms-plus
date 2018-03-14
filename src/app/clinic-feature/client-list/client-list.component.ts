@@ -14,6 +14,7 @@ import { PatientService } from '../../patient-feature/services/patient.service';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import { Subject } from 'rxjs/Subject';
+import { UserService } from '../../authentication-feature/services/user.service';
 
 @Component({
   selector: 'app-client-list',
@@ -29,43 +30,30 @@ export class ClientListComponent implements OnInit {
     private router: Router,
     private titleService: Title,
     private clinicService: RemoteClinicListService,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-    //let selectedClinic = ELEMENT_DATA.filter(element => element.id === this.route.snapshot.paramMap.get('id'));
-    let clinicId = this.route.snapshot.paramMap.get('id')
+       let clinicId = this.route.snapshot.paramMap.get('id')
     
+    //if (this.userService.user) {
+      this.clinicService.getClinicDetails(clinicId, this.userService.getUserLogOn()).subscribe(
+        data => {
+          console.log(`clinic details = ${JSON.stringify(data)}`)
+          this.clinicService.clinicDetails = data
+          this.setClinicName(clinicId)
+          this.patientService.getAllPatients(this.clinicService.clinicDetails)
 
-    this.clinicService.getClinicDetails(clinicId).subscribe(
-      data => {
-        console.log(`clinic details = ${JSON.stringify(data)}`)
-        this.clinicService.clinicDetails = data
-        this.setClinicName(clinicId)
-        this.patientService.getAllPatients(this.clinicService.clinicDetails)
-        /*this.patientService.patientSubject.subscribe(
-          data => {
+        },
+        error => {
 
-          },
-          error => {
-
-          }
-        )*/
-        //this.dataSource = new MatTableDataSource(this.)
-      },
-      error => {
-
-      }
-    )
-    /*var clinicName = this.route.paramMap
-    .switchMap((params: ParamMap) =>
-      this.setClinicName(params.get('id'))
-    );*/
-    /*this.route.paramMap.switchMap((params: ParamMap) =>
-      clinicId = params.get('id')
-
-    )*/
-    
+        }
+      )
+    //}else{
+      //this.router.navigate(['/login']);
+    //}
+  
   }
 
   applyFilter(filterValue: string) {
@@ -75,13 +63,7 @@ export class ClientListComponent implements OnInit {
   }
 
   setClinicName = (id) => {
-    //let selectedClinic = //CLINIC_DATA.filter(element => element.id === id);
-    //if (selectedClinic.length > 0) {
-      this.titleService.setTitle(this.clinicService.clinicDetails.description)//selectedClinic[0].name);
-    //}else {
-      //this.titleService.setTitle("Unkown Clinic");
-    //}
-    
+    this.titleService.setTitle(this.clinicService.clinicDetails.description)//selectedClinic[0].name);
   }
 
 }

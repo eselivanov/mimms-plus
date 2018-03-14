@@ -7,27 +7,36 @@ import { Constants } from '../../utils/constants';
 
 @Injectable()
 export class RemoteClinicListService {
-  private remoteClinicsUrl = Constants.BASE_URL + '/CarePlan/_search';
+  private remoteClinicsUrl = Constants.BASE_URL + '/CarePlan';
   private clinicDetailsUrl = Constants.BASE_URL + '/CarePlan/'
   clinicDetails = null
   constructor(
-    private http: HttpClient,
+    private http: HttpClient
   ) { }
 
 
-  getRemoteClinics(orgId): Observable<any> {
-
+  getRemoteClinics(username): Observable<any> {
+    let headerJson = {
+      'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiIsInZlciI6IjEuMC4wIiwidHlwIjoiSldUIn0.eyJleHAiOjE1NTE4MTc5MDksInN1YiI6Ik1pbGEuTmlrdWxpbmFAb25laWQub24uY2EiLCJpc3MiOiJQSERQOlRva2VuIiwiYXVkIjoiUEhEUDptSU1NUyIsImp0aSI6IjUzYjM5NDBkLThhMjgtNGFlMS05NmRhLTEyZGUzZWRiNDViOSIsImlhdCI6MTUyMDI4MTkwOX0.iffoZHZTW0zf-hi-zi7JuDOP9Y8mumpIK0cylQ_3FRXINP6judaIIVFQl8t12WwHPnOyrsdK2wZaIoRCfImh8Q',
+      'panorama_user' : username
+    }
+    var headers = new HttpHeaders(headerJson)
     //console.log('calling get remote clnics')
-    let params = new HttpParams();
-    params = params.append('organization.identifier', orgId);
-    return this.http.get(this.remoteClinicsUrl, { headers : headers, params: params })
+    //let params = new HttpParams();
+    //params = params.append('organization.identifier', orgId);
+    return this.http.post(this.remoteClinicsUrl, null,{ headers : headers})
 
   }
 
-  getClinicDetails(clinicId): Observable<any> {
+  getClinicDetails(clinicId, username): Observable<any> {
 
     //console.log('calling get remote clnics')
-    return this.http.get(this.clinicDetailsUrl + clinicId, { headers : headers })
+    let headerJson = {
+      'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiIsInZlciI6IjEuMC4wIiwidHlwIjoiSldUIn0.eyJleHAiOjE1NTE4MTc5MDksInN1YiI6Ik1pbGEuTmlrdWxpbmFAb25laWQub24uY2EiLCJpc3MiOiJQSERQOlRva2VuIiwiYXVkIjoiUEhEUDptSU1NUyIsImp0aSI6IjUzYjM5NDBkLThhMjgtNGFlMS05NmRhLTEyZGUzZWRiNDViOSIsImlhdCI6MTUyMDI4MTkwOX0.iffoZHZTW0zf-hi-zi7JuDOP9Y8mumpIK0cylQ_3FRXINP6judaIIVFQl8t12WwHPnOyrsdK2wZaIoRCfImh8Q',
+      'panorama_user' : username
+    }
+    var headers = new HttpHeaders(headerJson)
+    return this.http.post(this.clinicDetailsUrl + clinicId, null,{ headers : headers })
 
   }
 }

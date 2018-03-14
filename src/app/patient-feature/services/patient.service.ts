@@ -11,16 +11,22 @@ export class PatientService {
   work on vendoor instead of waatching shows
   message abby about the linked in job and possibly talk to her
   get kuttyathan to send email saying he would like to join vendoor to this email k.afrane@vendoor.ca*/
-  private userUrl = Constants.BASE_URL + '/Patient/';
+  private userUrl = "https://panmfp.panorama.dev.ehealthontario.ca:9049/phdp/fhir" + '/Patient/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
 
   constructor(
     private http: HttpClient,
   ) { }
+
+
   getPatientDemo(id): Observable<any> {
 
     console.log('calling get user')
+    let headerJson = {
+      'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiIsInZlciI6IjEuMC4wIiwidHlwIjoiSldUIn0.eyJleHAiOjE1NTE4MTc5MDksInN1YiI6Ik1pbGEuTmlrdWxpbmFAb25laWQub24uY2EiLCJpc3MiOiJQSERQOlRva2VuIiwiYXVkIjoiUEhEUDptSU1NUyIsImp0aSI6IjUzYjM5NDBkLThhMjgtNGFlMS05NmRhLTEyZGUzZWRiNDViOSIsImlhdCI6MTUyMDI4MTkwOX0.iffoZHZTW0zf-hi-zi7JuDOP9Y8mumpIK0cylQ_3FRXINP6judaIIVFQl8t12WwHPnOyrsdK2wZaIoRCfImh8Q'
+    }
+    var headers = new HttpHeaders(headerJson)
     return this.http.get(this.userUrl + id ,  {headers : headers})
 
   }

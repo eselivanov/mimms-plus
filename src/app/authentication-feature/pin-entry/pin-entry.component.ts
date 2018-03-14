@@ -27,11 +27,11 @@ export class PinEntryComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  goToClinics() {
+  login() {
     this.userService.getUser().subscribe(
     data => {
       console.log(`user resp = ${JSON.stringify(data)}`)
-      
+      this.userService.storeUser(data);
       this.userService.user = data
       this.router.navigate(['/clinics']);
     },
