@@ -32,11 +32,11 @@ export class PatientMainContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let clinicId = this.route.snapshot.paramMap.get('id')
-    this.setClinicName(clinicId)
+    let patientId = this.route.snapshot.paramMap.get('id')
+    this.setHeaderTitle(patientId)
   }
 
-  setClinicName = (id) => {
+  setHeaderTitle = (id) => {
     
     var selectedPatient = null;
     for (var patient of this.patientService.patients) {

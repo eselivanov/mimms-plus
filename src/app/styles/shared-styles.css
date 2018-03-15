@@ -1,6 +1,10 @@
 .bolded {
     font-weight: 700;
 }
+
+.capitalize {
+    text-transform: capitalize
+}
 .container {
     height: 100%;
     margin-top: 10px;

@@ -40,22 +40,6 @@ export class ClinicListComponent implements OnInit {
   }
 
   getClinics(): void {
-      var roleRef = null
-      var orgVal = null
-      console.log(JSON.stringify(this.userService.user.role))
-      for (var role of this.userService.user.role) {
-        roleRef = role.organization.reference
-      }
-      console.log(`split ${String('#10').split('#')[1]}`)
-      for (var obj of this.userService.user.contained) {
-        if (roleRef.split('#')[1] === obj.id) {
-          for (var identifier of obj.identifier) {
-            orgVal = identifier.value
-          }
-          break;
-        }
-      }
-      console.log(orgVal)
       this.clinicService.getRemoteClinics(this.userService.getUserLogOn()).subscribe(
         data => {
           console.log(`clinic list ${JSON.stringify(data.entry)}`)

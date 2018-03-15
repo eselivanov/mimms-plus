@@ -48,7 +48,7 @@
 
     <ng-container matColumnDef="gender">
       <mat-header-cell *matHeaderCellDef> GENDER </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+      <mat-cell *matCellDef="let element"><span class="capitalize">{{element.gender}}</span></mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="clientId">

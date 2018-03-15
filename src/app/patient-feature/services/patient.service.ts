@@ -16,7 +16,7 @@ export class PatientService {
   ) { }
 
 
-  getPatientDemo(id): Observable<any> {
+  getPatientDemographics(id): Observable<any> {
 
     console.log('calling get user')
     let headerJson = {
@@ -46,7 +46,7 @@ export class PatientService {
                   break;
                 }
               }
-              this.getPatientDemo(id).subscribe(
+              this.getPatientDemographics(id).subscribe(
                 data => {
                   console.log(`user resp = ${JSON.stringify(data)}`)
                   this.patients.push(data)
@@ -73,12 +73,40 @@ export class PatientService {
     }
   }
 
+  getOOID(patient): string {
+    for (var identifier of patient.identifier) {
+      if (identifier.system === Constants.PATIENT_OOID_SYSTEM) {
+        return identifier.value
+      }
+    }
+  }
+
+  getHCN(patient): string {
+    for (var identifier of patient.identifier) {
+      if (identifier.system === Constants.PATIENT_HCN_SYSTEM) {
+        return identifier.value
+      }
+    }
+  }
+
   getFamilyName(patient): string {
     return (patient.name.length > 0 && patient.name[0].family.length > 0) ? patient.name[0].family[0] : ''
   }
 
   getGivenName(patient): string {
     return (patient.name.length > 0 && patient.name[0].given.length > 0) ? patient.name[0].given[0] : ''
+  }
+
+  getContactGivenName(name): string {
+    return name.given.length > 0 ? name.given[0] : ''
+  }
+
+  getContactFamilyName(name): string {
+    return name.family.length > 0 ? name.family[0] : ''
+  }
+  
+  getContactRelationship(contact): string {
+    return (contact.relationship.length > 0 && contact.relationship[0].coding.length > 0) ? contact.relationship[0].coding[0].display : ""
   }
 }
 

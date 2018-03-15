@@ -41,7 +41,7 @@ export class ClientListComponent implements OnInit {
         data => {
           console.log(`clinic details = ${JSON.stringify(data)}`)
           this.clinicService.clinicDetails = data
-          this.setClinicName(clinicId)
+          this.setHeaderTitle(clinicId)
           this.patientService.getAllPatients(this.clinicService.clinicDetails)
 
         },
@@ -58,7 +58,7 @@ export class ClientListComponent implements OnInit {
     //this.dataSource.filter = filterValue;
   }
 
-  setClinicName = (id) => {
+  setHeaderTitle = (id) => {
     this.titleService.setTitle(this.clinicService.clinicDetails.description)
   }
 
