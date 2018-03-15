@@ -24,9 +24,18 @@
 
       <mat-list-item>
         <div class="item-container">
+          <span class="label">Name</span>
+          <div class="item-value">
+              <span class='bolded'>{{userService.getFamilyName(element)}}</span><span>, {{userService.getGivenName(element)}}</span>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="item-container">
           <span class="label">PHU</span>
           <div class="item-value">
-            <span>Grey Bruce Health Unit</span>
+            <span>{{userService.getPHU()}}</span>
           </div>
         </div>
       </mat-list-item>

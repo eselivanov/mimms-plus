@@ -28,7 +28,6 @@ export class UserService {
   }
 
   getUserLogOn(): string {
-    if (this.user) {
      if (this.user.identifier) {
       for (var id of this.user.identifier) {
         if (id.type.text === "userLogonId") {
@@ -36,6 +35,61 @@ export class UserService {
         }
       }
      }
+    return ""
+  }
+
+  getFamilyName(): string {
+    if (this.user.name) {
+      for (var name of this.user.name) {
+        for (var familyName of name.family) {
+          return familyName
+        }
+      }
+    }
+    return ""
+  }
+
+  getGivenName(): string {
+    if (this.user.name) {
+      for (var name of this.user.name) {
+        for (var givenName of name.given) {
+          return givenName
+        }
+      }
+    }
+    return ""
+  }
+
+  getRoleObj(): any {
+    var roleRef = null
+    var orgVal = null
+    console.log(JSON.stringify(this.user.role))
+    for (var role of this.user.role) {
+      roleRef = role.organization.reference
+      break;
+    }
+
+    for (var obj of this.user.contained) {
+      if (roleRef.split('#')[1] === obj.id) {
+        return obj
+      }
+    }
+    return null
+  }
+  getOrgId(): string {
+    var roleObj = this.getRoleObj()
+    if (roleObj) {
+      for (var identifier of roleObj.identifier) {
+        return identifier.value
+      }
+    }
+    return ""
+  }
+
+  getPHU(): string {
+    var roleObj = this.getRoleObj()
+    if (roleObj) {
+      return roleObj.name
     }
     return ""
   }
