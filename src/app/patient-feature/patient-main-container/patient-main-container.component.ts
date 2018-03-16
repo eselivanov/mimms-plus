@@ -32,8 +32,13 @@ export class PatientMainContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let patientId = this.route.snapshot.paramMap.get('id')
-    this.setHeaderTitle(patientId)
+    if (!this.clinicService.clinicDetails) {
+      this.router.navigate(['/clinics']);
+    }else {
+      let patientId = this.route.snapshot.paramMap.get('id')
+      this.setHeaderTitle(patientId)
+    }
+    
   }
 
   setHeaderTitle = (id) => {

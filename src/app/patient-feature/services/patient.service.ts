@@ -50,6 +50,7 @@ export class PatientService {
                 data => {
                   console.log(`user resp = ${JSON.stringify(data)}`)
                   this.patients.push(data)
+                  this.patients.sort(this.nameCompare)
                   this.patientSubject.next(this.patients)
                 },
                 error => {
@@ -64,6 +65,15 @@ export class PatientService {
       }
     }
   }
+
+  
+  nameCompare = (a, b) => {
+    var aName = `${this.getFamilyName(a)} ${this.getGivenName(a)}`
+    var bName = `${this.getFamilyName(b)} ${this.getGivenName(b)}`
+    if (aName < bName) return -1;
+    if (aName > bName) return 1;
+    return 0;
+  } 
 
   getClientId(patient): string {
     for (var identifier of patient.identifier) {

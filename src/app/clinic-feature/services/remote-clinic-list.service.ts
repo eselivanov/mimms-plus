@@ -4,11 +4,12 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Clinic } from '../client-list/client-list.component';
 import { Constants } from '../../utils/constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class RemoteClinicListService {
-  private remoteClinicsUrl = Constants.BASE_URL + '/CarePlan';
-  private clinicDetailsUrl = Constants.BASE_URL + '/CarePlan/'
+  private remoteClinicsUrl = environment.url + '/CarePlan';
+  private clinicDetailsUrl = environment.url + '/CarePlan/'
   clinicDetails = null
   constructor(
     private http: HttpClient

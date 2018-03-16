@@ -3,10 +3,11 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Constants } from '../../utils/constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class UserService {
-  private userUrl = Constants.BASE_URL + '/Practitioner';
+  private userUrl = environment.url + '/Practitioner';
   userName: string = ''
   user: any = null
   constructor(
