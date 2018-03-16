@@ -19,12 +19,9 @@ export class PatientDemographicsComponent implements OnInit {
     this.patientService.getPatientDemographics(patientId).subscribe(
       data => {
         console.log(`user resp = ${JSON.stringify(data)}`)
-        //this.patientService.push(data)
-        //this.patientSubject.next(this.patients)
         this.patient = data
       },
       error => {
-        //this.patientSubject.error('errr')
       }
     )
   }

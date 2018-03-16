@@ -1,17 +1,17 @@
 <h3 mat-subheader class="primary">Patient Demographics</h3>
 <mat-card class="smallMargin mat-elevation-z8">
-  <mat-list>
+  <mat-list *ngIf="this.patient">
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Client ID</span>
-        <span class="listItemValue">{{this.patient ? patientService.getClientId(this.patient) : ""}}</span>
+        <span class="listItemValue">{{patientService.getClientId(this.patient)}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">OIID</span>
-        <span class="listItemValue">{{this.patient ? patientService.getOOID(this.patient) : ""}}</span>
+        <span class="listItemValue">{{patientService.getOOID(this.patient)}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -19,7 +19,7 @@
       <div class="listItemContent">
         <span class="listItemTitle">Name</span>
         <span class="listItemValue">
-          <span class="bolded">{{this.patient ? patientService.getFamilyName(this.patient) : ""}}</span><span>, {{this.patient ? patientService.getGivenName(this.patient) : ""}}</span>
+          <span class="bolded">{{patientService.getFamilyName(this.patient)}}</span><span>, {{patientService.getGivenName(this.patient)}}</span>
         </span>
       </div>
     </mat-list-item>
@@ -27,7 +27,7 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Date of Birth</span>
-        <span class="listItemValue">{{this.patient ? this.patient.birthDate : ""}}</span>
+        <span class="listItemValue">{{this.patient.birthDate}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -41,14 +41,14 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Gender</span>
-        <span class="listItemValue capitalize">{{this.patient ? this.patient.gender : ""}}</span>
+        <span class="listItemValue capitalize">{{this.patient.gender}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Health Card No.</span>
-        <span class="listItemValue">{{this.patient ? patientService.getHCN(this.patient) : ""}}</span>
+        <span class="listItemValue">{{patientService.getHCN(this.patient)}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
