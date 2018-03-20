@@ -26,7 +26,7 @@
         <div class="item-container">
           <span class="label">Name</span>
           <div class="item-value">
-              <span class='bolded'>{{userService.getFamilyName()}}</span><span>, {{userService.getGivenName()}}</span>
+              <span class='bolded'>{{userService.user.getFamilyName()}}</span><span>, {{userService.user.getGivenName()}}</span>
           </div>
         </div>
       </mat-list-item>
@@ -35,7 +35,7 @@
         <div class="item-container">
           <span class="label">PHU</span>
           <div class="item-value">
-            <span>{{userService.getPHU()}}</span>
+            <span>{{userService.user.getPHU()}}</span>
           </div>
         </div>
       </mat-list-item>

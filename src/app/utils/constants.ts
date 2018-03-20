@@ -7,4 +7,5 @@ export class Constants {
     public static get PATIENT_OOID_SYSTEM(): string { return "urn:oid:2.16.840.1.113883.3.122.3.273.11"}
     public static get PATIENT_HCN_SYSTEM(): string { return "urn:oid:2.16.840.1.113883.3.122.3.272"}
     public static get USER_KEY(): string { return "Practitioner" }
+    public static get USER_LOGON_KEY(): string { return "userLogonId" }
 }

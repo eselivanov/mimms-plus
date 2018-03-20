@@ -39,8 +39,8 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit() {
       let clinicId = this.route.snapshot.paramMap.get('id')
-    
-      this.clinicService.getClinicDetails(clinicId, this.userService.getUserLogOn()).subscribe(
+      this.setHeaderTitle(null)
+      this.clinicService.getClinicDetails(clinicId, this.userService.user.getUserLogOn()).subscribe(
         data => {
           console.log(`clinic details = ${JSON.stringify(data)}`)
           this.clinicService.clinicDetails = data
@@ -61,8 +61,13 @@ export class ClientListComponent implements OnInit {
     //this.dataSource.filter = filterValue;
   }
 
-  setHeaderTitle = (id) => {
-    this.titleService.setTitle(this.clinicService.clinicDetails.description)
+  setHeaderTitle = (id?) => {
+    if (id){
+      this.titleService.setTitle(this.clinicService.clinicDetails.description)
+    }else {
+      this.titleService.setTitle('')
+    }
+    
   }
 
 }

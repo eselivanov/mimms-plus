@@ -23,7 +23,8 @@ export class RemoteClinicsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getClinics()
+    //reimplement using same method as clinicList
+    //this.getClinics()
   }
 
   applyFilter(filterValue: string) {
@@ -36,10 +37,11 @@ export class RemoteClinicsComponent implements OnInit {
     this.dialogRef.close();
   }
   
+  /*
+  reimplement using same method as clinicList
   getClinics(): void {
       var roleRef = null
       var orgVal = null
-      console.log(JSON.stringify(this.userService.user.role))
       for (var role of this.userService.user.role) {
         roleRef = role.organization.reference
       }
@@ -63,7 +65,7 @@ export class RemoteClinicsComponent implements OnInit {
 
         }
       )
-  }
+  }*/
 
   getDates(clinic) {
     var dateArray = []

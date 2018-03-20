@@ -34,17 +34,14 @@ export class ClinicListComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Clinics');
-    console.log(`path ${this.route.snapshot.url}`)
     this.getClinics()
 
   }
 
   getClinics(): void {
-      this.clinicService.getRemoteClinics(this.userService.getUserLogOn()).subscribe(
+      this.clinicService.getRemoteClinics(this.userService.user.getUserLogOn()).subscribe(
         data => {
-          console.log(`clinic list ${JSON.stringify(data.entry)}`)
           this.remoteClinics = data.entry
-          console.log(`remote list ${this.remoteClinics}`)
           this.dataSource = new MatTableDataSource(this.remoteClinics);
         },
         error => {

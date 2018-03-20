@@ -4,12 +4,13 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Constants } from '../../utils/constants';
 import { environment } from '../../../environments/environment';
+import { Practitioner } from '../../models/practitioner';
 
 @Injectable()
 export class UserService {
   private userUrl = environment.url + '/Practitioner';
   userName: string = ''
-  user: any = null
+  user: Practitioner;
   constructor(
     private http: HttpClient,
   ) { }
@@ -26,73 +27,6 @@ export class UserService {
     console.log(JSON.stringify(headers))
     return this.http.post(this.userUrl,  null,{headers : headers})
 
-  }
-
-  getUserLogOn(): string {
-     if (this.user.identifier) {
-      for (var id of this.user.identifier) {
-        if (id.type.text === "userLogonId") {
-          return id.value
-        }
-      }
-     }
-    return ""
-  }
-
-  getFamilyName(): string {
-    if (this.user.name) {
-      for (var name of this.user.name) {
-        for (var familyName of name.family) {
-          return familyName
-        }
-      }
-    }
-    return ""
-  }
-
-  getGivenName(): string {
-    if (this.user.name) {
-      for (var name of this.user.name) {
-        for (var givenName of name.given) {
-          return givenName
-        }
-      }
-    }
-    return ""
-  }
-
-  getRoleObj(): any {
-    var roleRef = null
-    var orgVal = null
-    console.log(JSON.stringify(this.user.role))
-    for (var role of this.user.role) {
-      roleRef = role.organization.reference
-      break;
-    }
-
-    for (var obj of this.user.contained) {
-      if (roleRef.split('#')[1] === obj.id) {
-        return obj
-      }
-    }
-    return null
-  }
-  getOrgId(): string {
-    var roleObj = this.getRoleObj()
-    if (roleObj) {
-      for (var identifier of roleObj.identifier) {
-        return identifier.value
-      }
-    }
-    return ""
-  }
-
-  getPHU(): string {
-    var roleObj = this.getRoleObj()
-    if (roleObj) {
-      return roleObj.name
-    }
-    return ""
   }
 
   storeUser(userObj) {
