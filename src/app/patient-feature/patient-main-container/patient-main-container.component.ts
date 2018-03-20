@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { CreateNewHistoricalImmDialogComponent } from '../../dialogs/create-new-
 import { AddTypesDialogComponent } from '../../dialogs/add-types-dialog/add-types-dialog.component';
 import { PatientService } from '../services/patient.service';
 import { RemoteClinicListService } from '../../clinic-feature/services/remote-clinic-list.service';
+import { Patient } from '../../models/patient';
+import { PatientDemographicsComponent } from '../patient-demographics/patient-demographics.component';
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -20,8 +22,12 @@ import { RemoteClinicListService } from '../../clinic-feature/services/remote-cl
 })
 export class PatientMainContainerComponent implements OnInit {
 
-  
+  @ViewChild(PatientDemographicsComponent)
+  private patientDemographicsComponent: PatientDemographicsComponent; 
+
   selectedIndex:Number = 0
+  patient: Patient
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,7 +42,20 @@ export class PatientMainContainerComponent implements OnInit {
       this.router.navigate(['/clinics']);
     }else {
       let patientId = this.route.snapshot.paramMap.get('id')
-      this.setHeaderTitle(patientId)
+      this.patientService.getPatientDemographics(patientId).subscribe(
+        data => {
+
+          this.patient = new Patient().deserialize(data)
+          this.patientService.selectedPatient = this.patient
+
+          this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
+          this.patientDemographicsComponent.setPatient(this.patient)
+
+        },
+        error => {
+        }
+      )
+     
     }
     
   }
@@ -45,13 +64,13 @@ export class PatientMainContainerComponent implements OnInit {
     
     var selectedPatient = null;
     for (var patient of this.patientService.patients) {
-      if (this.patientService.getClientId(patient) === id){
+      if (this.patient.getClientId() === id){
         selectedPatient = patient;
         break;
       }
     }
     if (selectedPatient) {
-      this.titleService.setTitle(`${this.patientService.getFamilyName(selectedPatient)}, ${this.patientService.getGivenName(selectedPatient)}`);
+      
     }else {
       this.titleService.setTitle("Unkown Patient");
     }
@@ -125,7 +144,7 @@ export class PatientMainContainerComponent implements OnInit {
 
 }
 
-export interface Patient {
+/*export interface Patient {
   warningIcon: string;
   disclosureIcon: string;
   rescindIcon: string;
@@ -140,4 +159,4 @@ const PATIENT_DATA: Patient[] = [
   {warningIcon: 'warning', disclosureIcon:'info_outline', rescindIcon:'school', name: 'Test, Joelly', dateOfBirth:'1993 Dec 21', gender: 'male', clientId: '1001316543', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'', name: 'Test2, Joelly1', dateOfBirth:'2000 May 21', gender: 'female', clientId: '1001099942', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'school', name: 'Doe, John', dateOfBirth:'2000 May 22', gender: 'male', clientId: '100191142', service: 'Immunized'},
-];
+];*/

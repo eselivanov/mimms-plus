@@ -11,7 +11,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 export class SearchPatientComponent implements OnInit {
   displayedColumns = ['select', 'name', 'dateOfBirth', 'gender', 'hcn', 'detailButton'];
   dataSource = new MatTableDataSource(PATIENT_DATA);
-  selection = new SelectionModel<Patient>(true, []);
+  selection = new SelectionModel<PatientTest>(true, []);
 
   constructor() { }
 
@@ -33,7 +33,7 @@ export class SearchPatientComponent implements OnInit {
   
 }
 
-export interface Patient {
+export interface PatientTest {
   warningIcon: string;
   disclosureIcon: string;
   rescindIcon: string;
@@ -45,7 +45,7 @@ export interface Patient {
   service: string;
 }
 
-const PATIENT_DATA: Patient[] = [
+const PATIENT_DATA: PatientTest[] = [
   {warningIcon: 'warning', disclosureIcon:'info_outline', rescindIcon:'school', name: 'Test, Joelly', dateOfBirth:'1993 Dec 21', gender: 'male', clientId: '1001316543', hcn: '1234567897', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'', name: 'Test2, Joelly1', dateOfBirth:'2000 May 21', gender: 'female', clientId: '1001099942', hcn: '4534567897', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'school', name: 'Doe, John', dateOfBirth:'2000 May 22', gender: 'male', clientId: '100191142', hcn: '123427897', service: 'Immunized'},

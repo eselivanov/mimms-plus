@@ -12,6 +12,7 @@ import { PatientModule } from './patient-feature/patient.module';
 import { AuthenticationModule } from './authentication-feature/authentication.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 //routers
 import { AppRoutingModule } from './app-routing.module';
 
@@ -44,6 +45,8 @@ import { MyTelInput, MyTel } from './supporting_components/MyTelInput';
 import { RemoteClinicListService } from './clinic-feature/services/remote-clinic-list.service';
 import { UserService } from './authentication-feature/services/user.service';
 import { PatientService } from './patient-feature/services/patient.service';
+
+
 
 @NgModule({
   declarations: [

@@ -4,14 +4,14 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Client ID</span>
-        <span class="listItemValue">{{patientService.getClientId(this.patient)}}</span>
+        <span class="listItemValue">{{patient.getClientId()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">OIID</span>
-        <span class="listItemValue">{{patientService.getOOID(this.patient)}}</span>
+        <span class="listItemValue">{{patient.getOOID()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -19,7 +19,7 @@
       <div class="listItemContent">
         <span class="listItemTitle">Name</span>
         <span class="listItemValue">
-          <span class="bolded">{{patientService.getFamilyName(this.patient)}}</span><span>, {{patientService.getGivenName(this.patient)}}</span>
+          <span class="bolded">{{patient.getFamilyName()}}</span><span>, {{patient.getGivenName()}}</span>
         </span>
       </div>
     </mat-list-item>
@@ -48,7 +48,7 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Health Card No.</span>
-        <span class="listItemValue">{{patientService.getHCN(this.patient)}}</span>
+        <span class="listItemValue">{{patient.getHCN()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -69,9 +69,9 @@
         <span class="listItemTitle">Guardian(s)</span>
         <mat-list class="nestedTable">
           <mat-list-item class="listItem" *ngFor="let contact of this.patient.contact">
-            <span class="listItemTitle capitalize">{{patientService.getContactRelationship(contact)}}</span>
+            <span class="listItemTitle capitalize">{{patient.getContactRelationship(contact)}}</span>
             <span class="listItemValue">
-              <span class="bolded">{{patientService.getContactFamilyName(contact.name)}}</span><span>, {{patientService.getContactGivenName(contact.name)}}</span>
+              <span class="bolded">{{patient.getContactFamilyName(contact.name)}}</span><span>, {{patient.getContactGivenName(contact.name)}}</span>
             </span>
           </mat-list-item>
         </mat-list>

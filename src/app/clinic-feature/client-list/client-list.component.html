@@ -37,7 +37,7 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
       <mat-cell *matCellDef="let element"> 
-        <span class='bolded'>{{patientService.getFamilyName(element)}}</span><span>, {{patientService.getGivenName(element)}}</span>
+        <span class='bolded'>{{element.getFamilyName()}}</span><span>, {{element.getGivenName()}}</span>
       </mat-cell>
     </ng-container>
 
@@ -53,7 +53,7 @@
 
     <ng-container matColumnDef="clientId">
       <mat-header-cell *matHeaderCellDef> CLIENT ID </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{patientService.getClientId(element)}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.getClientId()}}</mat-cell>
       
     </ng-container>
     <!--<ng-container matColumnDef="service">
@@ -69,13 +69,13 @@
     <ng-container matColumnDef="routingAction">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-icon-button routerLink="/patient/{{element.clientId}}">
+        <button mat-icon-button routerLink="/patient/{{element.getClientId()}}">
           <mat-icon aria-label="See Clients">navigate_next</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{patientService.getClientId(row)}}"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{row.getClientId()}}"></mat-row>
   </mat-table>
 </div>

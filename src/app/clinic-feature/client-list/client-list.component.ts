@@ -15,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import { Subject } from 'rxjs/Subject';
 import { UserService } from '../../authentication-feature/services/user.service';
+import { Patient } from '../../models/patient';
 
 @Component({
   selector: 'app-client-list',
@@ -24,6 +25,7 @@ import { UserService } from '../../authentication-feature/services/user.service'
 export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];
   dataSource = new PatientDataSource(this.patientService)
+  patient: Patient = new Patient()
   
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +33,8 @@ export class ClientListComponent implements OnInit {
     private titleService: Title,
     private clinicService: RemoteClinicListService,
     private patientService: PatientService,
-    private userService: UserService
+    private userService: UserService,
+    
   ) { }
 
   ngOnInit() {
@@ -94,7 +97,7 @@ const CLINIC_DATA: Clinic[] = [
   {id: '223412', name: 'DC-Test Clinic 4', dates:'2017 Feb 18', clients: 38, downloaded: '2018 Jan 19', status: 'warning', location: 'Peel Main Office', address: '2 Hurontario Street North', type: 'Routine', createdBy: 'Bobby Jean'},
 ];
 
-export interface Patient {
+/*export interface Patient {
   warningIcon: string;
   disclosureIcon: string;
   rescindIcon: string;
@@ -110,4 +113,4 @@ const PATIENT_DATA: Patient[] = [
   {warningIcon: 'warning', disclosureIcon:'info_outline', rescindIcon:'school', name: 'Test, Joelly', dateOfBirth:'1993 Dec 21', gender: 'male', clientId: '1001316543', hcn: '1234567897', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'', name: 'Test2, Joelly1', dateOfBirth:'2000 May 21', gender: 'female', clientId: '1001099942', hcn: '4534567897', service: 'Needed'},
   {warningIcon: 'warning', disclosureIcon:'', rescindIcon:'school', name: 'Doe, John', dateOfBirth:'2000 May 22', gender: 'male', clientId: '100191142', hcn: '123427897', service: 'Immunized'},
-];
+];*/

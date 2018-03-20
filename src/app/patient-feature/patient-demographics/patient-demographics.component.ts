@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PatientService } from '../services/patient.service';
+import { Patient } from '../../models/patient';
 
 @Component({
   selector: 'app-patient-demographics',
@@ -12,18 +13,20 @@ export class PatientDemographicsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public patientService: PatientService,
+    
   ) { }
   
   ngOnInit() {
     let patientId = this.route.snapshot.paramMap.get('id')
-    this.patientService.getPatientDemographics(patientId).subscribe(
-      data => {
-        console.log(`user resp = ${JSON.stringify(data)}`)
-        this.patient = data
-      },
-      error => {
-      }
-    )
+    console.log('init called')
+    //if (this.patientService.selectedPatient){
+    //this.patient = this.patientService.selectedPatient
+    //}
+    
+  }
+
+  setPatient(patient) {
+    this.patient = patient
   }
 
 }
