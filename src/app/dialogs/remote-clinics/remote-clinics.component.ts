@@ -65,7 +65,7 @@ export class RemoteClinicsComponent implements OnInit {
 
         }
       )
-  }*/
+  }
 
   getDates(clinic) {
     var dateArray = []
@@ -75,7 +75,7 @@ export class RemoteClinicsComponent implements OnInit {
       }
     }
     return dateArray.join("\n")
-  }
+  }*/
 }
 
 export interface RemoteClinic {

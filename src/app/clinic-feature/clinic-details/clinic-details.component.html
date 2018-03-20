@@ -6,63 +6,58 @@
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">ID</span>
-          <span class="listItemValue">{{this.clinic.id}}</span>
+          <span class="listItemValue">{{this.clinic.getId()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Title</span>
-          <span class="listItemValue">{{this.clinic.name}}</span>
+          <span class="listItemValue">{{this.clinic.getTitle()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Date(s)</span>
-          <span class="listItemValue">{{this.clinic.dates}}</span>
+          <span class="listItemValue">{{this.clinic.getDates()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Location</span>
-          <span class="listItemValue">{{this.clinic.location}}</span>
+          <span class="listItemValue">{{this.clinic.getLocation()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Address</span>
-          <span class="listItemValue">{{this.clinic.address}}</span>
+          <div class="listItemValue" *ngFor="let line of clinic.getAddress()">
+            <span >{{line}}</span>
+          </div>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Type</span>
-          <span class="listItemValue">{{this.clinic.type}}</span>
+          <span class="listItemValue">TBD</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Number of Clients</span>
-          <span class="listItemValue">{{this.clinic.clients}}</span>
+          <span class="listItemValue">{{this.clinic.getNumberOfClients()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Downloaded</span>
-          <span class="listItemValue">{{this.clinic.downloaded}}</span>
-        </div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item class="listItem">
-        <div class="listItemContent">
-          <span class="listItemTitle">Type</span>
-          <span class="listItemValue">{{this.clinic.createdBy}}</span>
+          <span class="listItemValue">TBD</span>
         </div>
       </mat-list-item>
       

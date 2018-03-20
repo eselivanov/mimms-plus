@@ -16,6 +16,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Subject } from 'rxjs/Subject';
 import { UserService } from '../../authentication-feature/services/user.service';
 import { Patient } from '../../models/patient';
+import { CarePlan } from '../../models/care-plan';
 
 @Component({
   selector: 'app-client-list',
@@ -42,8 +43,8 @@ export class ClientListComponent implements OnInit {
       this.setHeaderTitle(null)
       this.clinicService.getClinicDetails(clinicId, this.userService.user.getUserLogOn()).subscribe(
         data => {
-          console.log(`clinic details = ${JSON.stringify(data)}`)
-          this.clinicService.clinicDetails = data
+          console.log(`clinic details ${JSON.stringify(data)}`)
+          this.clinicService.clinicDetails = new CarePlan().deserialize(data)
           this.setHeaderTitle(clinicId)
           this.patientService.getAllPatients(this.clinicService.clinicDetails)
 
@@ -63,7 +64,7 @@ export class ClientListComponent implements OnInit {
 
   setHeaderTitle = (id?) => {
     if (id){
-      this.titleService.setTitle(this.clinicService.clinicDetails.description)
+      this.titleService.setTitle(this.clinicService.clinicDetails.getTitle())
     }else {
       this.titleService.setTitle('')
     }

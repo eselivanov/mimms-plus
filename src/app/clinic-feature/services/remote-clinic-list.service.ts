@@ -5,12 +5,13 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Clinic } from '../client-list/client-list.component';
 import { Constants } from '../../utils/constants';
 import { environment } from '../../../environments/environment';
+import { CarePlan } from '../../models/care-plan';
 
 @Injectable()
 export class RemoteClinicListService {
   private remoteClinicsUrl = environment.url + '/CarePlan';
   private clinicDetailsUrl = environment.url + '/CarePlan/'
-  clinicDetails = null
+  clinicDetails: CarePlan;
   constructor(
     private http: HttpClient
   ) { }

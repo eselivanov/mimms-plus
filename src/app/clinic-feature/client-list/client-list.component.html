@@ -43,12 +43,12 @@
 
     <ng-container matColumnDef="dateOfBirth">
       <mat-header-cell *matHeaderCellDef> DATE OF BIRTH </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.birthDate}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.obj.birthDate}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="gender">
       <mat-header-cell *matHeaderCellDef> GENDER </mat-header-cell>
-      <mat-cell *matCellDef="let element"><span class="capitalize">{{element.gender}}</span></mat-cell>
+      <mat-cell *matCellDef="let element"><span class="capitalize">{{element.obj.gender}}</span></mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="clientId">

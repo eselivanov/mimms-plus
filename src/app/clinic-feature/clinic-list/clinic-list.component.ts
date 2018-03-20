@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 import {MatTableDataSource} from '@angular/material';
 import { UserService } from '../../authentication-feature/services/user.service';
 import { RemoteClinicListService } from '../services/remote-clinic-list.service';
+import { CarePlan } from '../../models/care-plan';
 
 
 @Component({
@@ -41,23 +42,17 @@ export class ClinicListComponent implements OnInit {
   getClinics(): void {
       this.clinicService.getRemoteClinics(this.userService.user.getUserLogOn()).subscribe(
         data => {
-          this.remoteClinics = data.entry
+          this.remoteClinics = []
+          for (var entry of data.entry) {
+            this.remoteClinics.push(new CarePlan().deserialize(entry.resource))
+          }
+          //this.remoteClinics = data.entry
           this.dataSource = new MatTableDataSource(this.remoteClinics);
         },
         error => {
 
         }
       )
-  }
-
-  getDates(clinic) {
-    var dateArray = []
-    for (var extension of clinic.resource.extension) {
-      if (extension.url === "CarePlan/clinic#date") {
-        dateArray.push(extension.valueDate)
-      }
-    }
-    return dateArray.join("\n")
   }
   
   applyFilter(filterValue: string) {
