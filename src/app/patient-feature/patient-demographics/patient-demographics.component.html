@@ -27,7 +27,7 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Date of Birth</span>
-        <span class="listItemValue">{{this.patient.birthDate}}</span>
+        <span class="listItemValue">{{this.patient.obj.birthDate}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -41,7 +41,7 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Gender</span>
-        <span class="listItemValue capitalize">{{this.patient.gender}}</span>
+        <span class="listItemValue capitalize">{{this.patient.obj.gender}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -56,7 +56,7 @@
       <div class="listItemContent">
         <span class="listItemTitle">Phone Number(s)</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let phone of this.patient.telecom">
+          <mat-list-item class="listItem" *ngFor="let phone of this.patient.obj.telecom">
             <span class="listItemTitle capitalize">{{phone.use}}</span>
             <span class="listItemValue">{{phone.value}}</span>
           </mat-list-item>
@@ -68,7 +68,7 @@
       <div class="listItemContent">
         <span class="listItemTitle">Guardian(s)</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let contact of this.patient.contact">
+          <mat-list-item class="listItem" *ngFor="let contact of this.patient.obj.contact">
             <span class="listItemTitle capitalize">{{patient.getContactRelationship(contact)}}</span>
             <span class="listItemValue">
               <span class="bolded">{{patient.getContactFamilyName(contact.name)}}</span><span>, {{patient.getContactGivenName(contact.name)}}</span>
@@ -82,7 +82,7 @@
       <div class="listItemContent">
         <span class="listItemTitle">Address</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let address of this.patient.address">
+          <mat-list-item class="listItem" *ngFor="let address of this.patient.obj.address">
             <span class="listItemTitle capitalize">{{address.use}}</span>
             <div class="width-full">
                 <div class="listItemValue" *ngFor="let line of address.line">
