@@ -11,6 +11,7 @@ import { ParamMap } from '@angular/router/src/shared';
 import { CDK_TABLE_TEMPLATE } from '@angular/cdk/table';
 import { CarePlan } from '../../models/care-plan';
 import { RemoteClinicListService } from '../services/remote-clinic-list.service';
+import { UserService } from '../../authentication-feature/services/user.service';
 
 @Component({
   selector: 'app-clinic-details',
@@ -18,7 +19,7 @@ import { RemoteClinicListService } from '../services/remote-clinic-list.service'
   styleUrls: ['./clinic-details.component.css', '../../styles/shared-styles.css', '../../styles/table-shared.css', '../../styles/list-card.css']
 })
 export class ClinicDetailsComponent implements OnInit {
-  clinicId: string;
+  //clinicId: string;
   clinic: CarePlan;
 
   immAgentDisplayedRows = ['immAgent', 'lotNumber', 'tradeName', 'dosage', 'route', 'reason', 'required'];
@@ -30,18 +31,20 @@ export class ClinicDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title,
-    private clinicService: RemoteClinicListService
+    private clinicService: RemoteClinicListService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.clinicId = this.route.snapshot.paramMap.get('id')
-    this.setClinicInContext(this.clinicId)
+    let clinicId = this.route.snapshot.paramMap.get('id')
+    //this.setClinicInContext()
+    this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
   }
 
-  setClinicInContext = (id) => {
-    //let selectedClinic = CLINIC_DATA.filter(element => element.id === id);
-    console.log(`details detail ${this.clinicService.clinicDetails}`)
+  getClinicDetailsCompletionBlock = () => {
+
     this.clinic = this.clinicService.clinicDetails
+    
   }
 
 }

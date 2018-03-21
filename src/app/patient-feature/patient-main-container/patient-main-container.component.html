@@ -2,7 +2,7 @@
 
   <mat-toolbar-row class="mat-toolbar-row-space">
     <div class="edge-container-start">
-      <button mat-icon-button routerLink="/clinics/{{clinicService.clinicDetails.getId()}}">
+      <button mat-icon-button routerLink="/clinics/{{route.snapshot.paramMap.get('clinicId')}}">
           <mat-icon aria-label="Go Back">navigate_before</mat-icon>
       </button>
       <span class="backButtonLabel">Back</span>

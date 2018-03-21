@@ -110,4 +110,13 @@ export class CarePlan implements Deserializable<CarePlan> {
         }
         return ''
     }
+    
+    getType(): string {
+        if (this.obj.category && this.obj.category.length > 0) {
+            if (this.obj.category[0].coding && this.obj.category[0].coding.length > 0) {
+                return this.obj.category[0].coding[0].display
+            }
+        }
+        return ""
+    }
 }

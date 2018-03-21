@@ -15,6 +15,7 @@ import { PatientService } from '../services/patient.service';
 import { RemoteClinicListService } from '../../clinic-feature/services/remote-clinic-list.service';
 import { Patient } from '../../models/patient';
 import { PatientDemographicsComponent } from '../patient-demographics/patient-demographics.component';
+import { UserService } from '../../authentication-feature/services/user.service';
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
@@ -35,31 +36,37 @@ export class PatientMainContainerComponent implements OnInit {
     public dialog: MatDialog,
     public patientService: PatientService,
     public clinicService: RemoteClinicListService,
+    public userService: UserService
   ) { }
 
   ngOnInit() {
-    if (!this.clinicService.clinicDetails) {
+    /*if (!this.clinicService.clinicDetails) {
       this.router.navigate(['/clinics']);
     }else {
-      let patientId = this.route.snapshot.paramMap.get('id')
-      this.patientService.getPatientDemographics(patientId).subscribe(
-        data => {
-
-          this.patient = new Patient().deserialize(data)
-          this.patientService.selectedPatient = this.patient
-
-          this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
-          this.patientDemographicsComponent.setPatient(this.patient)
-
-        },
-        error => {
-        }
-      )
+      
      
-    }
-    
+    }*/
+    let clinicId = this.route.snapshot.paramMap.get('clinicId')
+    this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
+
   }
 
+  getClinicDetailsCompletionBlock() {
+    let patientId = this.route.snapshot.paramMap.get('id')
+    this.patientService.getPatientDemographics(patientId).subscribe(
+      data => {
+
+        this.patient = new Patient().deserialize(data)
+        this.patientService.selectedPatient = this.patient
+
+        this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
+        this.patientDemographicsComponent.setPatient(this.patient)
+
+      },
+      error => {
+      }
+    )
+  }
   setHeaderTitle = (id) => {
     
     var selectedPatient = null;

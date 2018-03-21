@@ -1,7 +1,7 @@
 <div class="container">
 
   <h3 mat-subheader class="primary">Clinic Details</h3>
-  <mat-card class="smallMargin mat-elevation-z8">
+  <mat-card class="smallMargin mat-elevation-z8" *ngIf="clinic">
     <mat-list>
       <mat-list-item class="listItem">
         <div class="listItemContent">
@@ -34,8 +34,10 @@
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Address</span>
-          <div class="listItemValue" *ngFor="let line of clinic.getAddress()">
-            <span >{{line}}</span>
+          <div>
+            <div class="listItemValue" *ngFor="let line of clinic.getAddress()">
+              <span >{{line}}</span>
+            </div>
           </div>
         </div>
       </mat-list-item>
@@ -43,7 +45,7 @@
       <mat-list-item class="listItem">
         <div class="listItemContent">
           <span class="listItemTitle">Type</span>
-          <span class="listItemValue">TBD</span>
+          <span class="listItemValue">{{this.clinic.getType()}}</span>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>

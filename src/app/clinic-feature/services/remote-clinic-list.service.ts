@@ -38,4 +38,24 @@ export class RemoteClinicListService {
     return this.http.post(this.clinicDetailsUrl + clinicId, null,{ headers : headers })
 
   }
+
+  getClinicDetailsWithCompletion(clinicId, userLogon, completion) {
+    if (this.clinicDetails && this.clinicDetails.getId() === clinicId) {
+      completion()
+    }else{
+      this.getClinicDetails(clinicId, userLogon).subscribe(
+        data => {
+          console.log(`clinic details ${JSON.stringify(data)}`)
+          this.clinicDetails = new CarePlan().deserialize(data)
+          if (completion != null) {
+            completion()
+          }
+        },
+        error => {
+  
+        }
+      )
+    }
+    
+  }
 }

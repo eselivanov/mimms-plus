@@ -40,35 +40,20 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit() {
       let clinicId = this.route.snapshot.paramMap.get('id')
-      this.setHeaderTitle(null)
-      this.clinicService.getClinicDetails(clinicId, this.userService.user.getUserLogOn()).subscribe(
-        data => {
-          console.log(`clinic details ${JSON.stringify(data)}`)
-          this.clinicService.clinicDetails = new CarePlan().deserialize(data)
-          this.setHeaderTitle(clinicId)
-          this.patientService.getAllPatients(this.clinicService.clinicDetails)
-
-        },
-        error => {
-
-        }
-      )
+      this.titleService.setTitle('')
+      this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
   
+  }
+
+  getClinicDetailsCompletionBlock() {
+    this.titleService.setTitle(this.clinicService.clinicDetails.getTitle())
+    this.patientService.getAllPatients(this.clinicService.clinicDetails)
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     //this.dataSource.filter = filterValue;
-  }
-
-  setHeaderTitle = (id?) => {
-    if (id){
-      this.titleService.setTitle(this.clinicService.clinicDetails.getTitle())
-    }else {
-      this.titleService.setTitle('')
-    }
-    
   }
 
 }
