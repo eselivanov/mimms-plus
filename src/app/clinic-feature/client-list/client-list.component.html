@@ -43,12 +43,12 @@
 
     <ng-container matColumnDef="dateOfBirth">
       <mat-header-cell *matHeaderCellDef> DATE OF BIRTH </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.obj.birthDate}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.getBirthDate()}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="gender">
       <mat-header-cell *matHeaderCellDef> GENDER </mat-header-cell>
-      <mat-cell *matCellDef="let element"><span class="capitalize">{{element.obj.gender}}</span></mat-cell>
+      <mat-cell *matCellDef="let element"><span class="capitalize">{{element.getGender()}}</span></mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="clientId">
@@ -69,13 +69,13 @@
     <ng-container matColumnDef="routingAction">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-icon-button routerLink="/patient/{{element.getClientId()}}/{{route.snapshot.paramMap.get('id')}}">
+        <button mat-icon-button routerLink="/patient/{{route.snapshot.paramMap.get('id')}}/{{element.getClientId()}}">
           <mat-icon aria-label="See Clients">navigate_next</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{row.getClientId()}}/{{route.snapshot.paramMap.get('id')}}"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/patient/{{route.snapshot.paramMap.get('id')}}/{{row.getClientId()}}"></mat-row>
   </mat-table>
 </div>

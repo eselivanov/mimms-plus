@@ -58,6 +58,7 @@ export class Practitioner implements Deserializable<Practitioner> {
        }
        return null
      }
+     
      getOrgId(): string {
        var roleObj = this.getRoleObj()
        if (roleObj) {

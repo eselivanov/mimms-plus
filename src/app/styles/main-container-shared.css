@@ -27,12 +27,14 @@
 .small-toolbar {
     max-height: 30px;
     min-height: 30px !important;
+    overflow: hidden;
 }
 
 .small-toolbar-row {
     max-height: 30px;
     min-height: 30px !important;
     background: #4DB6AC !important;
+    overflow: hidden;
 }
 
 .edge-container-end {

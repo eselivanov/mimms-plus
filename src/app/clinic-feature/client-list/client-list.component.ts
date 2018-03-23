@@ -27,6 +27,7 @@ export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];
   dataSource = new PatientDataSource(this.patientService)
   patient: Patient = new Patient()
+  clinic: CarePlan;
   
   constructor(
     private route: ActivatedRoute,
@@ -46,8 +47,9 @@ export class ClientListComponent implements OnInit {
   }
 
   getClinicDetailsCompletionBlock() {
-    this.titleService.setTitle(this.clinicService.clinicDetails.getTitle())
-    this.patientService.getAllPatients(this.clinicService.clinicDetails)
+    this.clinic = this.clinicService.clinicDetails
+    this.titleService.setTitle(this.clinic.getTitle())
+    this.patientService.getAllPatients(this.clinic)
   }
 
   applyFilter(filterValue: string) {

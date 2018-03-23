@@ -16,10 +16,12 @@ import { RemoteClinicListService } from '../../clinic-feature/services/remote-cl
 import { Patient } from '../../models/patient';
 import { PatientDemographicsComponent } from '../patient-demographics/patient-demographics.component';
 import { UserService } from '../../authentication-feature/services/user.service';
+import { CarePlan } from '../../models/care-plan';
+
 @Component({
   selector: 'app-patient-main-container',
   templateUrl: './patient-main-container.component.html',
-  styleUrls: ['./patient-main-container.component.css', '../../styles/main-container-shared.css']
+  styleUrls: ['./patient-main-container.component.css', '../../styles/main-container-shared.css', '../../styles/shared-styles.css']
 })
 export class PatientMainContainerComponent implements OnInit {
 
@@ -28,7 +30,7 @@ export class PatientMainContainerComponent implements OnInit {
 
   selectedIndex:Number = 0
   patient: Patient
-  
+  clinic: CarePlan
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -40,12 +42,7 @@ export class PatientMainContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /*if (!this.clinicService.clinicDetails) {
-      this.router.navigate(['/clinics']);
-    }else {
-      
-     
-    }*/
+
     let clinicId = this.route.snapshot.paramMap.get('clinicId')
     this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
 
@@ -53,6 +50,7 @@ export class PatientMainContainerComponent implements OnInit {
 
   getClinicDetailsCompletionBlock() {
     let patientId = this.route.snapshot.paramMap.get('id')
+    this.clinic = this.clinicService.clinicDetails
     this.patientService.getPatientDemographics(patientId).subscribe(
       data => {
 

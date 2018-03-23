@@ -35,25 +35,25 @@
 </mat-toolbar>
 
 <mat-toolbar color="primary" class="small-toolbar">
-  <mat-toolbar-row class="small-toolbar-row mat-toolbar-row-centered">
+  <mat-toolbar-row class="small-toolbar-row mat-toolbar-row-centered" *ngIf="patient">
     <div>
       <span class="patientInfoTitle">
         Date of Birth
       </span>
       <span class="patientInfoValue">
-        2008 Oct 02
+        {{patient.getBirthDate()}}
       </span>
       <span class="patientInfoTitle">
         Age
       </span>
       <span class="patientInfoValue">
-        9 years 3 months 24 days
+        {{patient.getAge()}}
       </span>
       <span class="patientInfoTitle">
         Gender
       </span>
-      <span class="patientInfoValue">
-        Male
+      <span class="patientInfoValue capitalize">
+        {{patient.getGender()}}
       </span>
     </div>
   </mat-toolbar-row>

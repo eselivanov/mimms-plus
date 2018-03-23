@@ -27,21 +27,21 @@
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Date of Birth</span>
-        <span class="listItemValue">{{this.patient.obj.birthDate}}</span>
+        <span class="listItemValue">{{this.patient.getBirthDate()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Age</span>
-        <span class="listItemValue">24 years 7 months 16 days</span>
+        <span class="listItemValue">{{this.patient.getAge()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item class="listItem">
       <div class="listItemContent">
         <span class="listItemTitle">Gender</span>
-        <span class="listItemValue capitalize">{{this.patient.obj.gender}}</span>
+        <span class="listItemValue capitalize">{{this.patient.getGender()}}</span>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
@@ -56,9 +56,9 @@
       <div class="listItemContent">
         <span class="listItemTitle">Phone Number(s)</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let phone of this.patient.obj.telecom">
-            <span class="listItemTitle capitalize">{{phone.use}}</span>
-            <span class="listItemValue">{{phone.value}}</span>
+          <mat-list-item class="listItem" *ngFor="let phone of this.patient.getPhones()">
+            <span class="listItemTitle capitalize">{{phone.getType()}}</span>
+            <span class="listItemValue">{{phone.getValue()}}</span>
           </mat-list-item>
         </mat-list>
       </div>
@@ -68,10 +68,10 @@
       <div class="listItemContent">
         <span class="listItemTitle">Guardian(s)</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let contact of this.patient.obj.contact">
-            <span class="listItemTitle capitalize">{{patient.getContactRelationship(contact)}}</span>
+          <mat-list-item class="listItem" *ngFor="let contact of this.patient.getGuardians()">
+            <span class="listItemTitle capitalize">{{contact.getContactRelationship()}}</span>
             <span class="listItemValue">
-              <span class="bolded">{{patient.getContactFamilyName(contact.name)}}</span><span>, {{patient.getContactGivenName(contact.name)}}</span>
+              <span class="bolded">{{contact.getContactFamilyName()}}</span><span>, {{contact.getContactGivenName()}}</span>
             </span>
           </mat-list-item>
         </mat-list>
@@ -82,10 +82,10 @@
       <div class="listItemContent">
         <span class="listItemTitle">Address</span>
         <mat-list class="nestedTable">
-          <mat-list-item class="listItem" *ngFor="let address of this.patient.obj.address">
-            <span class="listItemTitle capitalize">{{address.use}}</span>
+          <mat-list-item class="listItem" *ngFor="let address of this.patient.getAddresses()">
+            <span class="listItemTitle capitalize">{{address.getType()}}</span>
             <div class="width-full">
-                <div class="listItemValue" *ngFor="let line of address.line">
+                <div class="listItemValue" *ngFor="let line of address.getLines()">
                   <span >{{line}}</span>
                 </div>
             </div>

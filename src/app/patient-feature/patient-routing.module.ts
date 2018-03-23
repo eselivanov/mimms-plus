@@ -4,7 +4,7 @@ import { PatientMainContainerComponent } from './patient-main-container/patient-
 
 const routes: Routes = [
   { 
-    path: 'patient/:id/:clinicId', 
+    path: 'patient/:clinicId/:id', 
     component: PatientMainContainerComponent,
   },
 ];

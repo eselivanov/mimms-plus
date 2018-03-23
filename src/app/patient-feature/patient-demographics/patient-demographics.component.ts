@@ -17,11 +17,6 @@ export class PatientDemographicsComponent implements OnInit {
   ) { }
   
   ngOnInit() {
-    let patientId = this.route.snapshot.paramMap.get('id')
-    console.log('init called')
-    //if (this.patientService.selectedPatient){
-    //this.patient = this.patientService.selectedPatient
-    //}
     
   }
 

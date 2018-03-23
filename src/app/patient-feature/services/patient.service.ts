@@ -13,8 +13,9 @@ export class PatientService {
   private userUrl = "https://panmfp.panorama.dev.ehealthontario.ca:9049/phdp/fhir" + '/Patient/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
-  sortingUtil: SortingUtil = new SortingUtil();
   selectedPatient: Patient = null;
+  sortingUtil: SortingUtil = new SortingUtil();
+
   constructor(
     private http: HttpClient,
     
