@@ -44,9 +44,8 @@ export class ClinicListComponent implements OnInit {
         data => {
           this.remoteClinics = []
           for (var entry of data.entry) {
-            this.remoteClinics.push(new CarePlan().deserialize(entry.resource))
+            this.remoteClinics.push(new CarePlan(entry.resource))
           }
-          //this.remoteClinics = data.entry
           this.dataSource = new MatTableDataSource(this.remoteClinics);
         },
         error => {

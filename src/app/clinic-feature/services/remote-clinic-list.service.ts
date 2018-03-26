@@ -46,7 +46,7 @@ export class RemoteClinicListService {
       this.getClinicDetails(clinicId, userLogon).subscribe(
         data => {
           console.log(`clinic details ${JSON.stringify(data)}`)
-          this.clinicDetails = new CarePlan().deserialize(data)
+          this.clinicDetails = new CarePlan(data)
           if (completion != null) {
             completion()
           }

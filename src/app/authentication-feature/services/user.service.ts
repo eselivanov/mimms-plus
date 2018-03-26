@@ -4,13 +4,14 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Constants } from '../../utils/constants';
 import { environment } from '../../../environments/environment';
-import { Practitioner } from '../../models/practitioner';
+import { User } from '../../models/user';
+
 
 @Injectable()
 export class UserService {
   private userUrl = environment.url + '/Practitioner';
   userName: string = ''
-  user: Practitioner;
+  user: User;
   constructor(
     private http: HttpClient,
   ) { }

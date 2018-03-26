@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import 'hammerjs';
 import { Router } from '@angular/router';
 import { UserService } from './authentication-feature/services/user.service';
-import { Practitioner } from './models/practitioner';
+import { User } from './models/user';
+
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
   ngOnInit() {
     let userString = this.userService.getStoredUser();
     if (userString) {
-      this.userService.user = new Practitioner().deserialize(JSON.parse(userString));
+      this.userService.user = new User(JSON.parse(userString));
     }else {
       console.log('test')
       this.router.navigate(['/login']);

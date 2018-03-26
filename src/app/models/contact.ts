@@ -1,13 +1,10 @@
 import { Constants } from "../utils/constants";
-import { Deserializable } from "./deserializable";
 
-export class Contact implements Deserializable<Contact> {
+export class Contact {
     public obj: any
 
-    deserialize(input: any): Contact {
-        
-        this.obj = input
-        return this
+    constructor(obj: any) {     
+        this.obj = obj
     }
 
     getContactGivenName(): string {

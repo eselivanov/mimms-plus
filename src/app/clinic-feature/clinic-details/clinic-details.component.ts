@@ -23,10 +23,10 @@ export class ClinicDetailsComponent implements OnInit {
   clinic: CarePlan;
 
   immAgentDisplayedRows = ['immAgent', 'lotNumber', 'tradeName', 'dosage', 'route', 'reason', 'required'];
-  immAgentDataSource = new MatTableDataSource(IMM_AGENT_DATA);
+  immAgentDataSource = new MatTableDataSource();
   
   providerDisplayedRows = ['id', 'name', 'designation'];
-  providerDataSource = new MatTableDataSource(PROVIDER_DATA);
+  providerDataSource = new MatTableDataSource();
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -44,10 +44,13 @@ export class ClinicDetailsComponent implements OnInit {
   getClinicDetailsCompletionBlock = () => {
 
     this.clinic = this.clinicService.clinicDetails
+    this.immAgentDataSource = new MatTableDataSource(this.clinic.getActivities())
+    this.providerDataSource = new MatTableDataSource(this.clinic.getProviders())
     
   }
 
 }
+
 
 /*export interface Clinic {
   id: string;
@@ -70,7 +73,7 @@ const CLINIC_DATA: Clinic[] = [
 ];*/
 
 
-export interface Vaccine {
+export interface VaccineTest {
   immAgent: string;
   lotNumber: string;
   tradeName: string;
@@ -81,7 +84,7 @@ export interface Vaccine {
   required: number;
 }
 
-const IMM_AGENT_DATA: Vaccine[] = [
+const IMM_AGENT_DATA: VaccineTest[] = [
   {immAgent: 'HB', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseage: 1.0, route: 'Oral: PO', reason: 'Occupational Risk', required: 1 },
   {immAgent: 'HPV', lotNumber: 'L009463', tradeName: 'HB Remcombivax HB MC', manufacturer: 'Merck Canada', doseage: 1.0, route: 'Oral: PO', reason: 'Occupational Risk', required: 2 },
 ];

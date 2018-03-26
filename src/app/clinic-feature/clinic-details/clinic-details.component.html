@@ -67,43 +67,43 @@
   </mat-card>
   
   <h3 mat-subheader class="primary">Immunizing Agents</h3>
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" *ngIf="clinic">
 
     <mat-table #table [dataSource]="immAgentDataSource">
 
         <ng-container matColumnDef="immAgent">
           <mat-header-cell *matHeaderCellDef> IMMUNIZATION AGENT </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.immAgent}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.vaccine.getAgent()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="lotNumber">
           <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.lotNumber}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.vaccine.getLotNumber()}} </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="tradeName">
           <mat-header-cell *matHeaderCellDef> TRADE NAME </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.vaccine.getTradeName()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="dosage">
           <mat-header-cell *matHeaderCellDef> DOSAGE </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.dosage}} mL </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.getDosageValue()}} {{element.getDosageUnit()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="route">
           <mat-header-cell *matHeaderCellDef> ROUTE </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.route}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.getRoute()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="reason">
           <mat-header-cell *matHeaderCellDef> REASON </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.reason}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.getReason()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="required">
             <mat-header-cell *matHeaderCellDef> REQUIRED </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.required}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.getRequired()}} </mat-cell>
           </ng-container>
     
       <mat-header-row *matHeaderRowDef="immAgentDisplayedRows"></mat-header-row>
@@ -112,23 +112,25 @@
   </div>
 
   <h3 mat-subheader class="primary">Providers</h3>
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" *ngIf="clinic">
 
     <mat-table #table [dataSource]="providerDataSource">
 
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.getId()}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          <mat-cell *matCellDef="let element"> 
+            <span class='bolded'>{{element.getFamilyName()}}</span><span>, {{element.getGivenName()}}</span>
+          </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="designation">
           <mat-header-cell *matHeaderCellDef> DESIGNATION </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.getDesignation()}} </mat-cell>
         </ng-container>
     
       <mat-header-row *matHeaderRowDef="providerDisplayedRows"></mat-header-row>

@@ -1,13 +1,10 @@
 import { Constants } from "../utils/constants";
-import { Deserializable } from "./deserializable";
 
-export class Address implements Deserializable<Address> {
+export class Address {
     public obj: any
 
-    deserialize(input: any): Address {
-        
-        this.obj = input
-        return this
+    constructor(obj: any) {   
+        this.obj = obj
     }
 
     getType(): string {

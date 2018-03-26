@@ -32,7 +32,7 @@ export class PinEntryComponent implements OnInit {
     this.userService.getUser().subscribe(
     data => {
       this.userService.storeUser(data);
-      this.userService.user = new Practitioner().deserialize(data)
+      this.userService.user = new Practitioner(data)
       this.router.navigate(['/clinics']);
     },
     error => {

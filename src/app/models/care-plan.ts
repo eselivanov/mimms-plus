@@ -1,13 +1,14 @@
 import { Constants } from "../utils/constants";
-import { Deserializable } from "./deserializable";
+import { Vaccine } from "./vaccine";
+import { Activity } from "./activity";
+import { Practitioner } from "./practitioner";
 
-export class CarePlan implements Deserializable<CarePlan> {
+
+export class CarePlan {
     public obj: any
 
-    deserialize(input: any): CarePlan {
-        
-        this.obj = input
-        return this
+    constructor(obj: any) {   
+        this.obj = obj
     }
 
     getDates() {
@@ -49,8 +50,7 @@ export class CarePlan implements Deserializable<CarePlan> {
     }
 
     getMemberId(member): string {
-        
-        //for (const member of members) {
+
         var patientRef = member.entity.reference
         for (var patientObj of this.obj.contained) {
             if (patientRef.split('#')[1] === patientObj.id) {
@@ -63,25 +63,42 @@ export class CarePlan implements Deserializable<CarePlan> {
                 break;
             }
         }
-        //}
-                   
+   
         return null
 
     }
 
-    getLocationObj(): any {
+    getActivity(): Activity{ 
         if (this.obj.activity && this.obj.activity.length > 0) {
-            if (this.obj.activity[0].detail && this.obj.activity[0].detail.location && this.obj.activity[0].detail.location.reference) {
-                let ref = this.obj.activity[0].detail.location.reference
-                console.log(`location ref ${ref}`)
-                for (var obj of this.obj.contained) {
-                    if (ref.split('#')[1] === obj.id) {
-                        return obj
-                    }
-                }
+            if (this.obj.activity[0]) {
+                return new Activity(this.obj.activity[0], this)
             }
         }
         return null
+    }
+
+    getActivities(): Activity[] {
+        let activities: Activity[] = []
+        if (this.obj.activity) {
+            for (let activity of this.obj.activity) {
+                activities.push(new Activity(activity, this))
+            }
+        }
+        return activities
+    }
+
+    getLocationObj(): any {
+        let activity = this.getActivity()
+        if (activity.obj.detail && activity.obj.detail.location && activity.obj.detail.location.reference) {
+            let ref = activity.obj.detail.location.reference
+            for (var obj of this.obj.contained) {
+                if (ref.split('#')[1] === obj.id) {
+                    return obj
+                }
+            }
+            return null
+        }
+        
     }
 
     getLocation(): string {
@@ -103,6 +120,7 @@ export class CarePlan implements Deserializable<CarePlan> {
         }
         return []
     }
+
     getNumberOfClients(): string {
         let membersObj = this.getMembersObj()
         if (membersObj) {
@@ -118,5 +136,27 @@ export class CarePlan implements Deserializable<CarePlan> {
             }
         }
         return ""
+    }
+
+    getProviders(): Practitioner[] {
+        let providers: Practitioner[] = []
+        if (this.obj.careTeam) {
+            for (let ref of this.obj.careTeam) { 
+                for (let obj of this.obj.contained) {
+                    if (ref.reference.split('#')[1] === obj.id) {
+                        for (let participant of obj.participant){
+                            for (let prac of this.obj.contained) {
+                                if (participant.member.reference.split('#')[1] === prac.id) {
+                                    providers.push(new Practitioner(prac))
+                                    break
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        return providers
     }
 }

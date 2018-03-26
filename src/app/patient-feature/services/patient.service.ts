@@ -37,18 +37,24 @@ export class PatientService {
     this.patients = []
     var membersObj = details.getMembersObj()
     if (membersObj){
+      var counter = 0
       for (var member of membersObj.member) {
+        console.log(`member ${counter} b4 success ${details.getMemberId(member)}`)
         this.getPatientDemographics(details.getMemberId(member)).subscribe(
           data => {
-            this.patients.push(new Patient().deserialize(data))
+            this.patients.push(new Patient(data))
             this.patients.sort(this.sortingUtil.nameCompare)
             this.patientSubject.next(this.patients)
+            console.log(`success id ${details.getMemberId(member)}`)
           },
           error => {
+            console.log(`member id ${details.getMemberId(member)}`)
             this.patientSubject.error('errr')
           }
         )
+        counter++
       }
+      console.log('exit loop')
     }else {
       console.log(`member fail`)
     }

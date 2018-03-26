@@ -1,13 +1,10 @@
 import { Constants } from "../utils/constants";
-import { Deserializable } from "./deserializable";
 
-export class Telecom implements Deserializable<Telecom> {
+export class Telecom {
     public obj: any
 
-    deserialize(input: any): Telecom {
-        
-        this.obj = input
-        return this
+    constructor(obj: any) {   
+        this.obj = obj
     }
 
     getType(): string {

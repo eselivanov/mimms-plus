@@ -54,7 +54,7 @@ export class PatientMainContainerComponent implements OnInit {
     this.patientService.getPatientDemographics(patientId).subscribe(
       data => {
 
-        this.patient = new Patient().deserialize(data)
+        this.patient = new Patient(data)
         this.patientService.selectedPatient = this.patient
 
         this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
