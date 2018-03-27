@@ -6,11 +6,12 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { SortingUtil } from '../../utils/sorting-util';
 import { Patient } from '../../models/patient';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable()
 export class PatientService {
-  private userUrl = "https://panmfp.panorama.dev.ehealthontario.ca:9049/phdp/fhir" + '/Patient/';
+  private userUrl = environment.url + '/Patient/ClientId/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
   selectedPatient: Patient = null;
