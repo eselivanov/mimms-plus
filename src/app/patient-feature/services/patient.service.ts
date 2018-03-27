@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PatientService {
-  private userUrl = environment.url + '/Patient/ClientId/';
+  private userUrl = environment.url + '/Patient/clientid/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
   selectedPatient: Patient = null;
@@ -30,7 +30,7 @@ export class PatientService {
       'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiIsInZlciI6IjEuMC4wIiwidHlwIjoiSldUIn0.eyJleHAiOjE1NTE4MTc5MDksInN1YiI6Ik1pbGEuTmlrdWxpbmFAb25laWQub24uY2EiLCJpc3MiOiJQSERQOlRva2VuIiwiYXVkIjoiUEhEUDptSU1NUyIsImp0aSI6IjUzYjM5NDBkLThhMjgtNGFlMS05NmRhLTEyZGUzZWRiNDViOSIsImlhdCI6MTUyMDI4MTkwOX0.iffoZHZTW0zf-hi-zi7JuDOP9Y8mumpIK0cylQ_3FRXINP6judaIIVFQl8t12WwHPnOyrsdK2wZaIoRCfImh8Q'
     }
     var headers = new HttpHeaders(headerJson)
-    return this.http.get(this.userUrl + id ,  {headers : headers})
+    return this.http.post(this.userUrl + id ,  {headers : headers})
 
   } 
 

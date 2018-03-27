@@ -26,7 +26,7 @@ import { CarePlan } from '../../models/care-plan';
 export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];
   dataSource = new PatientDataSource(this.patientService)
-  patient: Patient = new Patient()
+  patient: Patient
   clinic: CarePlan;
   
   constructor(
