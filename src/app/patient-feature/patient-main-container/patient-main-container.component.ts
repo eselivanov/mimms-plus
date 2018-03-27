@@ -31,6 +31,7 @@ export class PatientMainContainerComponent implements OnInit {
   selectedIndex:Number = 0
   patient: Patient
   clinic: CarePlan
+  _subscription
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -42,13 +43,50 @@ export class PatientMainContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    let patientId = this.route.snapshot.paramMap.get('id')
     let clinicId = this.route.snapshot.paramMap.get('clinicId')
-    this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
-
+    this.clinicService.getClinicDetails(clinicId, this.userService.user.getUserLogOn())
+    this.clinic = this.clinicService.clinicDetails
+    if (this.clinic) {
+      console.log('in this if')
+      this.patientService.getPatientDemographics(patientId).subscribe(
+        data => {
+  
+          this.patient = new Patient(data)
+          this.patientService.selectedPatient = this.patient
+  
+          this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
+          this.patientDemographicsComponent.setPatient(this.patient)
+  
+        },
+        error => {
+        }
+      )
+    }
+    this._subscription = this.clinicService.clinicSubject.subscribe((value) => { 
+      console.log('in this sub')
+      this.clinic = value
+      this.patientService.getPatientDemographics(patientId).subscribe(
+        data => {
+  
+          this.patient = new Patient(data)
+          this.patientService.selectedPatient = this.patient
+  
+          this.titleService.setTitle(`${this.patient.getFamilyName()}, ${this.patient.getGivenName()}`);
+          this.patientDemographicsComponent.setPatient(this.patient)
+  
+        },
+        error => {
+        }
+      )
+    });
   }
 
-  getClinicDetailsCompletionBlock() {
+  ngOnDestroy() {
+    this._subscription.unsubscribe()
+  }
+
+  /*getClinicDetailsCompletionBlock() {
     let patientId = this.route.snapshot.paramMap.get('id')
     this.clinic = this.clinicService.clinicDetails
     this.patientService.getPatientDemographics(patientId).subscribe(
@@ -64,7 +102,7 @@ export class PatientMainContainerComponent implements OnInit {
       error => {
       }
     )
-  }
+  }*/
   setHeaderTitle = (id) => {
     
     var selectedPatient = null;

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { Practitioner } from '../../models/practitioner';
+import { User } from '../../models/user';
+
 
 @Component({
   selector: 'app-pin-entry',
@@ -32,7 +33,7 @@ export class PinEntryComponent implements OnInit {
     this.userService.getUser().subscribe(
     data => {
       this.userService.storeUser(data);
-      this.userService.user = new Practitioner(data)
+      this.userService.user = new User(data)
       this.router.navigate(['/clinics']);
     },
     error => {

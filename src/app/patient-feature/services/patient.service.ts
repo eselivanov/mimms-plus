@@ -37,9 +37,7 @@ export class PatientService {
     this.patients = []
     var membersObj = details.getMembersObj()
     if (membersObj){
-      var counter = 0
       for (var member of membersObj.member) {
-        console.log(`member ${counter} b4 success ${details.getMemberId(member)}`)
         this.getPatientDemographics(details.getMemberId(member)).subscribe(
           data => {
             this.patients.push(new Patient(data))
@@ -52,11 +50,9 @@ export class PatientService {
             this.patientSubject.error('errr')
           }
         )
-        counter++
       }
-      console.log('exit loop')
     }else {
-      console.log(`member fail`)
+      console.log(`member fail ${JSON.stringify(membersObj)}`)
     }
     
   }
