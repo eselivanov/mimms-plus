@@ -10,6 +10,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { RemoteClinicsComponent } from '../../dialogs/remote-clinics/remote-clinics.component';
 import { AddPatientDialogComponent } from '../../dialogs/add-patient-dialog/add-patient-dialog.component';
+import { RemoteClinicListService } from '../services/remote-clinic-list.service';
+import { UserService } from '../../authentication-feature/services/user.service';
+import { PatientService } from '../../patient-feature/services/patient.service';
+import { Subject } from 'rxjs/Subject';
+import { CarePlan } from '../../models/care-plan';
 
 @Component({
   selector: 'app-main-container',
@@ -20,37 +25,61 @@ export class MainContainerComponent implements OnInit {
   showBackButton = false
   currentURL = ""
   currentPage = ""
+  _subscription
 
   constructor(
     private router: Router, 
     public titleService: Title, 
     public dialog: MatDialog,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute,
+    private clinicService: RemoteClinicListService,
+    private userService: UserService,
+    private patientService: PatientService
+  ) { 
 
     router.events.filter(e => e instanceof NavigationEnd).subscribe((e: NavigationEnd) => {
       console.log(e.url);
       this.currentURL = e.url
-      if (!this.currentURL.includes("details") && !this.currentURL.includes("dashboard") && this.currentURL !== "/clinics") {
-        console.log(`setting page to clients`)
-        this.currentPage = "clients"
+      if (this.currentURL === "/clinics") {
+        console.log(`setting page to clinic`)
+        this.currentPage = "clinics"
       }else{
-        console.log(`current url ${this.currentURL}`)
+        let clinicId = this.route.firstChild.snapshot.paramMap.get('id')
+        this.titleService.setTitle('')
+        this.clinicService.getClinicDetails(clinicId, this.userService.user.getUserLogOn())    
         if (this.currentURL.includes("details"))  {
           console.log(`setting page to details`)
           this.currentPage = "details"
         }else if (this.currentURL.includes("dashboard"))  {
           console.log(`setting page to dashboard`)
           this.currentPage = "dashboard"
-        }else if(this.currentURL === "/clinics") {
-          console.log(`setting page to clinic`)
-          this.currentPage = "clinics"
+        }else {
+          console.log(`setting page to clients`)
+          this.currentPage = "clients"
         }
       }
     });
   }
 
   ngOnInit() {
+    //this.name = nameService.name;
+    this._subscription = this.clinicService.clinicSubject.subscribe((value) => { 
+      this.titleService.setTitle(value.getTitle())
+    });
   }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe()
+  }
+
+  /*getClinicDetailsCompletionBlock() {
+    //this.clinic = this.clinicService.clinicDetails
+    this.titleService.setTitle(this.clinicService.clinicDetails.getTitle())
+    if (this.currentPage === "clients") {
+      this.patientService.getAllPatients(this.clinicService.clinicDetails)
+    }
+    
+  }*/
 
   goBack = () => {
     if (this.router.url.includes("details") || this.router.url.includes("dashboard")){

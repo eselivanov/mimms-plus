@@ -26,9 +26,8 @@ import { CarePlan } from '../../models/care-plan';
 export class ClientListComponent implements OnInit {
   displayedColumns = ['warningIcon', 'disclosureIcon', 'rescindIcon', 'name', 'dateOfBirth', 'gender', 'clientId', 'service', 'routingAction'];
   dataSource = new PatientDataSource(this.patientService)
-  patient: Patient
   clinic: CarePlan;
-  
+  _subscription
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -40,17 +39,31 @@ export class ClientListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      let clinicId = this.route.snapshot.paramMap.get('id')
-      this.titleService.setTitle('')
-      this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
-  
+      //let clinicId = this.route.snapshot.paramMap.get('id')
+      //this.titleService.setTitle('')
+      //this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
+      this.clinic = this.clinicService.clinicDetails
+      if (this.clinic) {
+        console.log('in this if')
+        this.patientService.getAllPatients(this.clinic)
+      }
+      this._subscription = this.clinicService.clinicSubject.subscribe((value) => { 
+        console.log('in this sub')
+        this.clinic = value
+        this.patientService.getAllPatients(this.clinic)
+      });
+      
   }
 
-  getClinicDetailsCompletionBlock() {
+  ngOnDestroy() {
+    this._subscription.unsubscribe()
+  }
+
+  /*getClinicDetailsCompletionBlock() {
     this.clinic = this.clinicService.clinicDetails
     this.titleService.setTitle(this.clinic.getTitle())
     this.patientService.getAllPatients(this.clinic)
-  }
+  }*/
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -70,6 +83,7 @@ export class PatientDataSource extends DataSource<any> {
   disconnect() {}
 }
 
+/*
 export interface Clinic {
   id: string;
   name: string;
@@ -88,7 +102,7 @@ const CLINIC_DATA: Clinic[] = [
   {id: '222141', name: 'DC-Test Clinic 2', dates:'2017 May 12', clients: 38, downloaded: '2018 Jan 18', status: 'warning', location: 'Peel Main Office', address: '1 Hurontario Street North', type: 'Routine', createdBy: 'Joe Smith'},
   {id: '249441', name: 'DC-Test Clinic 3', dates:'2017 Dec 13', clients: 38, downloaded: '2018 Jan 17', status: 'warning', location: 'Grey Bruce Main Office', address: '101 17th Street East', type: 'Routine', createdBy: 'Bob Dale'},
   {id: '223412', name: 'DC-Test Clinic 4', dates:'2017 Feb 18', clients: 38, downloaded: '2018 Jan 19', status: 'warning', location: 'Peel Main Office', address: '2 Hurontario Street North', type: 'Routine', createdBy: 'Bobby Jean'},
-];
+];*/
 
 /*export interface Patient {
   warningIcon: string;

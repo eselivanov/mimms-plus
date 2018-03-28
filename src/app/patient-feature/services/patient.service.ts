@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PatientService {
-  private userUrl = environment.url + '/Patient/clientid/';
+  private demographicsUrl = environment.url + '/Patient/clientid/';
   patients = []
   patientSubject: Subject<any[]> = new Subject();
   selectedPatient: Patient = null;
@@ -24,23 +24,15 @@ export class PatientService {
 
 
   getPatientDemographics(id): Observable<any> {
-
     console.log('calling get user')
-    let headerJson = {
-      'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiIsInZlciI6IjEuMC4wIiwidHlwIjoiSldUIn0.eyJleHAiOjE1NTE4MTc5MDksInN1YiI6Ik1pbGEuTmlrdWxpbmFAb25laWQub24uY2EiLCJpc3MiOiJQSERQOlRva2VuIiwiYXVkIjoiUEhEUDptSU1NUyIsImp0aSI6IjUzYjM5NDBkLThhMjgtNGFlMS05NmRhLTEyZGUzZWRiNDViOSIsImlhdCI6MTUyMDI4MTkwOX0.iffoZHZTW0zf-hi-zi7JuDOP9Y8mumpIK0cylQ_3FRXINP6judaIIVFQl8t12WwHPnOyrsdK2wZaIoRCfImh8Q'
-    }
-    var headers = new HttpHeaders(headerJson)
-    return this.http.post(this.userUrl + id ,  {headers : headers})
-
+    return this.http.post(this.demographicsUrl + id, null)
   } 
 
   getAllPatients(details) {
     this.patients = []
     var membersObj = details.getMembersObj()
     if (membersObj){
-      var counter = 0
       for (var member of membersObj.member) {
-        console.log(`member ${counter} b4 success ${details.getMemberId(member)}`)
         this.getPatientDemographics(details.getMemberId(member)).subscribe(
           data => {
             this.patients.push(new Patient(data))
@@ -53,13 +45,13 @@ export class PatientService {
             this.patientSubject.error('errr')
           }
         )
-        counter++
       }
-      console.log('exit loop')
     }else {
-      console.log(`member fail`)
+      console.log(`member fail ${JSON.stringify(membersObj)}`)
     }
     
   }
+
+
 
 }

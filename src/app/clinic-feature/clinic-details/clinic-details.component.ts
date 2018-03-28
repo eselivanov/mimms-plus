@@ -27,6 +27,7 @@ export class ClinicDetailsComponent implements OnInit {
   
   providerDisplayedRows = ['id', 'name', 'designation'];
   providerDataSource = new MatTableDataSource();
+  _subscription
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,18 +37,31 @@ export class ClinicDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let clinicId = this.route.snapshot.paramMap.get('id')
+    //let clinicId = this.route.snapshot.paramMap.get('id')
     //this.setClinicInContext()
-    this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
+    //this.clinicService.getClinicDetailsWithCompletion(clinicId, this.userService.user.getUserLogOn(), this.getClinicDetailsCompletionBlock.bind(this))
+    this.clinic = this.clinicService.clinicDetails
+    if (this.clinic) {
+      this.immAgentDataSource = new MatTableDataSource(this.clinic.getActivities())
+      this.providerDataSource = new MatTableDataSource(this.clinic.getProviders())
+    }
+    this._subscription = this.clinicService.clinicSubject.subscribe((value) => { 
+      this.clinic = value
+      this.immAgentDataSource = new MatTableDataSource(this.clinic.getActivities())
+      this.providerDataSource = new MatTableDataSource(this.clinic.getProviders())
+    });
   }
 
-  getClinicDetailsCompletionBlock = () => {
+  ngOnDestroy() {
+    this._subscription.unsubscribe()
+  }
+  /*getClinicDetailsCompletionBlock = () => {
 
     this.clinic = this.clinicService.clinicDetails
     this.immAgentDataSource = new MatTableDataSource(this.clinic.getActivities())
     this.providerDataSource = new MatTableDataSource(this.clinic.getProviders())
     
-  }
+  }*/
 
 }
 
