@@ -1,8 +1,0 @@
-<div class="formContainer">
-    <mat-form-field class="flexFull">
-        <input class="input" matInput placeholder="Please enter your pin" value="" [type]="hide ? 'password' : 'text'" [formControl]="pin" required>
-        <mat-icon style="color:#4f545c;"matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </mat-form-field>
-    <button mat-button color="primary" (click)="goToUserSelect()">Back</button>
-    <button mat-button color="primary" (click)="login()" [disabled]="pin.invalid">Select</button>
-  </div>
