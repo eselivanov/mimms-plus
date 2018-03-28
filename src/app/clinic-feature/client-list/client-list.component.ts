@@ -80,9 +80,7 @@ export class PatientDataSource extends DataSource<any> {
   connect(): Subject<any[]> {
     return this.patientService.patientSubject;
   }
-  disconnect() {
-    //this.patientService.patientSubject.unsubscribe()
-  }
+  disconnect() {}
 }
 
 /*

@@ -41,6 +41,7 @@ export class RemoteClinicListService {
   }
 
   getClinicDetails(clinicId, userLogon) {
+    this.clinicDetails = null
     if (this.clinicDetails && this.clinicDetails.getId() === clinicId) {
       this.clinicSubject.next(this.clinicDetails)
     }else{
