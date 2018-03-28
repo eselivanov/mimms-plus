@@ -23,6 +23,7 @@ export class PatientService {
 
 
   getPatientDemographics(id): Observable<any> {
+    console.log('calling get user')
     return this.http.get(this.userUrl + id )
   } 
 
