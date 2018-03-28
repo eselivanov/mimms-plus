@@ -1,0 +1,51 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/inline.7132a5abe32e86529496.bundle.js",
+        "/main.8bcf77b0ef38610b128d.bundle.js",
+        "/polyfills.9afba58cc5c5e906563e.bundle.js",
+        "/styles.e52d4cfeb3f4d229f4c9.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/Icon-144.png",
+        "/assets/Icon-152.png",
+        "/assets/Icon-180.png",
+        "/assets/Icon-192.png",
+        "/assets/Icon-40.png",
+        "/assets/Icon-72.png",
+        "/assets/safari-pinned-tab.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/inline.7132a5abe32e86529496.bundle.js": "2f752f34be2331de47e0d3782acfe972464d6bc1",
+    "/assets/Icon-144.png": "f26ff378048640bddf8cfba400a003b311c279d4",
+    "/main.8bcf77b0ef38610b128d.bundle.js": "126f46f6a0ed80aa5680224dd24126642b85726a",
+    "/assets/Icon-152.png": "fb5d97c38874055415c7a5553e99d52f3e64ad2d",
+    "/polyfills.9afba58cc5c5e906563e.bundle.js": "b838d2e8138f4c1dfbf35e40a68f6819bcc25a48",
+    "/assets/Icon-180.png": "b3eb9baadfe20406dc3fdca6a48dd2fcc28b8d11",
+    "/styles.e52d4cfeb3f4d229f4c9.bundle.css": "a59a774fc351b509b5127419a5b37b47ed2f7a42",
+    "/assets/Icon-192.png": "5c9637dfd4f48cb7ca7f18537f1336f0f83057e6",
+    "/favicon.ico": "80a14a08e78d56331625146707d7aa7d6f6fbc6d",
+    "/assets/Icon-40.png": "a99eb1efbb32399e0fec4f87eb3c2e3d598b80f4",
+    "/index.html": "3446d2804437a4286a981b5a3f83248c423e76cc",
+    "/assets/Icon-72.png": "f6578775b672c362f8a5948ca9503ec8a44bf330",
+    "/assets/safari-pinned-tab.svg": "4e1ef382e0dc1f6ed93def10715cdf83e988459a"
+  }
+}
