@@ -1,0 +1,6 @@
+node('nodejs') {
+  stage 'build'
+  openshiftBuild(buildConfig: 'mimms-plus', showBuildLogs: 'true')
+  stage 'deploy'
+  openshiftDeploy(deploymentConfig: 'mimms-plus')
+}
